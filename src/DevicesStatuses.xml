@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="DevicesStatuses" verbose="1" >
+    <test name="DevicesStatuses">
+    <classes>
+    <class name="AddAndCheckDeviceStatusOperative"/>
+    <class name="AddAndCheckDeviceStatusClosed"/>
+    <class name="AddAndCheckDeviceStatusInoperative"/>
+    <class name="AddAndCheckDeviceStatusUnknown"/>
+    <class name="CheckStatusDeviceLocation"/>
+    
+    </classes>
+  </test>
+</suite>

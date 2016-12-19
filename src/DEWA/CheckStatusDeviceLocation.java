@@ -1,3 +1,4 @@
+/* Check device status in location */
 package DEWA;
 
 import java.io.FileInputStream;
@@ -52,7 +53,7 @@ public class CheckStatusDeviceLocation {
 				System.out.println(e);
 			}
 			
-			//Go to List
+			//Go to Location
 			try{
 			Thread.sleep(1500);
 			driver.findElement(By.id("devices")).click();
@@ -61,387 +62,60 @@ public class CheckStatusDeviceLocation {
 			{
 			System.out.println(e);
 			}
-			driver.findElement(By.cssSelector("span.icon-plus")).click();
+			driver.findElement(By.cssSelector("span.icon-search")).click();
 			 //Modal window is displayed & add new device
+		
+			if(driver.getPageSource().contains("Offline"))
+			{			{
+		   //Click on button & make sure that status is offline
 			try{
 			Thread.sleep(1500);
-			//Check for modal window is displayed
-			driver.findElement(By.className("modal-dialog")).isDisplayed();
+			driver.findElement(By.linkText("Offline")).click();
 			}catch(Exception e)
 			{
 			System.out.println(e);
-			}
-			//Fill a device name
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("deviceName")).sendKeys("NewDeviceComplete601");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add new make
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.cssSelector("div.col-md-2 > #dev > span")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add new Make name
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("organisation.organisationName")).sendKeys("newMakeSelenium0");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add new Equipment type
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("equipmentTypeName")).sendKeys("newTypeSelenium0");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add model name
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("equipmentTypeModel")).sendKeys("newModelSelenium0");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-
-			//Add connectors
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("addConnector")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add 1st connector
-			//Fill connector name
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:0:localConnectorLocation")).sendKeys("conn1");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Select connector's type
-			try{
-			Thread.sleep(1500);
-			WebElement conntypedrop = driver.findElement(By.name("connectorEquipmentRelationships:0:connectorType"));
-			Select conntype = new Select(conntypedrop);
-		    conntype.selectByVisibleText("ChaDeMo");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector's no
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:0:localConnectorId")).sendKeys("1");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add 2nd connector
-			//Add connectors
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("addConnector")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector name
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:1:localConnectorLocation")).sendKeys("conn2");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Select connector's type
-			try{
-			Thread.sleep(1500);
-			WebElement conntypedrop = driver.findElement(By.name("connectorEquipmentRelationships:1:connectorType"));
-			Select conntype = new Select(conntypedrop);
-			conntype.selectByVisibleText("Combo CCS");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector's no
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:1:localConnectorId")).sendKeys("2");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add 3rd connector
-			//Add connectors
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("addConnector")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector name
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:2:localConnectorLocation")).sendKeys("conn3");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Select connector's type
-			try{
-			Thread.sleep(1500);
-			WebElement conntypedrop = driver.findElement(By.name("connectorEquipmentRelationships:2:connectorType"));
-			Select conntype = new Select(conntypedrop);
-			conntype.selectByVisibleText("J1772");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector's no
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:2:localConnectorId")).sendKeys("3");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add 4th connector
-			//Add connectors
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("addConnector")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector name
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:3:localConnectorLocation")).sendKeys("conn4");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Select connector's type
-			try{
-			Thread.sleep(1500);
-			WebElement conntypedrop = driver.findElement(By.name("connectorEquipmentRelationships:3:connectorType"));
-			Select conntype = new Select(conntypedrop);
-			conntype.selectByVisibleText("Combined ChaDeMo/ComboCCS");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector's no
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:3:localConnectorId")).sendKeys("4");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-
-			//Add 5th connector
-			//Add connectors
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("addConnector")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector name
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:4:localConnectorLocation")).sendKeys("conn5");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Select connector's type
-			try{
-			Thread.sleep(1500);
-			WebElement conntypedrop = driver.findElement(By.name("connectorEquipmentRelationships:4:connectorType"));
-			Select conntype = new Select(conntypedrop);
-			conntype.selectByVisibleText("BS1363 (3 pin UK)");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Fill connector's no
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("connectorEquipmentRelationships:4:localConnectorId")).sendKeys("5");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Press Save make
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("save_make")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			
-			//Choose organisation
-			try{
-			Thread.sleep(1500);
-			WebElement orgdropdown = driver.findElement(By.name("organisation"));
-			Select org = new Select(orgdropdown);
-			org.selectByVisibleText("TEST");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Select User applied status type
-			try{
-			Thread.sleep(1500);
-			WebElement timezonedropdown = driver.findElement(By.name("userAppliedStatusType"));
-			Select timezone = new Select(timezonedropdown);
-			timezone.selectByVisibleText("Operative");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Add/Edit address
-			try{
-		    Thread.sleep(1500);
-		    driver.findElement(By.cssSelector("div.col-md-12 > div.col-md-2 > #dev > span")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			
-			/*//Enter an address
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.id("pac-input")).sendKeys("Strada Popa Tatu, Bucharest, Romania");
-			WebElement addressdrop = driver.findElement(By.id("pac-input"));
-			WebElement menu = driver.findElement(By.id("pac-input"));
-			Select address = new Select(addressdrop);
-			Actions actions = new Actions(driver);
-			actions.moveToElement(menu).perform();
-			address.selectByVisibleText("Strada Popa Tatu, Bucharest, Romania");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			
-			//Choose language
-			try{
-			Thread.sleep(1500);
-			WebElement languagedrop = driver.findElement(By.id("siteLanguage"));
-			Select language = new Select(languagedrop);
-			language.selectByVisibleText("Romanian");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-	        //Save address
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.id("save_site")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}*/
-			//Fill Offline & Maintenance interval
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("offlineThresholdMins")).sendKeys("15");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("maintenanceIntervalOverrideMonths")).sendKeys("15");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Press Save
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.xpath("//button[@class='btn btn-success btn-clean']")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Go to DEVICES Tab
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.id("topmenu_device")).click();
-			driver.findElement(By.linkText("List")).isDisplayed();
-			driver.findElement(By.linkText("Map")).isDisplayed();
-			driver.findElement(By.linkText("Events")).isDisplayed();
-			driver.findElement(By.linkText("Overview")).isDisplayed();
-			}catch(Exception e)
-			{
-				System.out.println(e);
-				}
-			//Search for device already created
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("search2")).sendKeys("NewDeviceComplete601");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Press Search Button
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.id("btnSearch")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			
-			//Check the device's status
-			//Find organisation already created in the table of organisations
-			 WebElement table = driver.findElement(By.id("table_wrapper"));
-
-			// Now get all the TR elements from the table
-			java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-			// And iterate over them, getting the cells
-			for (WebElement row : allRows) {
-			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-			for (WebElement cell : cells) {
-			while(cell.getText()== "NewDeviceComplete601");
-			{
-	        try{
-			Thread.sleep(1500);
-			if(driver.getPageSource().contains("Unavailable"))
-					{
-				test = true;
-				System.out.println("Device's status is in Unavailable");
-			}
-			else
-			{
-				System.out.println("Device has wrong status");
 			 }
+			if (driver.getPageSource().contains("Offline"))
+			{
+			System.out.println("Device's status is Offline");
+			}
+			else System.out.println("Device's status is not correct");
+			}
+			 
+			} else if(driver.getPageSource().contains("Unavailable"))
+			{
+			//Click on button & make sure that status is offline
+			try{
+			Thread.sleep(1500);
+			driver.findElement(By.linkText("Unavailable")).click();
 			}catch(Exception e)
 			{
 			System.out.println(e);
-			     }
-			   }
-			  }
+			}	
+			if (driver.getPageSource().contains("Unavailable"))
+			{
+			System.out.println("Device's status is Unavailable");
 			}
+			else System.out.println("Device's status is not correct");
 			
+	        } else if (driver.getPageSource().contains("Unknown"))
+	         {
+	        //Click on button & make sure that status is offline
+	        try{
+	       Thread.sleep(1500);
+	       driver.findElement(By.linkText("Unknown")).click();
+	      }catch(Exception e)
+	      {
+	      System.out.println(e);
+	       }	
+	      if (driver.getPageSource().contains("Unknown"))
+	     {
+	     System.out.println("Device's status is Unknown");
+	     }
+    	  else System.out.println("Device's status is not correct");
+	     }
+	
+	
 			//Logout
 			try{
 			Thread.sleep(1500);
@@ -449,12 +123,13 @@ public class CheckStatusDeviceLocation {
 			}catch(Exception e)
 			{
 			System.out.println(e);
-			}
-		
-			}
+			
+		    }
 	}
+}
 
-
+	
+		
 
 
 

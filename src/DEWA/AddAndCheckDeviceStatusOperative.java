@@ -1,3 +1,5 @@
+
+/* Add a new device with new model, new connectors with Operative status and check the status of the device*/
 package DEWA;
 
 import java.io.FileInputStream;
@@ -11,7 +13,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AddAndCheckDeviceStatusComplete {
+public class AddAndCheckDeviceStatusOperative {
 	boolean test=false;
 	@Test
 	 public void f() throws FileNotFoundException {
@@ -41,7 +43,7 @@ public class AddAndCheckDeviceStatusComplete {
 			System.out.println(e);
 			}
 
-			//Choose organisation eCars Scheme
+			//Choose organisation TEST
 			try{
 				Thread.sleep(1500);
 				WebElement orgdropdown = driver.findElement(By.name("organisation"));
@@ -74,7 +76,7 @@ public class AddAndCheckDeviceStatusComplete {
 			//Fill a device name
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("deviceName")).sendKeys("NewDeviceComplete601");
+			driver.findElement(By.name("deviceName")).sendKeys("SeleniumDeviceOperative");
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -397,7 +399,7 @@ public class AddAndCheckDeviceStatusComplete {
 			//Search for device already created
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("search2")).sendKeys("NewDeviceComplete601");
+			driver.findElement(By.name("search2")).sendKeys("SeleniumDeviceOperative");
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -425,10 +427,10 @@ public class AddAndCheckDeviceStatusComplete {
 			{
 	        try{
 			Thread.sleep(1500);
-			if(driver.getPageSource().contains("Unavailable"))
+			if(driver.getPageSource().contains("Unknown"))
 					{
 				test = true;
-				System.out.println("Device's status is in Unavailable");
+				System.out.println("Device's status is in Unknown");
 			}
 			else
 			{

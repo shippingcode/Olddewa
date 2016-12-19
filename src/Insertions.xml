@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Insertions" verbose="1" >
+    <test name="TopMenus">
+    <classes>
+      <class name=""/>
+      
+    </classes>
+  </test>
+</suite>

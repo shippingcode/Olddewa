@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Reports" verbose="1" >
+    <test name="Reports">
+    <classes>
+      <class name="ChargepointLastCommunicationReport"/>
+      <class name="UsagePatternsReportEnergy"/>
+      <class name="UsagePatternsReportChargeCycles"/>
+      <class name="UsagePatternsReportAvailabilityTime"/>
+      <class name="ReportDistributionGroup"/>
+       <class name="CurrentReport"/>
+      
+           
+    </classes>
+  </test>
+</suite>
