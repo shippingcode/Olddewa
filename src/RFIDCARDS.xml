@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="RFIDCARDS" verbose="1" >
+    <test name="RFIDCARDS">
+    <classes>
+      <class name="RFIDCARDS_Motorist"/>
+      <class name="RFIDCARDS_Groups"/>
+      <class name="RFIDCARDS_RFIDCardsOverview"/>
+      <class name="<class name="RFIDCARDS_RFIDCardsOperations"/>
+      <class name="<class name="RFIDCARDS_RFIDCardsOverviewAssign"/>
+     
+    </classes>
+  </test>
+</suite>
