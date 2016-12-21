@@ -319,7 +319,6 @@ import org.openqa.selenium.support.ui.Select;
 				System.out.println(e);
 				}
 				test = true;
-		
-		}
-		  
+				}
+	  
   }
