@@ -8,7 +8,6 @@
       <class name="RFIDCARDS_RFIDCardsOverview"/>
       <class name="<class name="RFIDCARDS_RFIDCardsOperations"/>
       <class name="<class name="RFIDCARDS_RFIDCardsOverviewAssign"/>
-     
-    </classes>
+       </classes>
   </test>
 </suite>
