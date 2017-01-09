@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="OPERATIONS" verbose="1" >
+    <test name="OPERATIONS">
+    
+    <classes>
+     <class name="DEWA.OPERATIONSOpenClearingHouseClearingHouse"/>
+     <class name="DEWA.OPERATIONSOpenClearingHouseProcessedCRDs"/>
+     <class name="DEWA.OPERATIONSOnCall"/>
+     <class name="DEWA.OPERATIONSMaintenance"/>
+     <class name="DEWA.OPERATIONSWorkOrders"/>
+     <class name="DEWA.OPERATIONSAlertsSLAProfile"/>
+     <class name="DEWA.OPERATIONSAlertsEventPriority"/>
+     <class name="DEWA.OPERATIONSAlertsAlertContentProfile"/>
+     <class name="DEWA.OPERATIONSAlertsSLA"/>
+          
+    </classes>
+  </test>
+</suite>

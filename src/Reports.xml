@@ -3,12 +3,12 @@
 <suite name="Reports" verbose="1" >
     <test name="Reports">
     <classes>
-      <class name="ChargepointLastCommunicationReport"/>
-      <class name="UsagePatternsReportEnergy"/>
-      <class name="UsagePatternsReportChargeCycles"/>
-      <class name="UsagePatternsReportAvailabilityTime"/>
-      <class name="ReportDistributionGroup"/>
-       <class name="CurrentReport"/>
+      <class name="DEWA.ChargepointLastCommunicationReport"/>
+      <class name="DEWA.UsagePatternsReportEnergy"/>
+      <class name="DEWA.UsagePatternsReportChargeCycles"/>
+      <class name="DEWA.UsagePatternsReportAvailabilityTime"/>
+      <class name="DEWA.ReportDistributionGroup"/>
+       <class name="DEWA.CurrentReport"/>
       
            
     </classes>

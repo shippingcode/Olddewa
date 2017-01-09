@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class OPERATIONSbOnCall {
+public class OPERATIONSOnCall {
 	boolean test = false;
   @Test
   public void f() throws FileNotFoundException {

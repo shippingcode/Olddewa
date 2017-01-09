@@ -3,8 +3,20 @@
 <suite name="Insertions" verbose="1" >
     <test name="Insertions">
     <classes>
-      <class name=""/>
-      
+      <class name="DEWA.InsertAlertsContentProfile"/>
+      <class name="DEWA.InsertAlertsSLA"/>
+      <class name="DEWA.InsertAlertsSLAProfile"/>
+      <class name="DEWA.InsertAlertsContentProfile"/>
+      <class name="DEWA.InsertCorrectiveWorkOrderse"/>
+      <class name="DEWA.InsertDevices"/>
+      <class name="DEWA.InsertGroups"/>
+      <class name="DEWA.InsertIssueWorkOrders"/>
+      <class name="DEWA.InsertOnCalls"/>
+      <class name="DEWA.InsertOwners"/>
+      <class name="DEWA.InsertPreventiveWorkOrders"/>
+      <class name="DEWA.InsertSystemUsers"/>
+      <class name="DEWA.InsertTokens"/>
+            
     </classes>
   </test>
 </suite>
