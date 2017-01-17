@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TABS" verbose="1" >
+    <test name="TABS">
+    <classes>
+    <class name="DEWA.DEVICES_List"/>
+    class name="DEWA.DEVICES_Map"/>
+    class name="DEWA.DEVICES_Events"/>
+    class name="DEWA.DEVICES_Overview"/>
+    class name="DEWA.DEVICES_Location"/>
+    class name="DEWA.DEVICES_Map_Location"/>
+    class name="DEWA.DEVICES_Report"/>
+    <class name="DEWA.RFIDCARDS_RFIDCardsOverviewAssign"/>
+    <class name="DEWA.RFIDCARDS_RFIDCardsOperations"/>
+    <class name="DEWA.RFIDCARDS_Motorist"/>
+    <class name="DEWA.RFIDCARDS_Groups"/>
+    <class name="DEWA.USE"/>
+    <class name="DEWA.PERFORMANCE"/>
+    <class name="DEWA.ORGANISATIONS"/>
+    <class name="DEWA.OPERATIONSOpenClearingHouseClearingHouse"/>
+    <class name="DEWA.OPERATIONSOpenClearingHouseProcessedCRDs"/>
+    <class name="DEWA.OPERATIONSOnCall"/>
+    <class name="DEWA.OPERATIONSMaintenance"/>
+    <class name="DEWA.OPERATIONSWorkOrders"/>
+    <class name="DEWA.OPERATIONSAlertsSLAProfile"/>
+    <class name="DEWA.OPERATIONSAlertsEventPriority"/>
+    <class name="DEWA.OPERATIONSAlertsAlertContentProfile"/>
+    <class name="DEWA.OPERATIONSAlertsSLA"/>
+    <class name="DEWA.ReportDistributionGroup"/>
+    <class name="DEWA.ScheduledReportsUsagePatternsReportAvailabilityTime"/>
+    <class name="DEWA.ScheduledReportsUsagePatternsReportChargeCycles"/>
+    <class name="DEWA.ScheduledReportsUsagePatternsReportEnergy"/>
+    <class name="DEWA.CurrentReport"/>
+    
+     
+  
+    </classes>
+  </test>
+</suite>

@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Devices" verbose="1" >
+    <test name="Devices">
+    <classes>
+    <class name="DEWA.DEVICES_List"/>
+    <class name="DEWA.DEVICES_Map"/>
+    <class name="DEWA.DEVICES_Events"/>
+    <class name="DEWA.DEVICES_Overview"/>
+    <class name="DEWA.DEVICES_Location"/>
+    <class name="DEWA.DEVICES_Map_Location"/>
+    <class name="DEWA.DEVICES_Report"/>
+    </classes>
+  </test>
+</suite>
