@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();
-			  FileInputStream file = new FileInputStream("D:\\workspace\\DEWA\\src\\DEWA\\datadriven.properties");
+			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 		      try {
 				prop.load(file);
 			} catch (IOException e1) {
