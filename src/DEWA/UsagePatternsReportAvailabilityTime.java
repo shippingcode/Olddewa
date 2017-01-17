@@ -1,5 +1,3 @@
-	/* Setup Usage Patterns Report – Availability Time for PDF and XLS formats */
-
 package DEWA;
 
 	import org.testng.annotations.Test;

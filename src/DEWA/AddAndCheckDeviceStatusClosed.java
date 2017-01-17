@@ -1,5 +1,3 @@
-/* Add a new device with Closed status and check the status of the device*/
-
 package DEWA;
 import org.testng.annotations.Test;
 	import java.io.FileInputStream;
