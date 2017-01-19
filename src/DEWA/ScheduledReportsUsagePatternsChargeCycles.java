@@ -1,3 +1,5 @@
+	/* Setup Usage Patterns Report - Charge Cycles for PDF and XLS formats */
+
 package DEWA;
 
 	import org.testng.annotations.Test;
@@ -11,12 +13,12 @@ package DEWA;
 	import org.openqa.selenium.firefox.FirefoxDriver;
 	import org.openqa.selenium.support.ui.Select;
 
-	public class UsagePatternsReportAvailabilityTime {
+	public class ScheduledReportsUsagePatternsChargeCycles {
 		boolean test=false;
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();
-			  FileInputStream file = new FileInputStream("D:\\workspace\\DEWA\\src\\DEWA\\datadriven.properties");
+			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 		      try {
 				prop.load(file);
 			} catch (IOException e1) {
@@ -96,7 +98,7 @@ package DEWA;
 				Thread.sleep(1500);
 				WebElement reportdropdown = driver.findElement(By.name("reportType"));
 				Select report = new Select(reportdropdown);
-				report.selectByVisibleText("Usage Patterns Report – Availability Time");
+				report.selectByVisibleText("Usage Patterns Report – Charge Cycles");
 				}catch(Exception e)
 				{
 				System.out.println(e);
@@ -174,7 +176,7 @@ package DEWA;
 				Thread.sleep(1500);
 				WebElement reportdropdown = driver.findElement(By.name("reportType"));
 				Select report = new Select(reportdropdown);
-				report.selectByVisibleText("Usage Patterns Report – Availability Time");
+				report.selectByVisibleText("Usage Patterns Report – Charge Cycles");
 				}catch(Exception e)
 				{
 				System.out.println(e);

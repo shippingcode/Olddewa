@@ -9,7 +9,8 @@ import org.testng.annotations.Test;
   import org.openqa.selenium.By;
   import org.openqa.selenium.WebDriver;
   import org.openqa.selenium.WebElement;
-  import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
   import org.openqa.selenium.support.ui.Select;
 
   public class ReportDistributionGroup  {
@@ -24,9 +25,8 @@ import org.testng.annotations.Test;
   			// TODO Auto-generated catch block
   			e1.printStackTrace();
   		}
-  	      //Create Firefox drive
-  			WebDriver driver = new FirefoxDriver();
-  			//WebDriver driver = new ChromeDriver();
+  	       System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+           WebDriver driver = new ChromeDriver();
   			driver.manage().window().maximize();
   			//Access http://66.hubeleon.appspot.com
   			driver.get(prop.getProperty("url1"));

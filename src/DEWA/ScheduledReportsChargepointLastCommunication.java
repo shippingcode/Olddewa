@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class ChargepointLastCommunicationReport { 
+public class ScheduledReportsChargepointLastCommunication { 
 	boolean test=false;
 	@Test
 	 public void f() throws FileNotFoundException {

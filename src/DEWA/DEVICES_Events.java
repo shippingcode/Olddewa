@@ -11,6 +11,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -28,7 +29,9 @@ public class DEVICES_Events {
         catch (IOException e1) {
             e1.printStackTrace();
         }
-        FirefoxDriver driver = new FirefoxDriver();
+          
+        System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(prop.getProperty("url1"));
         try {
@@ -114,7 +117,7 @@ public class DEVICES_Events {
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"statusDevice")).click();
+            driver.findElement(By.id((String)"statusDevice")).click();
             driver.findElement(By.name((String)"locationDevice")).click();
             driver.findElement(By.name((String)"controlDevice")).click();
         }

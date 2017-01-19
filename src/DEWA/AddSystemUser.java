@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -27,7 +28,9 @@ public class AddSystemUser {
 			e1.printStackTrace();
 		}
 	    //Create Firefox drive
-		WebDriver driver = new FirefoxDriver();
+		//WebDriver driver = new FirefoxDriver();
+	      System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+	        WebDriver driver = new ChromeDriver();
 		//WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		//Access http://66.hubeleon.appspot.com
@@ -74,13 +77,13 @@ public class AddSystemUser {
 		System.out.println(e);
 		}
 		//Fill First Name
-		driver.findElement(By.name("firstName")).sendKeys("MichaelSe");
+		driver.findElement(By.name("firstName")).sendKeys("MichaelSel");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//Fill Last name
 		driver.findElement(By.name("surname")).sendKeys("Selen");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//Fill username
-		driver.findElement(By.name("userName")).sendKeys("michaels");
+		driver.findElement(By.name("userName")).sendKeys("michaelss");
 		//Choose Role
 		WebElement userdropdown = driver.findElement(By.name("userLevel"));
 		Select user = new Select(userdropdown);
@@ -121,7 +124,7 @@ public class AddSystemUser {
 		//Perform Search
 		try{
 		Thread.sleep(5000);
-		driver.findElement(By.id("search")).sendKeys("michaels");
+		driver.findElement(By.id("search")).sendKeys("michaelss");
 		driver.findElement(By.id("btnSearch")).click();
 		}catch(Exception e)
 		{

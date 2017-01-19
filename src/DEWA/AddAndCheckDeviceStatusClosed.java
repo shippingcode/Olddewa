@@ -11,7 +11,8 @@ import org.testng.annotations.Test;
 	import org.openqa.selenium.By;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 	import org.openqa.selenium.support.ui.Select;
 
 	public class AddAndCheckDeviceStatusClosed { 
@@ -28,7 +29,10 @@ import org.testng.annotations.Test;
 				e1.printStackTrace();
 			}
 		      //Create Firefox drive
-				WebDriver driver = new FirefoxDriver();
+			//	WebDriver driver = new FirefoxDriver();
+			  
+			  System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+		        WebDriver driver = new ChromeDriver();
 				//WebDriver driver = new ChromeDriver();
 				driver.manage().window().maximize();
 				//Access http://66.hubeleon.appspot.com
@@ -121,7 +125,7 @@ import org.testng.annotations.Test;
 			try{
 			WebElement statusdropdown = driver.findElement(By.name("userAppliedStatusType"));
 			Select status = new Select(statusdropdown);
-			status.selectByVisibleText("Inoperative");
+			status.selectByVisibleText("Closed");
 			}catch(Exception e)
 			{
 				System.out.println(e);

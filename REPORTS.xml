@@ -1,12 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
-<suite name="SchedulesReports" verbose="1" >
-    <test name="SchedulesReports">
+<suite name="Reports" verbose="1" >
+    <test name="Reports">
     <classes>
       <class name="DEWA.ScheduledReportsChargepointLastCommunication"/>
       <class name="DEWA.ScheduledReportsUsagePatternsEnergy"/>
       <class name="DEWA.ScheduledReportsUsagePatternsChargeCycles"/>
       <class name="DEWA.ScheduledReportsUsagePatternsAvailabilityTime"/>
+      <class name="DEWA.ReportDistributionGroup"/>
+       <class name="DEWA.CurrentReport"/>
+      <class name="DEWA.RemoveScheduledReports"/>
            
     </classes>
   </test>

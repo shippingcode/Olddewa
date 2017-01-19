@@ -12,6 +12,7 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -29,7 +30,9 @@ public class AddAndCheckDeviceStatusInoperative {
 			e1.printStackTrace();
 		}
 	      //Create Firefox drive
-			WebDriver driver = new FirefoxDriver();
+			//WebDriver driver = new FirefoxDriver();
+	      System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+	        WebDriver driver = new ChromeDriver();
 			//WebDriver driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			//Access http://66.hubeleon.appspot.com

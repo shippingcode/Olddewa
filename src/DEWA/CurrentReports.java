@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
   import org.openqa.selenium.firefox.FirefoxDriver;
   import org.openqa.selenium.support.ui.Select;
 
-  public class CurrentReport  {
+  public class CurrentReports  {
   	boolean test=false;
   	@Test
   	 public void f() throws FileNotFoundException {

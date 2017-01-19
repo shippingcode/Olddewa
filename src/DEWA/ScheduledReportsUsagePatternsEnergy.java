@@ -13,7 +13,7 @@ package DEWA;
 	import org.openqa.selenium.firefox.FirefoxDriver;
 	import org.openqa.selenium.support.ui.Select;
 
-	public class UsagePatternsReportEnergy {
+	public class ScheduledReportsUsagePatternsEnergy {
 		boolean test=false;
 		@Test
 		 public void f() throws FileNotFoundException {
