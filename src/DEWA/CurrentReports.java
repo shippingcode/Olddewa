@@ -57,7 +57,7 @@ import org.testng.annotations.Test;
   			//Go to  REPORTS Tab
   			try{
   			Thread.sleep(1500);
-  			driver.findElement(By.id("reports"));
+  			driver.findElement(By.id("reports")).click();
   			driver.findElement(By.linkText("Scheduled Reports")).isDisplayed();
   			driver.findElement(By.linkText("Distribution Group")).isDisplayed();
   			driver.findElement(By.linkText("Current Report")).isDisplayed();
@@ -152,6 +152,26 @@ import org.testng.annotations.Test;
   			}
   			
   			//Generate XLS & PDF formats
+  			try{
+  			Thread.sleep(1500);
+  			driver.findElement(By.name("generateExcel")).click();
+  			driver.findElement(By.name("generatePDF")).click();
+  			}catch(Exception e)
+  			{
+  			System.out.println(e);
+  			}
+  			
+  			//Select Report Type
+  			try{
+  			Thread.sleep(1500);
+  			WebElement reportdropdown = driver.findElement(By.name("reportType"));
+  			Select report = new Select(reportdropdown);
+  			report.selectByVisibleText("RFID/User History Report");
+  			}catch(Exception e)
+  			{
+  			System.out.println(e);
+  			}
+  		   //Generate XLS & PDF formats
   			try{
   			Thread.sleep(1500);
   			driver.findElement(By.name("generateExcel")).click();

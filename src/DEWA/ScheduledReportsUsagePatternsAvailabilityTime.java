@@ -55,7 +55,7 @@ package DEWA;
 				//Go to  REPORTS Tab
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.id("reports"));
+				driver.findElement(By.id("reports")).click();
 				driver.findElement(By.linkText("Scheduled Reports")).isDisplayed();
 				driver.findElement(By.linkText("Distribution Group")).isDisplayed();
 				driver.findElement(By.linkText("Current Report")).isDisplayed();

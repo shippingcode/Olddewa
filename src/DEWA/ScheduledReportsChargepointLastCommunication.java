@@ -58,7 +58,7 @@ public class ScheduledReportsChargepointLastCommunication {
 			//Go to  REPORTS Tab
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.id("reports"));
+			driver.findElement(By.id("reports")).click();
 			driver.findElement(By.linkText("Scheduled Reports")).isDisplayed();
 			driver.findElement(By.linkText("Distribution Group")).isDisplayed();
 			driver.findElement(By.linkText("Current Report")).isDisplayed();
@@ -70,21 +70,12 @@ public class ScheduledReportsChargepointLastCommunication {
 			//Go to Scheduled Reports
 			try{
 			Thread.sleep(1500);
-			WebElement menu = driver.findElement(By.linkText("REPORTS"));
-			Actions actions = new Actions(driver);
-			actions.moveToElement(menu).perform();
 			driver.findElement(By.linkText("Scheduled Reports")).click();
+				
 			}catch(Exception e)
 			{
 			 System.out.println(e);
 			 }
-			//try{
-			//Thread.sleep(1500);
-			//driver.findElement(By.linkText("Scheduled Reports")).click();
-		//	}catch(Exception e)
-		//	{
-		//		System.out.println(e);
-		//	}
 			//PDF Format
 			//Click on Add
 			try{
