@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 public class RFIDCARDS_RFIDCardsOperations {
 	boolean test = false;
+	String token, info = GenerateData.generateRandomAlphaNumeric(5);
 
   @Test
   public void f() throws FileNotFoundException {
@@ -84,10 +85,10 @@ public class RFIDCARDS_RFIDCardsOperations {
 		System.out.println(e);
 		}
 		//Fill token
-		driver.findElement(By.name("token")).sendKeys("tokenSelenium1010");
+		driver.findElement(By.name("token")).sendKeys(token);
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		//Fill token info
-		driver.findElement(By.name("info")).sendKeys("infoSel000");
+		driver.findElement(By.name("info")).sendKeys(info);
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		//Choose organization
 		WebElement orgdropdown = driver.findElement(By.name("creatorOrganisation"));
@@ -138,7 +139,7 @@ public class RFIDCARDS_RFIDCardsOperations {
 	//search for a token
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.id("search2")).sendKeys("tokenSelenium1010");
+	driver.findElement(By.id("search2")).sendKeys(token);
 	driver.findElement(By.id("btnSearch")).click();
 	}catch(Exception e)
     {
@@ -160,7 +161,7 @@ public class RFIDCARDS_RFIDCardsOperations {
 	for (WebElement row2 : allRows2) {
 	java.util.List<WebElement> cells2 = row2.findElements(By.tagName("td"));
 	for (WebElement cell2 : cells2) {
-	while(cell2.getText()== "tokenSelenium1010");{
+	while(cell2.getText()== token);{
 	try{
 	Thread.sleep(1500);
 	driver.findElement(By.cssSelector("span.icon-user")).click();
@@ -199,7 +200,7 @@ public class RFIDCARDS_RFIDCardsOperations {
 	for (WebElement row : allRows) {
 	java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 	for (WebElement cell : cells) {
-	while(cell.getText()== "tokenSelenium1010");{
+	while(cell.getText()== token);{
 	try{
 	Thread.sleep(1500);
 	driver.findElement(By.cssSelector("span.icon-user")).click();
@@ -214,7 +215,7 @@ public class RFIDCARDS_RFIDCardsOperations {
   	//search the barred token
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.id("search2")).sendKeys("tokenSelenium1010");
+	driver.findElement(By.id("search2")).sendKeys(token);
 	driver.findElement(By.id("btnSearch")).click();
 	}catch(Exception e)
 	{
@@ -234,7 +235,7 @@ public class RFIDCARDS_RFIDCardsOperations {
 	for (WebElement row1 : allRows1) {
 	java.util.List<WebElement> cells1 = row1.findElements(By.tagName("td"));
 	for (WebElement cell1 : cells1) {
-	while(cell1.getText()== "tokenSelenium1010");
+	while(cell1.getText()== token);
 	{
 		driver.findElement(By.cssSelector("a.widget-icon widget-icon-circle > span.icon-ban-circle")).click();
 		driver.findElement(By.name("un-bar")).click();
@@ -256,7 +257,7 @@ public class RFIDCARDS_RFIDCardsOperations {
 		for (WebElement rows5 : allRows5) {
 		java.util.List<WebElement> cells5 = rows5.findElements(By.tagName("td"));
 		for (WebElement cell5 : cells5) {
-		while(cell5.getText()== "tokenSelenium1010");
+		while(cell5.getText()== token);
 		driver.findElement(By.className("icon-trash")).click();
 		driver.findElement(By.name("delete")).click();
 		test = true;

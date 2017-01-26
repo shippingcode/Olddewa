@@ -1,4 +1,4 @@
-/* Add a new device without Make and Model with Inoperative status and check the status of the device*/
+/* Add a new device with with maker/model WITH Inoperative status and check the status of the device*/
 package DEWA;
 
 import java.io.FileInputStream;
@@ -12,13 +12,14 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class AddAndCheckDeviceStatusInoperative {
-	boolean test=false;
+	boolean test = false;
+	GenerateData genData = null;
+	String device = GenerateData.generateRandomString(20);
 	@Test
 	 public void f() throws FileNotFoundException {
 		  Properties prop = new Properties();
@@ -29,16 +30,16 @@ public class AddAndCheckDeviceStatusInoperative {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	      //Create Firefox drive
-			//WebDriver driver = new FirefoxDriver();
-	      System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-	        WebDriver driver = new ChromeDriver();
-			//WebDriver driver = new ChromeDriver();
-			driver.manage().window().maximize();
-			//Access http://66.hubeleon.appspot.com
-			driver.get(prop.getProperty("url1"));
-			try{
-			Thread.sleep(1500);
+	       //Create Firefox drive
+		   WebDriver driver = new FirefoxDriver();
+	       // System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+	       //  WebDriver driver = new ChromeDriver();
+		  //WebDriver driver = new ChromeDriver();
+		  driver.manage().window().maximize();
+		  //Access http://66.hubeleon.appspot.com
+		  driver.get(prop.getProperty("url1"));
+		  try{
+		  Thread.sleep(1500);
 
 			//Login into the software filling username & password
 			driver.findElement(By.name("username")).sendKeys(prop.getProperty("username1"));
@@ -82,7 +83,7 @@ public class AddAndCheckDeviceStatusInoperative {
 			//Fill a device name
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("deviceName")).sendKeys("SeleniumDeviceInoperative");
+			driver.findElement(By.name("deviceName")).sendKeys(device);
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -207,7 +208,7 @@ public class AddAndCheckDeviceStatusInoperative {
 		//Search for device already created
 		try{
 			Thread.sleep(1500);
-		driver.findElement(By.name("search2")).sendKeys("SeleniumDeviceInoperative");
+		driver.findElement(By.name("search2")).sendKeys(device);
 		}catch(Exception e)
 		{
 			System.out.println(e);
@@ -231,7 +232,7 @@ public class AddAndCheckDeviceStatusInoperative {
 			for (WebElement row : allRows) {
 			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 			for (WebElement cell : cells) {
-			while(cell.getText()== "SeleniumDeviceInoperative");
+			while(cell.getText()== device);
 			{
 	        try{
 			Thread.sleep(1500);

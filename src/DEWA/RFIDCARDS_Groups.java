@@ -14,6 +14,7 @@ package DEWA;
 
 	public class RFIDCARDS_Groups { 
 		boolean test=false;
+		String group = GenerateData.generateRandomString(5);
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();
@@ -80,7 +81,7 @@ package DEWA;
 				//Fill Name
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.id("groupName")).sendKeys("SeleniumGroup");
+				driver.findElement(By.id("groupName")).sendKeys(group);
 				}catch(Exception e)
 				{
 				System.out.println(e);

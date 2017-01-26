@@ -15,6 +15,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
   public class ReportDistributionGroup  {
   	boolean test=false;
+  	String distributiongroup = GenerateData.generateRandomAlphaNumeric(5);
   	@Test
   	 public void f() throws FileNotFoundException {
   		  Properties prop = new Properties();
@@ -25,8 +26,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
   			// TODO Auto-generated catch block
   			e1.printStackTrace();
   		}
-  	       System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-           WebDriver driver = new ChromeDriver();
+  	       //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+           //WebDriver driver = new ChromeDriver();
+  	       WebDriver driver = new FirefoxDriver();
   			driver.manage().window().maximize();
   			//Access http://66.hubeleon.appspot.com
   			driver.get(prop.getProperty("url1"));
@@ -95,7 +97,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
   			//Fill a name
   			try{
   			Thread.sleep(1500);
-  			driver.findElement(By.name("reportDistOrgGroupName")).sendKeys("SeleniumDistribution");
+  			driver.findElement(By.name("reportDistOrgGroupName")).sendKeys(distributiongroup);
   			}catch(Exception e)
   			{
   			System.out.println(e);

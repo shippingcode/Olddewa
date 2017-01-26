@@ -17,7 +17,9 @@ import org.testng.annotations.Test;
 	import org.openqa.selenium.support.ui.Select;
 
 	public class AddAndCheckDeviceStatusUnknown { 
-		boolean test=false;
+		boolean test = false;
+		GenerateData genData = null;
+		String device = GenerateData.generateRandomString(20);
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();
@@ -79,7 +81,7 @@ import org.testng.annotations.Test;
 				//Fill a device name
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.name("deviceName")).sendKeys("SeleniumDeviceUnknown");
+				driver.findElement(By.name("deviceName")).sendKeys(device);
 				}catch(Exception e)
 				{
 				System.out.println(e);
@@ -226,7 +228,7 @@ import org.testng.annotations.Test;
 			//Search for device already created
 			try{
 				Thread.sleep(1500);
-			driver.findElement(By.name("search2")).sendKeys("SeleniumDeviceUnknown");
+			driver.findElement(By.name("search2")).sendKeys(device);
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -250,7 +252,7 @@ import org.testng.annotations.Test;
 				for (WebElement row : allRows) {
 				java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 				for (WebElement cell : cells) {
-				while(cell.getText()== "SeleniumDeviceUnknown");
+				while(cell.getText()== device);
 				{
 		        try{
 				Thread.sleep(1500);

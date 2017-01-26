@@ -21,6 +21,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class ORGANISATIONS {
+	String owner, motorist = GenerateData.generateRandomString(5);
+	String token, info, device = GenerateData.generateRandomAlphaNumeric(5);
 	boolean test=false;
 
 	@Test
@@ -93,7 +95,7 @@ public class ORGANISATIONS {
 		//Fill an owner name
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("organisationName")).sendKeys("SeleniumOrg001");
+		driver.findElement(By.name("organisationName")).sendKeys(owner);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -158,7 +160,7 @@ public class ORGANISATIONS {
 		Thread.sleep(1500);
 		WebElement orgdropdown = driver.findElement(By.name("organisation"));
 		Select org = new Select(orgdropdown);
-		org.selectByVisibleText("SeleniumOrg001");
+		org.selectByVisibleText(owner);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -194,7 +196,7 @@ public class ORGANISATIONS {
 		//Fill a device name
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("deviceName")).sendKeys("SeleniumDevice001");
+		driver.findElement(By.name("deviceName")).sendKeys(device);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -226,7 +228,7 @@ public class ORGANISATIONS {
 		//WebElement orgdropdown = driver.findElement(By.cssSelector("div.uniform > select[name='organisation']"));
 		WebElement orgdropdown = driver.findElement(By.name("organisation"));
 		Select organisation = new Select(orgdropdown);
-		organisation.selectByVisibleText("SeleniumOrg001");
+		organisation.selectByVisibleText(owner);
 		}catch(Exception e)
 		{
 			System.out.println(e);
@@ -303,17 +305,17 @@ public class ORGANISATIONS {
 		System.out.println(e);
 		}
 		//Fill token
-		driver.findElement(By.name("token")).sendKeys("SeleniumToken001");
+		driver.findElement(By.name("token")).sendKeys(token);
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		//Fill token info
-		driver.findElement(By.name("info")).sendKeys("SeleniumInfon001");
+		driver.findElement(By.name("info")).sendKeys(info);
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 
 		//Choose organization
 		 WebElement orgdropdown = driver.findElement(By.name("creatorOrganisation"));
 		 driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		 Select organisation = new Select(orgdropdown);
-		 organisation.selectByVisibleText("SeleniumDevice001");
+		 organisation.selectByVisibleText(owner);
 		 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		//Save all the info
 		 try{
@@ -360,7 +362,7 @@ public class ORGANISATIONS {
 		//Fill Name
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("userName")).sendKeys("SeleniumMotorist001");
+		driver.findElement(By.name("userName")).sendKeys(motorist);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -370,7 +372,7 @@ public class ORGANISATIONS {
 		Thread.sleep(1500);
 		WebElement org1dropdown = driver.findElement(By.id("organisationUserRfid"));
 		Select org1 = new Select(org1dropdown);
-		org1.selectByVisibleText("SeleniumOrg001");
+		org1.selectByVisibleText(owner);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -451,7 +453,7 @@ public class ORGANISATIONS {
 		for (WebElement row : allRows) {
 		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 		for (WebElement cell : cells) {
-		while(cell.getText()== "SeleniumOrg001");
+		while(cell.getText()== owner);
 		{
         try{
 		Thread.sleep(1500);
@@ -463,7 +465,7 @@ public class ORGANISATIONS {
 		   }
 	    	}
 		}
-		//For SeleniumOrg001 org click open
+		//For owner org click open
 		try{
 		Thread.sleep(1500);
 		
@@ -477,7 +479,7 @@ public class ORGANISATIONS {
 		//Search the token already created
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.id("search2")).sendKeys("SeleniumToken001");
+		driver.findElement(By.id("search2")).sendKeys(token);
 		}catch(Exception e)
         {
 	    System.out.println(e);
@@ -512,7 +514,7 @@ public class ORGANISATIONS {
 		//Search user already created
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.id("search2")).sendKeys("SeleniumMotorist001");
+		driver.findElement(By.id("search2")).sendKeys(motorist);
         }catch(Exception e)
         {
          System.out.println(e);
@@ -536,7 +538,7 @@ public class ORGANISATIONS {
 		for (WebElement row1 : allRows1) {
 		java.util.List<WebElement> cells1 = row1.findElements(By.tagName("td"));
 		for (WebElement cell1 : cells1) {
-		while(cell1.getText()== "SeleniumOrg001");
+		while(cell1.getText()== owner);
 		{
        try{
 		Thread.sleep(1500);

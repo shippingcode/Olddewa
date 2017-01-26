@@ -1,4 +1,3 @@
-
 /* Add a new device with new model, new connectors with Operative status and check the status of the device*/
 package DEWA;
 
@@ -9,13 +8,17 @@ import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class AddAndCheckDeviceStatusOperative {
-	boolean test=false;
+	boolean test = false;
+	GenerateData genData = null;
+	String device = GenerateData.generateRandomString(20);
+	String make = GenerateData.generateRandomAlphaNumeric(5);
+	String equipmentname = GenerateData.generateRandomAlphaNumeric(5);
+	String model = GenerateData.generateRandomAlphaNumeric(5);
 	@Test
 	 public void f() throws FileNotFoundException {
 		  Properties prop = new Properties();
@@ -26,11 +29,10 @@ public class AddAndCheckDeviceStatusOperative {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	      //Create Firefox drive
-			//WebDriver driver = new FirefoxDriver();
-			//WebDriver driver = new ChromeDriver();
-	      System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-	        WebDriver driver = new ChromeDriver();
+	       //Create Firefox drive
+			WebDriver driver = new FirefoxDriver();
+			//System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+	        //WebDriver driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			//Access http://66.hubeleon.appspot.com
 			driver.get(prop.getProperty("url1"));
@@ -79,7 +81,7 @@ public class AddAndCheckDeviceStatusOperative {
 			//Fill a device name
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("deviceName")).sendKeys("SeleniumDeviceOperative");
+			driver.findElement(By.name("deviceName")).sendKeys(device);
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -95,7 +97,7 @@ public class AddAndCheckDeviceStatusOperative {
 			//Add new Make name
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("organisation.organisationName")).sendKeys("newMakeSelenium0");
+			driver.findElement(By.name("organisation.organisationName")).sendKeys(make);
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -103,7 +105,7 @@ public class AddAndCheckDeviceStatusOperative {
 			//Add new Equipment type
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("equipmentTypeName")).sendKeys("newTypeSelenium0");
+			driver.findElement(By.name("equipmentTypeName")).sendKeys(equipmentname);
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -111,7 +113,7 @@ public class AddAndCheckDeviceStatusOperative {
 			//Add model name
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("equipmentTypeModel")).sendKeys("newModelSelenium0");
+			driver.findElement(By.name("equipmentTypeModel")).sendKeys(model);
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -402,7 +404,7 @@ public class AddAndCheckDeviceStatusOperative {
 			//Search for device already created
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("search2")).sendKeys("SeleniumDeviceOperative");
+			driver.findElement(By.name("search2")).sendKeys(device);
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -426,7 +428,7 @@ public class AddAndCheckDeviceStatusOperative {
 			for (WebElement row : allRows) {
 			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 			for (WebElement cell : cells) {
-			while(cell.getText()== "NewDeviceComplete601");
+			while(cell.getText()== device);
 			{
 	        try{
 			Thread.sleep(1500);

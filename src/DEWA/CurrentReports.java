@@ -160,6 +160,7 @@ import org.testng.annotations.Test;
   			{
   			System.out.println(e);
   			}
+  			test = true;
   			
   			//Logout
   			try{

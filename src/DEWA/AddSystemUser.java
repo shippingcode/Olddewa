@@ -1,4 +1,4 @@
-/* Add Systemn user */
+/* Add System user */
 
 package DEWA;
 import java.io.FileInputStream;
@@ -13,9 +13,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import DEWA.GenerateData;
 
 public class AddSystemUser {
 	boolean test=false;
+	GenerateData genData = null;
+	String firstname = GenerateData.generateRandomString(5);
+	String surname = GenerateData.generateRandomString(5);
+	String username = GenerateData.generateRandomAlphaNumeric(5);
+	String phone = GenerateData.generateRandomNumber(10);
 
 	@Test
 	 public void f() throws FileNotFoundException {
@@ -28,10 +34,9 @@ public class AddSystemUser {
 			e1.printStackTrace();
 		}
 	    //Create Firefox drive
-		//WebDriver driver = new FirefoxDriver();
-	      System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-	        WebDriver driver = new ChromeDriver();
-		//WebDriver driver = new ChromeDriver();
+		WebDriver driver = new FirefoxDriver();
+	    //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+	   	//WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		//Access http://66.hubeleon.appspot.com
 		driver.get(prop.getProperty("url1"));
@@ -77,13 +82,13 @@ public class AddSystemUser {
 		System.out.println(e);
 		}
 		//Fill First Name
-		driver.findElement(By.name("firstName")).sendKeys("MichaelSel");
+		driver.findElement(By.name("firstName")).sendKeys(firstname);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//Fill Last name
-		driver.findElement(By.name("surname")).sendKeys("Selen");
+		driver.findElement(By.name("surname")).sendKeys(surname);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//Fill username
-		driver.findElement(By.name("userName")).sendKeys("michaelss");
+		driver.findElement(By.name("userName")).sendKeys(username);
 		//Choose Role
 		WebElement userdropdown = driver.findElement(By.name("userLevel"));
 		Select user = new Select(userdropdown);
@@ -94,7 +99,7 @@ public class AddSystemUser {
 		Select org = new Select(orgdropdown);
 		org.selectByVisibleText("TEST");
  		//Fill phone number
-		driver.findElement(By.name("phoneNumber")).sendKeys("023456788");
+		driver.findElement(By.name("phoneNumber")).sendKeys(phone);
 		//Fill email
 		driver.findElement(By.name("emailPrimary")).sendKeys("abogasieru@yahoo.com");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -124,7 +129,7 @@ public class AddSystemUser {
 		//Perform Search
 		try{
 		Thread.sleep(5000);
-		driver.findElement(By.id("search")).sendKeys("michaelss");
+		driver.findElement(By.id("search")).sendKeys(username);
 		driver.findElement(By.id("btnSearch")).click();
 		}catch(Exception e)
 		{

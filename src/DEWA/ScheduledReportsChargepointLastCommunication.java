@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class ScheduledReportsChargepointLastCommunication { 
@@ -69,11 +70,21 @@ public class ScheduledReportsChargepointLastCommunication {
 			//Go to Scheduled Reports
 			try{
 			Thread.sleep(1500);
+			WebElement menu = driver.findElement(By.linkText("REPORTS"));
+			Actions actions = new Actions(driver);
+			actions.moveToElement(menu).perform();
 			driver.findElement(By.linkText("Scheduled Reports")).click();
 			}catch(Exception e)
 			{
-				System.out.println(e);
-			}
+			 System.out.println(e);
+			 }
+			//try{
+			//Thread.sleep(1500);
+			//driver.findElement(By.linkText("Scheduled Reports")).click();
+		//	}catch(Exception e)
+		//	{
+		//		System.out.println(e);
+		//	}
 			//PDF Format
 			//Click on Add
 			try{

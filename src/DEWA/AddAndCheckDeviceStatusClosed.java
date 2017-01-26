@@ -1,40 +1,42 @@
-/* testing ssh */
+/* Add a new device with maker/model, status Closed and check the status of the device*/
 package DEWA;
 import org.testng.annotations.Test;
-	import java.io.FileInputStream;
-	import java.io.FileNotFoundException;
-	import java.io.IOException;
-	import java.sql.Date;
-	import java.text.DateFormat;
-	import java.text.SimpleDateFormat;
-	import java.util.Calendar;
-	import java.util.Properties;
-	import org.openqa.selenium.By;
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Properties;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-	import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Select;
+
+
 
 	public class AddAndCheckDeviceStatusClosed { 
-		boolean test=false;
-		@Test
-		 public void f() throws FileNotFoundException {
-			  Properties prop = new Properties();
-			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
+	boolean test = false;
+	GenerateData genData = null;
+	String device = GenerateData.generateRandomString(20);
+	@Test
+	public void f() throws FileNotFoundException {
+	Properties prop = new Properties();
+	FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 			
-			  try {
+	         try {
 				prop.load(file);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		      //Create Firefox drive
-			//	WebDriver driver = new FirefoxDriver();
+		     //Create Firefox drive
+		       WebDriver driver = new FirefoxDriver();
 			  
-			  System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-		        WebDriver driver = new ChromeDriver();
-				//WebDriver driver = new ChromeDriver();
+			  //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+		      //WebDriver driver = new ChromeDriver();
 				driver.manage().window().maximize();
 				//Access http://66.hubeleon.appspot.com
 				driver.get(prop.getProperty("url1"));
@@ -52,10 +54,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 				//Choose organisation TEST
 				try{
-					Thread.sleep(1500);
-					WebElement orgdropdown = driver.findElement(By.name("organisation"));
-					Select org = new Select(orgdropdown);
-					 org.selectByVisibleText("TEST");
+				Thread.sleep(1500);
+				WebElement orgdropdown = driver.findElement(By.name("organisation"));
+				Select org = new Select(orgdropdown);
+				org.selectByVisibleText("TEST");
 				}catch(Exception e)
 				{
 					System.out.println(e);
@@ -80,10 +82,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 				{
 				System.out.println(e);
 				}
-				//Fill a device name
 				try{
-				Thread.sleep(1500);
-				driver.findElement(By.name("deviceName")).sendKeys("SeleniumDeviceClosed");
+				Thread.sleep(1500);	
+				//Fill a device name
+				driver.findElement(By.name("deviceName")).sendKeys(device);   
 				}catch(Exception e)
 				{
 				System.out.println(e);
@@ -112,15 +114,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 				
 			//Choose Owner
 			try{
-				Thread.sleep(1500);
+			Thread.sleep(1500);
 			//WebElement orgdropdown = driver.findElement(By.cssSelector("div.uniform > select[name='organisation']"));
 			WebElement orgdropdown = driver.findElement(By.name("organisation"));
 			Select organisation = new Select(orgdropdown);
 			organisation.selectByVisibleText("TEST");
 			}catch(Exception e)
 			{
-				System.out.println(e);
-				}
+			System.out.println(e);
+			}
 
 			//Add status
 			try{
@@ -230,7 +232,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 			//Search for device already created
 			try{
 				Thread.sleep(1500);
-			driver.findElement(By.name("search2")).sendKeys("SeleniumDeviceClosed");
+			driver.findElement(By.name("search2")).sendKeys(device);
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -254,7 +256,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 				for (WebElement row : allRows) {
 				java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 				for (WebElement cell : cells) {
-				while(cell.getText()== "SeleniumDeviceClosed");
+				while(cell.getText()== device);
 				{
 		        try{
 				Thread.sleep(1500);

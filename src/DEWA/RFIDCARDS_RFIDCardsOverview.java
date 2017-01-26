@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 	public class RFIDCARDS_RFIDCardsOverview { 
 		boolean test=false;
+		String token, info = GenerateData.generateRandomAlphaNumeric(5);
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();
@@ -83,8 +84,8 @@ import org.openqa.selenium.support.ui.Select;
 				//Fill name & info
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.name("token")).sendKeys("SeleniumToken0001");
-				driver.findElement(By.name("info")).sendKeys("SeleniumTokenInfo");
+				driver.findElement(By.name("token")).sendKeys(token);
+				driver.findElement(By.name("info")).sendKeys(info);
 				}catch(Exception e)
 				{
 				System.out.println(e);
@@ -171,7 +172,7 @@ import org.openqa.selenium.support.ui.Select;
 				}
 						
 				 //Search the token already created
-			    driver.findElement(By.id("search2")).sendKeys("SeleniumToken0001");
+			    driver.findElement(By.id("search2")).sendKeys(token);
 			    //Press Search button
 			    try{
 					Thread.sleep(1500);
@@ -247,7 +248,7 @@ import org.openqa.selenium.support.ui.Select;
 				System.out.println(e);
 				}
 			  //Make a new search
-			    driver.findElement(By.id("search2")).sendKeys("SeleniumToken0001");
+			    driver.findElement(By.id("search2")).sendKeys(token);
 			    //Press Search button
 			    try{
 				Thread.sleep(1500);
@@ -292,7 +293,7 @@ import org.openqa.selenium.support.ui.Select;
 					System.out.println(e);
 					}
 			  //Make a search
-			    driver.findElement(By.id("search2")).sendKeys("SeleniumToken0001");
+			    driver.findElement(By.id("search2")).sendKeys(token);
 			    //Press Search button
 			    try{
 					Thread.sleep(1500);
@@ -330,7 +331,7 @@ import org.openqa.selenium.support.ui.Select;
 					}
 
 			    //Make a search
-			    driver.findElement(By.id("search2")).sendKeys("SeleniumToken0001");
+			    driver.findElement(By.id("search2")).sendKeys(token);
 			    //Press Search button
 			    try{
 					Thread.sleep(1500);

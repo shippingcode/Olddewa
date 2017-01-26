@@ -14,6 +14,8 @@ package DEWA;
 
 	public class RFIDCARDS_Motorist { 
 		boolean test=false;
+		String motorist = GenerateData.generateRandomString(5);
+		String phone = GenerateData.generateRandomAlphaNumeric(10);
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();
@@ -80,7 +82,7 @@ package DEWA;
 				//Fill Name
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.name("userName")).sendKeys("SeleniumMotorist");
+				driver.findElement(By.name("userName")).sendKeys(motorist);
 				}catch(Exception e)
 				{
 				System.out.println(e);
@@ -108,7 +110,7 @@ package DEWA;
 				//Fill phone
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.name("phoneNumber")).sendKeys("234567894444");
+				driver.findElement(By.name("phoneNumber")).sendKeys(phone);
 				}catch(Exception e)
 				{
 				System.out.println(e);

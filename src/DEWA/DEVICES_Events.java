@@ -29,9 +29,9 @@ public class DEVICES_Events {
         catch (IOException e1) {
             e1.printStackTrace();
         }
-          
-        System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new FirefoxDriver(); 
+        //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+        //WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(prop.getProperty("url1"));
         try {
@@ -82,14 +82,14 @@ public class DEVICES_Events {
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"start")).sendKeys(new CharSequence[]{"01/01/2015"});
+            driver.findElement(By.name((String)"start")).sendKeys("01/01/2015");
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"end")).sendKeys(new CharSequence[]{"01/01/2017"});
+            driver.findElement(By.name((String)"end")).sendKeys("01/01/2017");
         }
         catch (Exception e) {
             System.out.println(e);
@@ -131,6 +131,6 @@ public class DEVICES_Events {
         catch (Exception e) {
             System.out.println(e);
         }
-        this.test = true;
+        test = true;
     }
 }

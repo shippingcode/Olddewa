@@ -71,7 +71,7 @@ public class DEVICES_Map {
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.id((String)"search2")).sendKeys(new CharSequence[]{"device1"});
+            driver.findElement(By.id((String)"search2")).sendKeys("device1");
             driver.findElement(By.id((String)"btnSearch")).click();
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         }
