@@ -1,4 +1,4 @@
-/* Add a new device with with maker/model WITH Inoperative status and check the status of the device*/
+/* Add a new device with maker/model with Inoperative status and check the status of the device*/
 package DEWA;
 
 import java.io.FileInputStream;
@@ -60,7 +60,7 @@ public class AddAndCheckDeviceStatusInoperative {
 			{
 				System.out.println(e);
 			}
-			
+					
 			//Go to List
 			try{
 			Thread.sleep(1500);
@@ -88,11 +88,29 @@ public class AddAndCheckDeviceStatusInoperative {
 			{
 			System.out.println(e);
 			}
+			//Choose Make and Model
+			try{
+			Thread.sleep(1500);
+			WebElement makedropdown = driver.findElement(By.id("organisationId"));
+			Select make = new Select(makedropdown);
+			make.selectByVisibleText("CIRCONTROL");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			try{
+			Thread.sleep(1500);
+			WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
+			Select model = new Select(modeldropdown);
+			model.selectByVisibleText("CCL");
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			}
 		//Choose Owner
 		try{
-			Thread.sleep(1500);
-		//WebElement orgdropdown = driver.findElement(By.cssSelector("div.uniform > select[name='organisation']"));
-		WebElement orgdropdown = driver.findElement(By.name("organisation"));
+		Thread.sleep(1500);
+		WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='organisation']"));
 		Select organisation = new Select(orgdropdown);
 		organisation.selectByVisibleText("TEST");
 		}catch(Exception e)
@@ -145,12 +163,12 @@ public class AddAndCheckDeviceStatusInoperative {
 			System.out.println(e);
 			}
 
-		//Fill instalattion date
+		/*//Fill instalattion date
 		DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
 		Date date = new Date(0);
 		try{
 			Thread.sleep(1500);
-		driver.findElement(By.name("installationDate")).sendKeys(dateFormat.format(date));
+		driver.findElement(By.id("installationDate")).sendKeys(dateFormat.format(date));
 		}catch(Exception e)
 		{
 			System.out.println(e);
@@ -166,7 +184,7 @@ public class AddAndCheckDeviceStatusInoperative {
 		}catch(Exception e)
 		{
 			System.out.println(e);
-			}
+			}*/
 		//Fill Ewe App Id
 		try{
 			Thread.sleep(1500);
@@ -178,7 +196,7 @@ public class AddAndCheckDeviceStatusInoperative {
 		//Fill Sms Charge Id
 		try{
 			Thread.sleep(1500);
-		driver.findElement(By.id("smsChargeId")).sendKeys("8901");
+		driver.findElement(By.name("smsChargeId")).sendKeys("8901");
 		}catch(Exception e)
 		{
 			System.out.println(e);
@@ -196,7 +214,7 @@ public class AddAndCheckDeviceStatusInoperative {
 		//Go to DEVICES Tab
 		try{
 			Thread.sleep(1500);
-		driver.findElement(By.id("topmenu_device")).click();
+		driver.findElement(By.id("devices")).click();
 		driver.findElement(By.linkText("List")).isDisplayed();
 		driver.findElement(By.linkText("Map")).isDisplayed();
 		driver.findElement(By.linkText("Events")).isDisplayed();
@@ -208,7 +226,7 @@ public class AddAndCheckDeviceStatusInoperative {
 		//Search for device already created
 		try{
 			Thread.sleep(1500);
-		driver.findElement(By.name("search2")).sendKeys(device);
+		driver.findElement(By.id("search2")).sendKeys(device);
 		}catch(Exception e)
 		{
 			System.out.println(e);

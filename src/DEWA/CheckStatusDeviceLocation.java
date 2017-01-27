@@ -62,7 +62,7 @@ public class CheckStatusDeviceLocation {
 			{
 			System.out.println(e);
 			}
-			driver.findElement(By.cssSelector("span.icon-search")).click();
+			driver.findElement(By.cssSelector("a. widget-icon widget-icon-circle > span.icon-search")).click();
 			 //Modal window is displayed & add new device
 		
 			if(driver.getPageSource().contains("Offline"))

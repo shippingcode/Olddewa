@@ -110,15 +110,14 @@ import org.testng.annotations.Test;
 				
 			//Choose Owner
 			try{
-				Thread.sleep(1500);
-			//WebElement orgdropdown = driver.findElement(By.cssSelector("div.uniform > select[name='organisation']"));
-			WebElement orgdropdown = driver.findElement(By.name("organisation"));
+			Thread.sleep(1500);
+			WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='organisation']"));
 			Select organisation = new Select(orgdropdown);
 			organisation.selectByVisibleText("TEST");
 			}catch(Exception e)
 			{
-				System.out.println(e);
-				}
+			System.out.println(e);
+			}
 
 			//Add status
 			try{
@@ -198,7 +197,7 @@ import org.testng.annotations.Test;
 			//Fill Sms Charge Id
 			try{
 				Thread.sleep(1500);
-			driver.findElement(By.id("smsChargeId")).sendKeys("8901");
+			driver.findElement(By.name("smsChargeId")).sendKeys("8901");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -216,7 +215,7 @@ import org.testng.annotations.Test;
 			//Go to DEVICES Tab
 			try{
 				Thread.sleep(1500);
-			driver.findElement(By.id("topmenu_device")).click();
+			driver.findElement(By.id("devices")).click();
 			driver.findElement(By.linkText("List")).isDisplayed();
 			driver.findElement(By.linkText("Map")).isDisplayed();
 			driver.findElement(By.linkText("Events")).isDisplayed();
@@ -228,7 +227,7 @@ import org.testng.annotations.Test;
 			//Search for device already created
 			try{
 				Thread.sleep(1500);
-			driver.findElement(By.name("search2")).sendKeys(device);
+			driver.findElement(By.id("search2")).sendKeys(device);
 			}catch(Exception e)
 			{
 				System.out.println(e);

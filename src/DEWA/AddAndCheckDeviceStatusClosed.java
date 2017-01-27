@@ -82,6 +82,7 @@ import org.openqa.selenium.support.ui.Select;
 				{
 				System.out.println(e);
 				}
+				//Fill device name
 				try{
 				Thread.sleep(1500);	
 				//Fill a device name
@@ -115,8 +116,7 @@ import org.openqa.selenium.support.ui.Select;
 			//Choose Owner
 			try{
 			Thread.sleep(1500);
-			//WebElement orgdropdown = driver.findElement(By.cssSelector("div.uniform > select[name='organisation']"));
-			WebElement orgdropdown = driver.findElement(By.name("organisation"));
+			WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='organisation']"));
 			Select organisation = new Select(orgdropdown);
 			organisation.selectByVisibleText("TEST");
 			}catch(Exception e)
@@ -202,7 +202,7 @@ import org.openqa.selenium.support.ui.Select;
 			//Fill Sms Charge Id
 			try{
 				Thread.sleep(1500);
-			driver.findElement(By.id("smsChargeId")).sendKeys("8901");
+			driver.findElement(By.name("smsChargeId")).sendKeys("8901");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -220,7 +220,7 @@ import org.openqa.selenium.support.ui.Select;
 			//Go to DEVICES Tab
 			try{
 				Thread.sleep(1500);
-			driver.findElement(By.id("topmenu_device")).click();
+			driver.findElement(By.id("devices")).click();
 			driver.findElement(By.linkText("List")).isDisplayed();
 			driver.findElement(By.linkText("Map")).isDisplayed();
 			driver.findElement(By.linkText("Events")).isDisplayed();
@@ -232,7 +232,7 @@ import org.openqa.selenium.support.ui.Select;
 			//Search for device already created
 			try{
 				Thread.sleep(1500);
-			driver.findElement(By.name("search2")).sendKeys(device);
+			driver.findElement(By.id("search2")).sendKeys(device);
 			}catch(Exception e)
 			{
 				System.out.println(e);

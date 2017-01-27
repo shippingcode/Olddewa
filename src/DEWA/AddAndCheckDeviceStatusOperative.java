@@ -118,7 +118,27 @@ public class AddAndCheckDeviceStatusOperative {
 			{
 			System.out.println(e);
 			}
-
+			
+			//Fill maintenance interval (months)
+			try{
+			Thread.sleep(1500);
+			driver.findElement(By.name("maintenanceIntervalMonths")).sendKeys("12");
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			}
+			
+			//Choose protocol
+			try{
+			Thread.sleep(1500);
+			WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='protocol']"));
+			Select organisation = new Select(orgdropdown);
+			organisation.selectByVisibleText("OCPP 1.5");
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			}
+			
 			//Add connectors
 			try{
 			Thread.sleep(1500);
@@ -307,7 +327,7 @@ public class AddAndCheckDeviceStatusOperative {
 			//Choose organisation
 			try{
 			Thread.sleep(1500);
-			WebElement orgdropdown = driver.findElement(By.name("organisation"));
+			WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='organisation']"));
 			Select org = new Select(orgdropdown);
 			org.selectByVisibleText("TEST");
 			}catch(Exception e)
@@ -324,7 +344,7 @@ public class AddAndCheckDeviceStatusOperative {
 			{
 			System.out.println(e);
 			}
-			//Add/Edit address
+			/*//Add/Edit address
 			try{
 		    Thread.sleep(1500);
 		    driver.findElement(By.cssSelector("div.col-md-12 > div.col-md-2 > #dev > span")).click();
@@ -333,7 +353,7 @@ public class AddAndCheckDeviceStatusOperative {
 			System.out.println(e);
 			}
 			
-			/*//Enter an address
+		    //Enter an address
 			try{
 			Thread.sleep(1500);
 			driver.findElement(By.id("pac-input")).sendKeys("Strada Popa Tatu, Bucharest, Romania");
@@ -392,7 +412,7 @@ public class AddAndCheckDeviceStatusOperative {
 			//Go to DEVICES Tab
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.id("topmenu_device")).click();
+			driver.findElement(By.id("devices")).click();
 			driver.findElement(By.linkText("List")).isDisplayed();
 			driver.findElement(By.linkText("Map")).isDisplayed();
 			driver.findElement(By.linkText("Events")).isDisplayed();

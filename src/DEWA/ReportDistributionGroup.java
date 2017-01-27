@@ -87,7 +87,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
   			//Select organization
   			try{
   			Thread.sleep(1500);
-  			WebElement orgdropdown = driver.findElement(By.name("organisation"));
+  			WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-12 > select[name='organisation']"));
   			Select org = new Select(orgdropdown);
   			org.selectByVisibleText("TEST");
   			}catch(Exception e)
@@ -105,6 +105,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
   			//Select user
   			try{
   			Thread.sleep(1500);
+  			driver.findElement(By.name("user")).sendKeys("test.admin");
   			WebElement userdropdown = driver.findElement(By.name("user"));
   			Select user = new Select(userdropdown);
   			user.selectByVisibleText("dewa.admin");
@@ -115,7 +116,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
   			//Fill address email
   			try{
   	  		Thread.sleep(1500);
-  	  		driver.findElement(By.id("tags1482148254208_tag")).sendKeys("aila.bogasieru@gmail.com");
+  	  		driver.findElement(By.cssSelector("starts-with[@id='tags1485529815']")).sendKeys("aila.bogasieru@gmail.com");
   	  		}catch(Exception e)
   	  		{
   	  		System.out.println(e);
