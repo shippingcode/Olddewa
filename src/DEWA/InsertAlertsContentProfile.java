@@ -15,35 +15,17 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class InsertAlertsContentProfile {
-	String[] name = new String[]{"Name1","Name2","Name3","Name4","Name5","Name6","Name7","Name8",
- 			"Name9","Name10","Name11","Name12","Name13","Name14","Name15","Name16","Name17",
- 			"Name18","Name19","Name20","Name21"};
-	String[] subject = new String[]{"subject1","subject2","subject3","subject4","subject5","subject6","subject7","subject8",
- 			"subject9","subject10","subject11","subject12","subject13","subject14","subject15","subject16","subject17",
- 			"subject18","subject19","subject20","subject21"};
-	String[] subject1 = new String[]{"subject11","subject12","subject13","subject14","subject15","subject16","subject17","subject18",
- 			"subject19","subject110","subject111","subject112","subject113","subject114","subject115","subject116","subject117",
- 			"subject118","subject119","subject120","subject121"};
-	String[] emailbody = new String[]{"emailbody1","emailbody2","emailbody3","emailbody4","emailbody5","emailbody6","emailbody7","emailbody8",
- 			"emailbody9","emailbody10","emailbody11","emailbody12","emailbody13","emailbody14","emailbody15","emailbody16","emailbody17",
- 			"emailbody18","emailbody19","emailbody20","emailbody21"};
-	String[] emailbody1 = new String[]{"emailbody11","emailbody12","emailbody13","emailbody14","emailbody15","emailbody16","emailbody17","emailbody18",
- 			"emailbody19","emailbody110","emailbody111","emailbody112","emailbody113","emailbody114","emailbody115","emailbody116","emailbody117",
- 			"emailbody118","emailbody119","emailbody120","emailbody121"};
-	String[] phone = new String[]{"phone1","phone2","phone3","phone4","phone5","phone6","phone7","phone8",
- 			"phone9","phone10","phone11","phone12","phone13","phone14","phone15","phone16","phone17",
- 			"phone18","phone19","phone20","phone21"};
-	String[] phone1 = new String[]{"phone11","phone12","phone13","phone14","phone15","phone16","phone17","phone18",
- 			"phone19","phone110","phone111","phone112","phone113","phone114","phone115","phone116","phone117",
- 			"phone118","phone119","phone120","phone121"};
-	String[] sms = new String[]{"sms1","sms2","sms3","sms4","sms5","sms6","sms7","sms8",
- 			"sms9","sms10","sms11","sms12","sms13","sms14","sms15","sms16","sms17",
- 			"sms18","sms19","sms20","sms21"};
-	String[] sms1 = new String[]{"sms11","sms12","sms13","sms14","sms15","sms16","sms17","sms18",
- 			"sms19","sms110","sms111","sms112","sms113","sms114","sms115","sms116","sms117",
- 			"sms118","sms119","sms120","sms121"};
-  @Test
-  public void f() throws FileNotFoundException {
+	String[] name = new String[]{GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5)};
+	String[] phone = new String[]{GenerateData.generateRandomNumber(10),GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10)};
+	String[] phone1 = new String[]{GenerateData.generateRandomNumber(10),GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10)};
+	String[] sms1 = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] sms = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] subject = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] subject1 = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] emailbody = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] emailbody1 = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	@Test
+	public void f() throws FileNotFoundException {
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
       try {
@@ -74,7 +56,7 @@ public class InsertAlertsContentProfile {
 	Thread.sleep(1500);
 	WebElement orgdropdown = driver.findElement(By.name("organisation"));
 	Select org = new Select(orgdropdown);
-	org.selectByVisibleText("DEWA");
+	org.selectByVisibleText("TEST");
 	}catch(Exception e)
 	{
 	System.out.println(e);
@@ -96,15 +78,15 @@ public class InsertAlertsContentProfile {
 		System.out.println(e);
 	}
 	int i,k,l,m,n,o,r,s,t;
-	for(i=0;i<1000;i++)
-		for(k=0;k<1000;k++)
-			for(l=0;l<1000;l++)
-				for(m=0;m<1000;m++)
-				    for(n=0;n<1000;n++)
-				        for(o=0;o<1000;o++)
-					       for(r=0;r<1000;r++)
-						       for(s=0;s<1000;s++)
-							       for(t=0;t<1000;t++){
+	for(i=0;i<5;i++)
+		for(k=0;k<5;k++)
+			for(l=0;l<5;l++)
+				for(m=0;m<5;m++)
+				    for(n=0;n<5;n++)
+				        for(o=0;o<15;o++)
+					       for(r=0;r<5;r++)
+						       for(s=0;s<5;s++)
+							       for(t=0;t<5;t++){
 	 {
 	     {
                  {
@@ -121,7 +103,6 @@ public class InsertAlertsContentProfile {
 	try{
 	Thread.sleep(1500);
 	driver.findElement(By.cssSelector("span.icon-plus")).click();
-	//driver.findElement(By.cssSelector("div.side.pull-right > a.widget-icon")).click();
 	}catch(Exception e)
 	{
 	System.out.println(e);
@@ -145,9 +126,9 @@ public class InsertAlertsContentProfile {
 	//Choose organisation
 	try{
 	Thread.sleep(1500);
-	WebElement orgdrop = driver.findElement(By.name("ownerOrganisation"));
+	WebElement orgdrop = driver.findElement(By.cssSelector("div.col-md-6 > select[name='ownerOrganisation']"));
 	Select org = new Select(orgdrop);
-	org.selectByVisibleText("DEWA");
+	org.selectByVisibleText("TEST");
 	}catch(Exception e)
 	{
 		System.out.println(e);
@@ -238,7 +219,7 @@ public class InsertAlertsContentProfile {
 						  }
 							 }
 	int j;
-	for (j=0;j<1000;j++) {
+	for (j=0;j<5;j++) {
 
 	}
 	//Remove the content alert

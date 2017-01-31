@@ -52,7 +52,7 @@ public class OPERATIONSAlertsAlertContentProfile {
 	System.out.println(e);
 	}
 	//Go to OPERATIONS Tab
-	driver.findElement(By.id("topmenu_maintenance")).click();
+	driver.findElement(By.id("operations")).click();
 	driver.findElement(By.linkText("Maintenance")).isDisplayed();
 	driver.findElement(By.linkText("Alerts")).isDisplayed();
 
@@ -70,8 +70,7 @@ public class OPERATIONSAlertsAlertContentProfile {
 	//Add alert content profile
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.cssSelector("span.icon-plus")).click();
-	//driver.findElement(By.cssSelector("div.side.pull-right > a.widget-icon")).click();
+	driver.findElement(By.cssSelector("a.widget-icon > span.icon-plus ")).click();
 	}catch(Exception e)
 	{
 	System.out.println(e);

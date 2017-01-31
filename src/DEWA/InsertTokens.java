@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class InsertTokens {
-	String[] tokenA = new String[]{"token1","token2","token3","tken4","token5", "token6"};
+	String[] tokenA = {GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
 	String[] infoA = new String[]{"info1","info2","info3","info4","info5", "info6"};
 	boolean test = false;
 	  @Test
@@ -49,12 +49,12 @@ public class InsertTokens {
 			{
 				System.out.println(e);
 				}
-			//Choose organisation DEWA
+			//Choose organisation TEST
 			try{
 				Thread.sleep(1500);
 				WebElement orgdropdown = driver.findElement(By.name("organisation"));
 				Select org = new Select(orgdropdown);
-				 org.selectByVisibleText("DEWA");
+				 org.selectByVisibleText("TEST");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -62,8 +62,8 @@ public class InsertTokens {
 
 		int i=0;
 		int j=0;
-		while (i<=5)
-			while (j<=5)
+		while (i<5)
+			while (j<5)
 			{
 				{
 				//Go to RFID CARDS
@@ -102,7 +102,7 @@ public class InsertTokens {
 	    driver.findElement(By.name("info")).sendKeys((infoA[j]));
 	    driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 
-	    //Add Expiry date
+	    /*//Add Expiry date
 	    DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
 	    Calendar c = Calendar.getInstance();
 		c.setTime(new Date(0));
@@ -115,18 +115,18 @@ public class InsertTokens {
 		{
 			System.out.println(e);
 
-		}
+		}*/
 	    //Choose organization
 		WebElement orgdropdown = driver.findElement(By.name("creatorOrganisation"));
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select organisation = new Select(orgdropdown);
-		organisation.selectByVisibleText("DEWA");
+		organisation.selectByVisibleText("TEST");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		//Choose an user from dropdown list
 		WebElement userdropdown = driver.findElement(By.name("user"));
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select user = new Select(userdropdown);
-		user.selectByVisibleText("11");
+		user.selectByVisibleText("MotoristA");
 		//Check the checkbox for OCHP Enabled
 		try{
 		Thread.sleep(1500);

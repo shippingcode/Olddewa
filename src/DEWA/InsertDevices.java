@@ -12,8 +12,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class InsertDevices {
-	String devicename[] = {"device06", "device02", "device03", "device04", "device04", "device05"};
+	String devicename[] = {GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5)};
 	boolean test =false;
+	GenerateData genData = null;
+	
   @Test
   public void f() throws FileNotFoundException {
 	  Properties prop = new Properties();
@@ -48,7 +50,7 @@ public class InsertDevices {
 				Thread.sleep(1500);
 				WebElement orgdropdown = driver.findElement(By.name("organisation"));
 			    Select org = new Select(orgdropdown);
-			   org.selectByVisibleText("DEWA");
+			   org.selectByVisibleText("TEST");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -56,7 +58,7 @@ public class InsertDevices {
 
 			int i=0;
 
-			while (i<=5)
+			while (i<5)
 					{
 
 			//Go to Devices -> List
@@ -68,14 +70,21 @@ public class InsertDevices {
 			{
 			System.out.println(e);
 			}
-			driver.findElement(By.id("dev")).click();
+			try{
+			Thread.sleep(1500);
+			driver.findElement(By.linkText("Add")).click();
+			//span.icon-plus
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			}
 
 
 		 //Modal window is displayed & add new device
 			try{
-				Thread.sleep(1500);
-				//Check for modal window is displayed
-				driver.findElement(By.className("modal-dialog")).isDisplayed();
+			Thread.sleep(1500);
+			//Check for modal window is displayed
+			driver.findElement(By.className("modal-dialog")).isDisplayed();
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -84,7 +93,7 @@ public class InsertDevices {
 		//Fill a device name
 			try{
 				Thread.sleep(1500);
-				driver.findElement(By.name("deviceName")).sendKeys((devicename[i]));
+				driver.findElement(By.name("deviceName")).sendKeys(devicename[i]);
 				WebElement makedropdown = driver.findElement(By.id("organisationId"));
 			    Select organisationID = new Select(makedropdown);
 			   organisationID.selectByVisibleText("CIRCONTROL");
@@ -107,9 +116,9 @@ public class InsertDevices {
 			//Choose Owner
 			try{
 				Thread.sleep(1500);
-			WebElement ownerdropdown = driver.findElement(By.name("organisation"));
+			WebElement ownerdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='organisation']"));
 			Select id1e = new Select(ownerdropdown);
-			id1e.selectByVisibleText("DEWA");
+			id1e.selectByVisibleText("TEST");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -190,7 +199,7 @@ public class InsertDevices {
 					}
 
 			int k = 0;
-			while (k<=5){
+			while (k<5){
 
 			//Go to DEVICES Tab
 			try{

@@ -62,7 +62,27 @@ public class CheckStatusDeviceLocation {
 			{
 			System.out.println(e);
 			}
-			driver.findElement(By.cssSelector("a. widget-icon widget-icon-circle > span.icon-search")).click();
+			 try {
+		            Thread.sleep(1500);
+		            driver.findElement(By.id((String)"search")).sendKeys("Strada Dionisie Lupu");
+		        }
+		        catch (Exception e) {
+		            System.out.println(e);
+		        }
+		        try {
+		            Thread.sleep(1500);
+		            driver.findElement(By.id((String)"btnSearch")).click();
+		        }
+		        catch (Exception e) {
+		            System.out.println(e);
+		        }
+		        try {
+		            Thread.sleep(1500);
+		            driver.findElement(By.cssSelector((String)"span.icon-search")).click();
+		        }
+		        catch (Exception e) {
+		            System.out.println(e);
+		        }
 			 //Modal window is displayed & add new device
 		
 			if(driver.getPageSource().contains("Offline"))

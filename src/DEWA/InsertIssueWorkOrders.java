@@ -20,14 +20,7 @@ public class InsertIssueWorkOrders {
 			"Issue9","Issue10","Issue11","Issue12","Issue13","Issue14","Issue15","Issue16","Issue17",
 			"Issue18","Issue19","Issue20","Issue21"};
 
-	String[] devices = new String[] {"deviceSeleniumOrganisation11111","SeleniumDeviceE","SeleniumDeviceFFFFF5",
-			"SeleniumDevice009","SeleniumDevice43","SeleniumDeviceAAAAA5","SeleniumDevice00","DEVICE000",
-			"SeleniumDeviceEEEEE","deviceSeleniumOrganisationAA","deviceA","deviceSeleniumOrganisation11",
-			"SeleniumDevice000000001","SeleniumDevice123","SeleniumDevice03","SeleniumDeviceAAAAA3",
-			"deviceASD","DEVICE00000","SeleniumDevice02","SeleniumDeviceAAAAA","deviceSeleniumOrganisation1111",
-			"SeleniumDeviceAA","SeleniumDevice00000001","SeleniumDeviceEEEEE5",
-			"SeleniumDevice33","deviceSeleniumOrganisation1",
-			"DEVICE00002","SeleniumDevice0","SeleniumDeviceAAAAA1"};
+	
 @Test
 public void f() throws FileNotFoundException {
 	 		  Properties prop = new Properties();
@@ -56,18 +49,18 @@ public void f() throws FileNotFoundException {
 			{
 				System.out.println(e);
 				}
-			//Choose organisation DEWA
+			//Choose organisation TEST
 			try{
 			Thread.sleep(1500);
 			WebElement orgdropdown = driver.findElement(By.name("organisation"));
 			Select org = new Select(orgdropdown);
-			org.selectByVisibleText("DEWA");
+			org.selectByVisibleText("TEST");
 			}catch(Exception e)
 			{
 			System.out.println(e);
 			}
 		//Go to OPERATIONS Tab
-		driver.findElement(By.id("topmenu_maintenance")).click();
+		driver.findElement(By.id("operations")).click();
 		driver.findElement(By.linkText("Maintenance")).isDisplayed();
 		driver.findElement(By.linkText("Work Orders")).isDisplayed();
 		//Go to Work orders
@@ -79,8 +72,8 @@ public void f() throws FileNotFoundException {
 			System.out.println(e);
 			}
 		int i,j;
-		for(i=0;i<21;i++)
-			for(j=0;j<21;j++)
+		for(i=0;i<5;i++)
+			for(j=0;j<5;j++)
 			{
 				{
 			//Raise new work order
@@ -111,15 +104,19 @@ public void f() throws FileNotFoundException {
 		//Choose device
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("deviceSelect")).sendKeys(devices[j]);
+		//driver.findElement(By.name("deviceSelect")).sendKeys(devices[j]);
+		driver.findElement(By.cssSelector("div.col-md-9 > input[name='deviceSelect']")).sendKeys("device");
+		WebElement devicedrop = driver.findElement(By.cssSelector("div.col-md-9 > input[name='deviceSelect']"));
+		Select device = new Select(devicedrop);
+		device.selectByVisibleText("device1");
 		}catch(Exception e)
 		{
 			System.out.println(e);
-			}
+		}
 		//Choose organisation
 		WebElement orgdrop = driver.findElement(By.id("organisationId"));
 		Select org = new Select(orgdrop);
-		org.selectByVisibleText("DEWA");
+		org.selectByVisibleText("TEST");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		//Press Save

@@ -56,7 +56,7 @@ public void f() throws FileNotFoundException {
 	  Thread.sleep(1500);
 	  WebElement orgdropdown = driver.findElement(By.name("organisation"));
 	  Select org = new Select(orgdropdown);
-	  org.selectByVisibleText("DEWA");
+	  org.selectByVisibleText("TEST");
 	  }catch(Exception e)
 	  {
 		System.out.println(e);
@@ -78,9 +78,9 @@ public void f() throws FileNotFoundException {
 		System.out.println(e);
 	}
 	int i,j,k;
-	for(i=0;i<21;i++)
-		for(j=0;j<21;j++)
-			for(k=0;k<21;k++)
+	for(i=0;i<5;i++)
+		for(j=0;j<5;j++)
+			for(k=0;k<5;k++)
 		{
 			{
 				{
@@ -172,7 +172,7 @@ public void f() throws FileNotFoundException {
 	Thread.sleep(1500);
 	WebElement orgdropdown = driver.findElement(By.cssSelector("div.input-group > select[name='organisation']"));
 	Select org = new Select(orgdropdown);
-	org.selectByVisibleText("DEWA");
+	org.selectByVisibleText("TEST");
 	}catch(Exception e)
 	{
 	System.out.println(e);

@@ -424,7 +424,7 @@ public class AddAndCheckDeviceStatusOperative {
 			//Search for device already created
 			try{
 			Thread.sleep(1500);
-			driver.findElement(By.name("search2")).sendKeys(device);
+			driver.findElement(By.id("search2")).sendKeys(device);
 			}catch(Exception e)
 			{
 			System.out.println(e);

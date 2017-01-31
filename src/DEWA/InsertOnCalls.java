@@ -14,14 +14,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class InsertOnCalls {
-	String[] user = new String[]{"Kelly.Grasielle","ailadefault","xy","francois.admin","admin","guest","admintol","manager",
- 			"technician","aialadmin","ailaadmin1","ailaadmin2","ailaguest1","ailadmin3","ailadmin4","ailabogasieru","Automation",
- 			"Automation0","Automation00","userAB","ailatech"};
-
 	boolean test = false;
 
   @Test
   public void f() throws FileNotFoundException {
+	
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
       try {
@@ -48,12 +45,12 @@ public class InsertOnCalls {
 		{
 			System.out.println(e);
 			}
-		//Choose organisation DEWA
+		//Choose organisation TEST
 		try{
 		Thread.sleep(1500);
 		WebElement orgdropdown = driver.findElement(By.name("organisation"));
 		Select org = new Select(orgdropdown);
-		org.selectByVisibleText("DEWA");
+		org.selectByVisibleText("TEST");
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -70,11 +67,9 @@ public class InsertOnCalls {
 	{
 		System.out.println(e);
 		}
-	int i,j;
-	for(i=0;i<20;i++)
-		for(j=0;j<20;j++)
+	int i;
+	for(i=0;i<5;i++)
 		{
-	{
 	//Click on '+'
 	try{
 	Thread.sleep(1500);
@@ -86,9 +81,16 @@ public class InsertOnCalls {
 	//Modal window is displayed
 	driver.findElement(By.className("modal-content")).isDisplayed();
 	try{
+		Thread.sleep(1500);
+		WebElement devicedrop = driver.findElement(By.name("user"));
+		Select device = new Select(devicedrop);
+		device.selectByVisibleText("test.admin");
+		}catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	try{
 	Thread.sleep(1500);
-
-	driver.findElement(By.id("equipmentType")).sendKeys(user[j]);
    	//Telephone & email are filled automatically
 	driver.findElement(By.name("user.phoneNumber")).isDisplayed();
 	driver.findElement(By.name("user.emailPrimary")).isDisplayed();
@@ -119,7 +121,7 @@ public class InsertOnCalls {
 	Thread.sleep(1500);
 	WebElement orgdrop = driver.findElement(By.cssSelector("div.input-group > select[name='organisation']"));
 	Select org = new Select(orgdrop);
-	org.selectByVisibleText("OrgSel01");
+	org.selectByVisibleText("TEST");
 	}catch(Exception e)
 	{
 	System.out.println(e);
@@ -144,7 +146,7 @@ public class InsertOnCalls {
        }
 
          	}
-     }
+
 
   //Logout
 	try{

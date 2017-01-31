@@ -56,7 +56,7 @@ public class InsertSystemUsers {
 		Thread.sleep(1500);
 		WebElement orgdropdown = driver.findElement(By.name("organisation"));
 		Select org = new Select(orgdropdown);
-		org.selectByVisibleText("DEWA");
+		org.selectByVisibleText("TEST");
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -151,7 +151,7 @@ public class InsertSystemUsers {
 	   //WebElement orgdropdown =  driver.findElement(By.cssSelector("div.col-md-6 > select[name='organisation']"));
 	   WebElement orgdropdown =  driver.findElement(By.id("organisationUserSysId"));
 	  Select org = new Select(orgdropdown);
-	  org.selectByVisibleText("DEWA");
+	  org.selectByVisibleText("TEST");
 		}catch(Exception e)
 		{
 			System.out.println(e);

@@ -59,7 +59,7 @@ public void f() throws FileNotFoundException {
 	  Thread.sleep(1500);
 	  WebElement orgdropdown = driver.findElement(By.name("organisation"));
 	  Select org = new Select(orgdropdown);
-	  org.selectByVisibleText("DEWA");
+	  org.selectByVisibleText("TEST");
 	  }catch(Exception e)
 	  {
 		System.out.println(e);
@@ -88,7 +88,7 @@ public void f() throws FileNotFoundException {
 
 		//Click on add
 		int p;
-		for(p=0;p<20;p++){
+		for(p=0;p<5;p++){
 		try{
 		Thread.sleep(1500);
 		driver.findElement(By.cssSelector("span.icon-plus-sign")).click();
@@ -99,9 +99,9 @@ public void f() throws FileNotFoundException {
 		//Choose organization
 		try{
 		Thread.sleep(1500);
-		WebElement orgdropdown = driver.findElement(By.cssSelector("div.side.pull-right > a.widget-icon"));
+		WebElement orgdropdown = driver.findElement(By.cssSelector("div.input-group > select[name='organisation']"));
 		Select org = new Select(orgdropdown);
-		org.selectByVisibleText("DEWA");
+		org.selectByVisibleText("TEST");
 		}catch(Exception e)
 		{
 		System.out.println(e);

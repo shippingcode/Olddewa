@@ -66,7 +66,7 @@ public class DEVICES_Location {
         driver.findElement(By.linkText((String)"Location")).click();
         try {
             Thread.sleep(1500);
-            driver.findElement(By.id((String)"search")).sendKeys(new CharSequence[]{"Strada Mihai Eminescu"});
+            driver.findElement(By.id((String)"search")).sendKeys("Strada Dionisie Lupu");
         }
         catch (Exception e) {
             System.out.println(e);

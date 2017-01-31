@@ -19,14 +19,7 @@ public class InsertCorrectiveWorkOrders {
 			"Corrective9","Corrective10","Corrective11","Corrective12","Corrective13","Corrective14","Corrective15","Corrective16","Corrective17",
 			"Corrective18","Corrective19","Corrective20","Corrective21"};
 
-	String[] devices = new String[] {"deviceSeleniumOrganisation11111","SeleniumDeviceE","SeleniumDeviceFFFFF5",
-			"SeleniumDevice009","SeleniumDevice43","SeleniumDeviceAAAAA5","SeleniumDevice00","DEVICE000",
-			"SeleniumDeviceEEEEE","deviceSeleniumOrganisationAA","deviceA","deviceSeleniumOrganisation11",
-			"SeleniumDevice000000001","SeleniumDevice123","SeleniumDevice03","SeleniumDeviceAAAAA3",
-			"deviceASD","DEVICE00000","SeleniumDevice02","SeleniumDeviceAAAAA","deviceSeleniumOrganisation1111",
-			"SeleniumDeviceAA","SeleniumDevice00000001","SeleniumDeviceEEEEE5",
-			"SeleniumDevice33","deviceSeleniumOrganisation1",
-			"DEVICE00002","SeleniumDevice0","SeleniumDeviceAAAAA1"};
+	
 @Test
 public void f() throws FileNotFoundException {
 	 		  Properties prop = new Properties();
@@ -59,7 +52,7 @@ public void f() throws FileNotFoundException {
 			Thread.sleep(1500);
 			WebElement orgdropdown = driver.findElement(By.name("organisation"));
 			Select org = new Select(orgdropdown);
-			org.selectByVisibleText("DEWA");
+			org.selectByVisibleText("TEST");
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -78,8 +71,8 @@ public void f() throws FileNotFoundException {
 			}
 		int i=0;
 		int j= 0;
-		while (i<=20)
-		while (j<=20)
+		while (i<5)
+		while (j<5)
 			{
 				{
 		//Raise new work order
@@ -104,15 +97,19 @@ public void f() throws FileNotFoundException {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 			    
 		 //Choose event priority
-		WebElement eventtype = driver.findElement(By.name("workOrder.eventPriority"));
+		WebElement eventtype = driver.findElement(By.cssSelector("div.col-md-6 > select[name='workOrder.eventPriority']"));
 		Select event = new Select(eventtype);
-		event.selectByVisibleText("Intermediate");
+		event.selectByVisibleText("High");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 			    
 		//Choose device
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("deviceSelect")).sendKeys(devices[j]);
+		//driver.findElement(By.name("deviceSelect")).sendKeys(devices[j]);
+		driver.findElement(By.cssSelector("div.col-md-9 > input[name='deviceSelect']")).sendKeys("device");
+		WebElement devicedrop = driver.findElement(By.cssSelector("div.col-md-9 > select[name='deviceSelect']"));
+		Select device = new Select(devicedrop);
+		device.selectByVisibleText("device1");
 		}catch(Exception e)
 		{
 			System.out.println(e);
@@ -120,7 +117,7 @@ public void f() throws FileNotFoundException {
 		//Choose organisation
 		WebElement orgdrop = driver.findElement(By.id("organisationId"));
 		Select org = new Select(orgdrop);
-		org.selectByVisibleText("DEWA");
+		org.selectByVisibleText("TEST");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 			    
 		//Press Save

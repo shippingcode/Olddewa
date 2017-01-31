@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class InsertOwners {
-	 String[] org = {"OrgSel011", "OrgSel021", "OrgSel033", "OrgSel044", "OrgSel055", "OrgSel066"};
+	 String[] org = {GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5)};
 	 String[] ochp = {"99", "78", "45", "66", "88", "90"};
 	 boolean test = false;
   @Test
@@ -43,32 +43,40 @@ public class InsertOwners {
 		{
 			System.out.println(e);
 			}
-		//Choose organisation DEWA
+		//Choose organisation TEST
 		try{
 		Thread.sleep(1500);
 		WebElement orgdropdown = driver.findElement(By.name("organisation"));
 		Select org = new Select(orgdropdown);
-		org.selectByVisibleText("DEWA");
+		org.selectByVisibleText("TEST");
 		}catch(Exception e)
 		{
 		System.out.println(e);
 		}
 		int i=0;
-		int j =0;
-		while (i<=5)
-		while(j<=5)
+		int j=0;
+		while (i<5)
+		while(j<5)
 				{
 					{
+						//Go on Organization
+						try{
+						Thread.sleep(1500);
+						driver.findElement(By.id("topmenu_organisation")).click();
 
-			//Click on Add new owner
-				try{
-					Thread.sleep(1500);
-					driver.findElement(By.linkText("Add")).click();
-					}catch(Exception e)
-			    {
-					System.out.println(e);
-					}
+						}catch(Exception e)
+						{
+						System.out.println(e);
+						}
 
+						//Click on Add new owner
+						try{
+						Thread.sleep(1500);
+						driver.findElement(By.linkText("Add")).click();
+						}catch(Exception e)
+						{
+						System.out.println(e);
+						}
 		   //Modal window is displayed & add new owner
 				try{
 					Thread.sleep(1500);
