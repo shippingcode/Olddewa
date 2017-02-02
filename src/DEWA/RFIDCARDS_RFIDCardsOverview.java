@@ -14,7 +14,8 @@ import org.openqa.selenium.support.ui.Select;
 
 	public class RFIDCARDS_RFIDCardsOverview { 
 		boolean test=false;
-		String token, info = GenerateData.generateRandomAlphaNumeric(5);
+		String token = GenerateData.generateRandomAlphaNumeric(5);
+		String info = GenerateData.generateRandomAlphaNumeric(5);
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();

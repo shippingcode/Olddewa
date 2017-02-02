@@ -34,25 +34,25 @@ public class OPERATIONSMaintenance {
 			Thread.sleep(1500);
 
 		//Login into the software filling username & password
-		driver.findElement(By.name("username")).sendKeys(prop.getProperty("username1"));
+		driver.findElement(By.name("username")).sendKeys(prop.getProperty("username"));
 		driver.findElement(By.name("password")).sendKeys(prop.getProperty("password1"));
 		driver.findElement(By.xpath("//input[@value='Log In']")).click();
 		}catch(Exception e)
 		{
 			System.out.println(e);
 		}
-		//Choose organisation TEST
+		//Choose organisation DEWA
 		try{
 		Thread.sleep(1500);
 		WebElement orgdropdown = driver.findElement(By.name("organisation"));
 		Select org = new Select(orgdropdown);
-		 org.selectByVisibleText("TEST");
+		 org.selectByVisibleText("DEWA");
 		}catch(Exception e)
 		{
 		System.out.println(e);
 		}
 	//Go to OPERATIONS Tab
-	driver.findElement(By.id("topmenu_maintenance")).click();
+	driver.findElement(By.id("operations")).click();
 	driver.findElement(By.linkText("Maintenance")).isDisplayed();
 	driver.findElement(By.linkText("Work Orders")).isDisplayed();
 	//Go to Work orders
@@ -76,7 +76,7 @@ public class OPERATIONSMaintenance {
 	//Region
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.name("device.site.siteName")).sendKeys("Ireland");
+	driver.findElement(By.name("site.siteName")).sendKeys("Dubai");
 	}catch(Exception e)
 	{
 	System.out.println(e);
@@ -92,7 +92,7 @@ public class OPERATIONSMaintenance {
 	//Clear
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.name("device.site.siteName")).clear();
+	driver.findElement(By.name("site.siteName")).clear();
 	}catch(Exception e)
 	{
 	System.out.println(e);
@@ -110,7 +110,7 @@ public class OPERATIONSMaintenance {
 	//Region
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.name("device.site.siteName")).sendKeys("Ireland");
+	driver.findElement(By.name("site.siteName")).sendKeys("Dubai");
 	}catch(Exception e)
 	{
 	System.out.println(e);
@@ -126,7 +126,7 @@ public class OPERATIONSMaintenance {
 	//Clear
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.name("device.site.siteName")).clear();
+	driver.findElement(By.name("site.siteName")).clear();
 	}catch(Exception e)
 	{
 	System.out.println(e);
@@ -150,35 +150,44 @@ public class OPERATIONSMaintenance {
 	System.out.println(e);
 	}
 
-	//Find organisation already created in the table of organisations
-	 WebElement table = driver.findElement(By.id("DataTables_Table_0_wrapper"));
-
-	// Now get all the TR elements from the table
-	java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-	// And iterate over them, getting the cells
-	for (WebElement row : allRows) {
-	    java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-	    for (WebElement cell : cells) {
-	    	    while(cell.getText()== "Owner1");{
-	    try{
-	   Thread.sleep(1500);
-	    //When is found the org delete it
-	    driver.findElement(By.cssSelector("span.icon-cogs")).click();
-	    }catch(Exception e)
-	   	{
-	    System.out.println(e);
-	             }
-	         }
-	    }
+	//Search by device deviceName
+	try{
+	Thread.sleep(1500);
+	driver.findElement(By.id("deviceName")).sendKeys("UAE-HBN-CCL10");
+	}catch(Exception e)
+	{
+	System.out.println(e);
+	}
+	
+	//Click on assign
+	 try{
+	Thread.sleep(1500);
+	driver.findElement(By.cssSelector("span.icon-cogs")).click();
+	}catch(Exception e)
+	{
+	   System.out.println(e);
+	  }
+	 //Select organisation
 	   try{
 	   Thread.sleep(1500);
-	   WebElement orgdrop = driver.findElement(By.name("orgWorkOrder"));
+	   //WebElement orgdrop = driver.findElement(By.cssSelector("div.form-row > select[name='orgWorkOrder']"));
+	   WebElement orgdrop = driver.findElement(By.cssSelector("div.form-row > select[name='orgWorkOrder']"));
 	   Select org = new Select(orgdrop);
-	   org.selectByVisibleText("TEST");
+	   org.selectByVisibleText("DEWA");
 	   }catch(Exception e)
 	   	{
 	   	System.out.println(e);
 	   	}
+	   //Select technician
+	   try{
+	   Thread.sleep(1500);
+	   WebElement orgdrop = driver.findElement(By.cssSelector("div.form-row > select[name='user']"));
+	   Select org = new Select(orgdrop);
+		org.selectByVisibleText("DEWA");
+		 }catch(Exception e)
+		{
+		 	System.out.println(e);
+			}
 	   //Save the changes
 	   try{
 	   Thread.sleep(1500);
@@ -203,6 +212,6 @@ public class OPERATIONSMaintenance {
 			System.out.println(e);
 		   	}
 
-  }
-}
-}
+         }
+     }
+

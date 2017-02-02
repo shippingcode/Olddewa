@@ -55,7 +55,7 @@ public class OPERATIONSOnCall {
 		}
 
 	//Go to OPERATIONS Tab
-	driver.findElement(By.id("topmenu_maintenance")).click();
+	driver.findElement(By.id("operations")).click();
 	driver.findElement(By.linkText("Maintenance")).isDisplayed();
 	driver.findElement(By.linkText("Work Orders")).isDisplayed();
 	//Go to On Call

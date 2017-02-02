@@ -62,7 +62,7 @@ public class InsertOwners {
 						//Go on Organization
 						try{
 						Thread.sleep(1500);
-						driver.findElement(By.id("topmenu_organisation")).click();
+						driver.findElement(By.cssSelector("span.icon-link")).click();
 
 						}catch(Exception e)
 						{
@@ -89,7 +89,7 @@ public class InsertOwners {
 		    //Fill an owner name
 				try{
 					Thread.sleep(1500);
-					driver.findElement(By.name("organisationName")).sendKeys((org[i]));
+					driver.findElement(By.cssSelector("div.col-md-12 > input[name='organisationName']")).sendKeys((org[i]));
 				}catch(Exception e)
 				{
 					System.out.println(e);
@@ -97,9 +97,9 @@ public class InsertOwners {
 				//Choose alarm
 				try{
 					Thread.sleep(1500);
-					WebElement alarmdropdown = driver.findElement(By.name("alertContentProfile"));
+					WebElement alarmdropdown = driver.findElement(By.cssSelector("div.col-md-12 > select[name='alertContentProfile']"));
 					Select alarm = new Select(alarmdropdown);
-					 alarm.selectByVisibleText("Alert1");
+					 alarm.selectByVisibleText("alert1");
 				}catch(Exception e)
 				{
 					System.out.println(e);
@@ -107,7 +107,7 @@ public class InsertOwners {
 				//Choose license
 				try{
 					Thread.sleep(1500);
-				WebElement licensedrop = driver.findElement(By.name("license"));
+				WebElement licensedrop = driver.findElement(By.cssSelector("div.col-md-12 > select[name='license']"));
 				Select license = new Select(licensedrop);
 				license.selectByVisibleText("Default");
 				}catch(Exception e)

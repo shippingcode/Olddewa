@@ -86,7 +86,7 @@ package DEWA;
 				//Select organization
 				try{
 				Thread.sleep(1500);
-				WebElement orgdropdown = driver.findElement(By.name("organisation"));
+				WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-12 > select[name='organisation']"));
 				Select org = new Select(orgdropdown);
 				org.selectByVisibleText("TEST");
 				}catch(Exception e)
@@ -164,7 +164,7 @@ package DEWA;
 				//Select organization
 				try{
 				Thread.sleep(1500);
-				WebElement orgdropdown = driver.findElement(By.name("organisation"));
+				WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-12 > select[name='organisation']"));
 				Select org = new Select(orgdropdown);
 				org.selectByVisibleText("TEST");
 				}catch(Exception e)

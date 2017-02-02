@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 
 public class OPERATIONSWorkOrders {
 boolean test=false;
+String workorder = GenerateData.generateRandomString(20);
 
 	@Test
 	 public void f() throws FileNotFoundException {
@@ -46,7 +47,7 @@ boolean test=false;
 				System.out.println(e);
 				}
 		//Go to OPERATIONS Tab
-		driver.findElement(By.id("topmenu_maintenance")).click();
+		driver.findElement(By.id("operations")).click();
 		driver.findElement(By.linkText("Maintenance")).isDisplayed();
 		driver.findElement(By.linkText("Work Orders")).isDisplayed();
 		//Go to Work orders
@@ -109,7 +110,7 @@ boolean test=false;
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		//Fill an work order title
-		driver.findElement(By.name("workOrder.workOrderTitle")).sendKeys("Selenium WorkOrder");
+		driver.findElement(By.name("workOrder.workOrderTitle")).sendKeys(workorder);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		//Choose type of work
@@ -119,20 +120,23 @@ boolean test=false;
 	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 	    //Choose event priority
-	    WebElement eventdrop = driver.findElement(By.name("workOrder.eventPriority"));
-	    Select event = new Select(eventdrop);
-	    event.selectByVisibleText("Parked fault");
-	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		WebElement eventtype = driver.findElement(By.cssSelector("div.col-md-6 > select[name='workOrder.eventPriority']"));
+		Select event = new Select(eventtype);
+		event.selectByVisibleText("Medium");
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 	//Choose device
-	    driver.findElement(By.name("deviceSelect")).sendKeys("device");
-	    WebElement devicedrop = driver.findElement(By.name("deviceSelect"));
-	    Select device = new Select(devicedrop);
-	    Actions actions = new Actions(driver);
-		actions.moveToElement(devicedrop).perform();
+	    try{
+		Thread.sleep(1500);
+		//driver.findElement(By.name("deviceSelect")).sendKeys(devices[j]);
+		driver.findElement(By.cssSelector("div.col-md-9 > input[name='deviceSelect']")).sendKeys("device");
+		WebElement devicedrop = driver.findElement(By.cssSelector("div.col-md-9 > input[name='deviceSelect']"));
+		Select device = new Select(devicedrop);
 		device.selectByVisibleText("device1");
-		driver.findElement(By.linkText("device1")).click();
-	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		}catch(Exception e)
+		{
+			System.out.println(e);
+		}
 
 	    //Choose organisation
 	    WebElement orgdrop = driver.findElement(By.id("organisationId"));
@@ -267,7 +271,7 @@ boolean test=false;
 	 for (WebElement row : allRows) {
 	 java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 	 for (WebElement cell : cells) {
-	   while(cell.getText()== "work1");
+	   while(cell.getText()== workorder);
 	  	   try{
 		   Thread.sleep(1500);
 		    //When is found the org delete it
@@ -295,10 +299,6 @@ boolean test=false;
 		test=true;
 
 	}
-
-
-
-
 }
 
 

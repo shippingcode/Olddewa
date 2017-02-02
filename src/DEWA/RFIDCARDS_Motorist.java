@@ -15,7 +15,7 @@ package DEWA;
 	public class RFIDCARDS_Motorist { 
 		boolean test=false;
 		String motorist = GenerateData.generateRandomString(5);
-		String phone = GenerateData.generateRandomAlphaNumeric(10);
+		String phone = GenerateData.generateRandomNumber(10);
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();

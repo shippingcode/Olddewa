@@ -14,7 +14,8 @@ import org.testng.annotations.Test;
 
 public class RFIDCARDS_RFIDCardsOperations {
 	boolean test = false;
-	String token, info = GenerateData.generateRandomAlphaNumeric(5);
+	String token = GenerateData.generateRandomAlphaNumeric(5);
+	String info = GenerateData.generateRandomAlphaNumeric(5);
 
   @Test
   public void f() throws FileNotFoundException {

@@ -45,7 +45,7 @@ public class OPERATIONSAlertsSLAProfile {
 			System.out.println(e);
 			}
 	//Go to OPERATIONS Tab
-	driver.findElement(By.id("topmenu_maintenance")).click();
+	  driver.findElement(By.id("operations")).click();
 	driver.findElement(By.linkText("Maintenance")).isDisplayed();
 	driver.findElement(By.linkText("Alerts")).isDisplayed();
 
@@ -97,7 +97,7 @@ public class OPERATIONSAlertsSLAProfile {
 	&&
 	driver.getPageSource().contains("Actions"))
 	{
-		test = true;
+		
 		System.out.println("Lables are displayed on the page");
 	}
 	else
@@ -215,7 +215,7 @@ public class OPERATIONSAlertsSLAProfile {
 		{
 			System.out.println(e);
 			}
-		test=true;
+		test = true;
 
   }
   }

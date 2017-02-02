@@ -21,8 +21,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class ORGANISATIONS {
-	String owner, motorist = GenerateData.generateRandomString(5);
-	String token, info, device = GenerateData.generateRandomAlphaNumeric(5);
+	String owner = GenerateData.generateRandomString(5);
+	String motorist = GenerateData.generateRandomString(5);
+	String token = GenerateData.generateRandomAlphaNumeric(5);
+	String info = GenerateData.generateRandomAlphaNumeric(5);
+    String device = GenerateData.generateRandomAlphaNumeric(5);
 	boolean test=false;
 
 	@Test
@@ -54,21 +57,10 @@ public class ORGANISATIONS {
 			System.out.println(e);
 			}
 
-			//Choose organisation TEST
-			try{
-			Thread.sleep(1500);
-			WebElement orgdropdown = driver.findElement(By.name("organisation"));
-			Select org = new Select(orgdropdown);
-			org.selectByVisibleText("TEST");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
 		//Go on Organization
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.id("topmenu_organisation")).click();
-
+		driver.findElement(By.cssSelector("span.icon-link")).click();
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -95,30 +87,31 @@ public class ORGANISATIONS {
 		//Fill an owner name
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("organisationName")).sendKeys(owner);
+		//driver.findElement(By.name("organisationName")).sendKeys(owner);
+		driver.findElement(By.cssSelector("div.col-md-12 > input[name='organisationName']")).sendKeys(owner);
 		}catch(Exception e)
 		{
 		System.out.println(e);
 		}
 		//Choose alarm
 		try{
-		Thread.sleep(1500);
-		WebElement alarmdropdown = driver.findElement(By.name("alertContentProfile"));
-		Select alarm = new Select(alarmdropdown);
-		alarm.selectByVisibleText("alert1");
+			Thread.sleep(1500);
+			WebElement alarmdropdown = driver.findElement(By.cssSelector("div.col-md-12 > select[name='alertContentProfile']"));
+			Select alarm = new Select(alarmdropdown);
+			 alarm.selectByVisibleText("alert1");
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
 		//Choose license
 		try{
-		Thread.sleep(1500);
-		WebElement licensedrop = driver.findElement(By.name("license"));
+			Thread.sleep(1500);
+		WebElement licensedrop = driver.findElement(By.cssSelector("div.col-md-12 > select[name='license']"));
 		Select license = new Select(licensedrop);
 		license.selectByVisibleText("Default");
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
 
 		//Choose time zone
@@ -169,7 +162,7 @@ public class ORGANISATIONS {
 		//Go to DEVICES Tab
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.id("topmenu_device")).click();
+		driver.findElement(By.id("devices")).click();
 		driver.findElement(By.linkText("List")).isDisplayed();
 		driver.findElement(By.linkText("List")).click();
 		}catch(Exception e)
@@ -179,7 +172,7 @@ public class ORGANISATIONS {
 		//Click on Add new device
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.id("dev")).click();
+		driver.findElement(By.linkText("Add")).click();
 		}catch(Exception e)
 		{
 		System.out.println(e);

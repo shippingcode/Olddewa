@@ -15,6 +15,7 @@ package DEWA;
 	public class RFIDCARDS_Groups { 
 		boolean test=false;
 		String group = GenerateData.generateRandomString(5);
+		
 		@Test
 		 public void f() throws FileNotFoundException {
 			  Properties prop = new Properties();
@@ -89,7 +90,7 @@ package DEWA;
 				//Choose organization
 				try{
 				Thread.sleep(1500);
-				WebElement orgdropdown = driver.findElement(By.name("organisation"));
+				WebElement orgdropdown = driver.findElement(By.cssSelector("div.uniform > select[name='organisation']"));
 				Select org = new Select(orgdropdown);
 				org.selectByVisibleText("TEST");
 				}catch(Exception e)

@@ -43,7 +43,7 @@ public class OPERATIONSAlertsSLA {
 			System.out.println(e);
 			}
 	     //Go to OPERATIONS Tab
-		driver.findElement(By.id("topmenu_maintenance")).click();
+		driver.findElement(By.id("operations")).click();
 		driver.findElement(By.linkText("Open Clearing House")).isDisplayed();
 		driver.findElement(By.linkText("On Call")).isDisplayed();
 		driver.findElement(By.linkText("Maintenance")).isDisplayed();
@@ -64,7 +64,7 @@ public class OPERATIONSAlertsSLA {
 		//Add SLA
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.cssSelector("a.widget-icon > span.icon-plus-sign")).click();
+		driver.findElement(By.cssSelector("span.icon-plus-sign")).click();
 		}catch(Exception e)
 		{
 			System.out.println(e);
@@ -120,12 +120,13 @@ public class OPERATIONSAlertsSLA {
 		}
 		if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
 		{
+			System.out.println("Alert Content Profile is created");
 			test = true;
-			System.out.println("Alert Content Profile is not created");
 		}
 		else
 		{
 			System.out.println("Alert Content Profile is created");
+			
 		}
 		//Edit the SLA created
 		try{
@@ -151,5 +152,5 @@ public class OPERATIONSAlertsSLA {
 		{
 		System.out.println(e);
 		}
-  }
+		  }
 }
