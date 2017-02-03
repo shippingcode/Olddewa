@@ -4,8 +4,6 @@
     <test name="OPERATIONS">
     
     <classes>
-     <class name="DEWA.OPERATIONSOpenClearingHouseClearingHouse"/>
-     <class name="DEWA.OPERATIONSOpenClearingHouseProcessedCRDs"/>
      <class name="DEWA.OPERATIONSOnCall"/>
      <class name="DEWA.OPERATIONSMaintenance"/>
      <class name="DEWA.OPERATIONSWorkOrders"/>
