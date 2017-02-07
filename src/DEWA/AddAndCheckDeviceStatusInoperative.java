@@ -30,13 +30,12 @@ public class AddAndCheckDeviceStatusInoperative {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	       //Create Firefox drive
-		   WebDriver driver = new FirefoxDriver();
-	       // System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-	       //  WebDriver driver = new ChromeDriver();
-		  //WebDriver driver = new ChromeDriver();
-		  driver.manage().window().maximize();
-		  //Access http://66.hubeleon.appspot.com
+	       
+	      // System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+	      //WebDriver driver = new ChromeDriver();
+		 //Create Firefox drive
+	      WebDriver driver = new FirefoxDriver();
+	      driver.manage().window().maximize();
 		  driver.get(prop.getProperty("url1"));
 		  try{
 		  Thread.sleep(1500);

@@ -32,13 +32,11 @@ import org.openqa.selenium.support.ui.Select;
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+	       //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+		      //WebDriver driver = new ChromeDriver();
 		     //Create Firefox drive
 		       WebDriver driver = new FirefoxDriver();
-			  
-			  //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-		      //WebDriver driver = new ChromeDriver();
-				driver.manage().window().maximize();
-				//Access http://66.hubeleon.appspot.com
+			  driver.manage().window().maximize();
 				driver.get(prop.getProperty("url1"));
 				try{
 				Thread.sleep(1500);
@@ -277,7 +275,7 @@ import org.openqa.selenium.support.ui.Select;
 				  }
 				}
 				
-				//Logout
+			//Logout
 				try{
 				Thread.sleep(1500);
 				driver.findElement(By.className("icon-eject")).click();

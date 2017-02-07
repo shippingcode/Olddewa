@@ -32,9 +32,7 @@ import org.testng.annotations.Test;
 			}
 		      //Create Firefox drive
 				WebDriver driver = new FirefoxDriver();
-				//WebDriver driver = new ChromeDriver();
 				driver.manage().window().maximize();
-				//Access http://66.hubeleon.appspot.com
 				driver.get(prop.getProperty("url1"));
 				try{
 				Thread.sleep(1500);

@@ -28,10 +28,8 @@ public void f() throws FileNotFoundException {
 
     //Create Firefox drive
     WebDriver driver = new FirefoxDriver();
-   // WebDriver driver = new FirefoxDriver();
     driver.manage().window().maximize();
-	  //Access http://66.hubeleon.appspot.com
-	  driver.get(prop.getProperty("url1"));
+	driver.get(prop.getProperty("url1"));
 	  try{
 	  Thread.sleep(1500);
 
@@ -44,7 +42,7 @@ public void f() throws FileNotFoundException {
 			System.out.println(e);
 			}
 	//Go to OPERATIONS Tab
-	driver.findElement(By.id("topmenu_maintenance")).click();
+	driver.findElement(By.id("operations")).click();
 	driver.findElement(By.linkText("Maintenance")).isDisplayed();
 	driver.findElement(By.linkText("Alerts")).isDisplayed();
 
@@ -60,7 +58,7 @@ public void f() throws FileNotFoundException {
 		System.out.println(e);
 	}
 
-WebElement table_element = driver.findElement(By.className("content tab-content bg-dot50"));
+WebElement table_element = driver.findElement(By.className("block"));
 java.util.List<WebElement> tr_collection=table_element.findElements(By.xpath("id('id43')/tbody/tr"));
 
 System.out.println("NUMBER OF ROWS IN THIS TABLE = "+tr_collection.size());

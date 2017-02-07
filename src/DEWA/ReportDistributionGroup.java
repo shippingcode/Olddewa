@@ -30,7 +30,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
            //WebDriver driver = new ChromeDriver();
   	       WebDriver driver = new FirefoxDriver();
   			driver.manage().window().maximize();
-  			//Access http://66.hubeleon.appspot.com
   			driver.get(prop.getProperty("url1"));
   			try{
   			Thread.sleep(1500);

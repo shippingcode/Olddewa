@@ -37,9 +37,7 @@ public class InsertAlertsContentProfile {
 
       //Create Firefox drive
       WebDriver driver = new FirefoxDriver();
-     // WebDriver driver = new FirefoxDriver();
       driver.manage().window().maximize();
-	  //Access http://66.hubeleon.appspot.com
 	  driver.get(prop.getProperty("url1"));
 	  try{
 	  Thread.sleep(1500);

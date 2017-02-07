@@ -11,7 +11,8 @@ package DEWA;
 	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
     import org.openqa.selenium.chrome.ChromeDriver;
-	import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 	public class RemoveScheduledReports {
 		boolean test=false;
@@ -26,10 +27,11 @@ package DEWA;
 				e1.printStackTrace();
 			}
 		      //Create Chrome drive
-		      System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-		        WebDriver driver = new ChromeDriver();
+		      //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+		      //WebDriver driver = new ChromeDriver();
+		      //Create Firefox drive
+				WebDriver driver = new FirefoxDriver();
 				driver.manage().window().maximize();
-				//Access http://66.hubeleon.appspot.com
 				driver.get(prop.getProperty("url1"));
 				try{
 				Thread.sleep(1500);
@@ -76,7 +78,7 @@ package DEWA;
 				}
 				//Remove reports containing AILA as user
 				
-				if(driver.findElement(By.cssSelector("span.label label-info")).isDisplayed())
+				if(driver.getPageSource().contains("AILA"))
 					{
 					try{
 					Thread.sleep(1500);
@@ -84,11 +86,8 @@ package DEWA;
 					}catch(Exception e)
 					{
 					System.out.println(e);
+					  }
 					}
-					};
 					
-				
-				
-				
 		}
 	}
