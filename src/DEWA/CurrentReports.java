@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
   public class CurrentReports  {
   	boolean test=false;
   	@Test
-  	 public void f() throws FileNotFoundException {
+  	 public void currentreports() throws FileNotFoundException {
   		  Properties prop = new Properties();
   		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
   	      try {

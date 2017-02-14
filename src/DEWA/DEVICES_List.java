@@ -257,8 +257,8 @@ public class DEVICES_List {
 		  //4. Create issue
 		  try{
 		  Thread.sleep(1500);
-		  driver.findElement(By.name("btnIssue")).click();
-		 }catch(Exception e)
+		  driver.findElement(By.cssSelector("btnIssue")).click();
+		  }catch(Exception e)
 		  {
 		  System.out.println(e);
 		   }
@@ -316,7 +316,7 @@ public class DEVICES_List {
 		  //4.1 Create preventive
 		  try{
 		  Thread.sleep(1500);
-		  driver.findElement(By.name("btnPreventive")).click();
+		  driver.findElement(By.id("btnPreventive")).click();
 		 }catch(Exception e)
 		  {
 		  System.out.println(e);
@@ -375,7 +375,7 @@ public class DEVICES_List {
 		  //4.2 Create corrective
 		  try{
 			  Thread.sleep(1500);
-			  driver.findElement(By.name("btnCorrective")).click();
+			  driver.findElement(By.id("btnCorrective")).click();
 			 }catch(Exception e)
 			  {
 			  System.out.println(e);

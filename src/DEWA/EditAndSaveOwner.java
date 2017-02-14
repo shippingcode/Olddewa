@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,12 +12,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AddOwner {
-	boolean test = false;
+public class EditAndSaveOwner {
+  boolean test = false;
 	GenerateData genData = null;
 	String owner = GenerateData.generateRandomString(20);
-  @Test
-         public void addowner() throws FileNotFoundException {
+@Test
+       public void addowner() throws FileNotFoundException {
+	//Login
 	  	 Properties prop = new Properties();
 	     FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	     try {
@@ -52,6 +54,7 @@ public class AddOwner {
 			{
 				System.out.println(e);
 			}
+  		//Add owner
 
 	  		//Go on Organization
 	  		try{
@@ -146,17 +149,48 @@ public class AddOwner {
 	  		{
 	  			System.out.println(e);
 	  		}
-	  		/*//Logout 
-	 		try{
-	 		Thread.sleep(1500);
-	 		driver.findElement(By.className("icon-eject")).click();
-	 		}catch(Exception e)
-	 		{
-	 		System.out.println(e);
-	 		}*/
-	 		test = true;
+	  	
+	  		//Search and edit and save owner
+	  	//Find organisation already created in the table of organisations
+			 WebElement table = driver.findElement(By.className("content"));
 
-	  	}
-	
+			// Now get all the TR elements from the table
+			java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
+			// And iterate over them, getting the cells
+			for (WebElement row : allRows) {
+			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
+			for (WebElement cell : cells) {
+			while(cell.getText()== owner);
+			{
+	     try{
+			Thread.sleep(1500);
+			driver.findElement(By.cssSelector("span.icon-pencil")).click();
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			     }
+			   }
+		    	}
+			}
+	  		
+	  	//Change OCHP operator ID
+			try{
+			Thread.sleep(1500);
+			driver.findElement(By.name("ochpOperatorId")).sendKeys("890");
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			   }
+			//Save the owner
+			
+			//Press Save Button
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.name("save_owner")).click();
+	  		}catch(Exception e)
+	  		{
+	  			System.out.println(e);
+	  		}
+	  		
   }
-
+}

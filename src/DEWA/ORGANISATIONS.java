@@ -21,16 +21,22 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class ORGANISATIONS {
+	WebDriver driver = null;
 	String owner = GenerateData.generateRandomString(5);
 	String motorist = GenerateData.generateRandomString(5);
 	String token = GenerateData.generateRandomAlphaNumeric(5);
 	String info = GenerateData.generateRandomAlphaNumeric(5);
     String device = GenerateData.generateRandomAlphaNumeric(5);
+    String phone = GenerateData.generateRandomNumber(10);
+    String license = GenerateData.generateRandomNumber(10);
+    String email = GenerateData.generateEmail(10);
+    
 	boolean test=false;
 
 	@Test
-	 public void f() throws FileNotFoundException {
-		  Properties prop = new Properties();
+	 public void organisations() throws FileNotFoundException {
+		//Login
+	 Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {
 			prop.load(file);
@@ -54,7 +60,19 @@ public class ORGANISATIONS {
 			{
 			System.out.println(e);
 			}
+			
+			//Choose organisation TEST
+			try{
+			Thread.sleep(1500);
+			WebElement orgdropdown = driver.findElement(By.name("organisation"));
+			Select org = new Select(orgdropdown);
+			org.selectByVisibleText("TEST");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+			}
 
+//Add owner
 		//Go on Organization
 		try{
 		Thread.sleep(1500);
@@ -156,7 +174,8 @@ public class ORGANISATIONS {
 		{
 		System.out.println(e);
 		}
-		
+
+	//Add device
 		//Go to DEVICES Tab
 		try{
 		Thread.sleep(1500);
@@ -259,6 +278,8 @@ public class ORGANISATIONS {
 		{
 		System.out.println(e);
 		}
+		
+	//Add RFID CARD
 		//Go to RFID CARDS
 		try{
 		Thread.sleep(1500);
@@ -325,6 +346,7 @@ public class ORGANISATIONS {
 		System.out.println(e);
 		}
 		
+		//Add Motorist System user
 		
 		//Go to RFID CARDS
 		try{
@@ -381,7 +403,7 @@ public class ORGANISATIONS {
 		//Fill phone
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("phoneNumber")).sendKeys("234567894444");
+		driver.findElement(By.name("phoneNumber")).sendKeys(phone);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -391,7 +413,7 @@ public class ORGANISATIONS {
 		//Fill email address
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("emailPrimary")).sendKeys("aila.bogasieru@gmail.com");
+		driver.findElement(By.name("emailPrimary")).sendKeys(email);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -400,7 +422,7 @@ public class ORGANISATIONS {
 		//License no
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("licenseNumber")).sendKeys("21345678934567");
+		driver.findElement(By.name("licenseNumber")).sendKeys(license);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -424,6 +446,7 @@ public class ORGANISATIONS {
 		System.out.println(e);
 		}
 		
+	//Search & Open organization
 		
 		//Go to ORGANISATIONS Tab
 		try{
@@ -456,15 +479,7 @@ public class ORGANISATIONS {
 		   }
 	    	}
 		}
-		//For owner org click open
-		try{
-		Thread.sleep(1500);
-		
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
-
+	//Go to TOKEN TAB
 		//Go to TAG/TOKEN Tab
 		driver.findElement(By.linkText("TAG/TOKEN")).click();
 		//Search the token already created
@@ -494,6 +509,7 @@ public class ORGANISATIONS {
 		//Check result is displayed
 		driver.findElement(By.xpath("//*[@id='table table-bordered table-striped']/table[1]/tbody/tr[1]/td[1]")).isDisplayed();
 
+	//Go to USER Tab
 		//Go to USER Tab
 		try{
 		Thread.sleep(1500);
@@ -518,6 +534,7 @@ public class ORGANISATIONS {
          {
         System.out.println(e);
          }
+		
 		//Delete the org
 		
 		//Find organisation already created in the table of organisations
@@ -541,8 +558,7 @@ public class ORGANISATIONS {
 		   }
 	    	}
 		}
-		
-			
+					
 		//Logout
 		try{
 		Thread.sleep(1500);

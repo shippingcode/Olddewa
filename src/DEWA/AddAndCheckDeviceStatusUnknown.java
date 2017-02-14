@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 		GenerateData genData = null;
 		String device = GenerateData.generateRandomString(20);
 		@Test
-		 public void f() throws FileNotFoundException {
+		 public void addcheckunknown() throws FileNotFoundException {
 			  Properties prop = new Properties();
 			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 		      try {

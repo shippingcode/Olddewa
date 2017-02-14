@@ -25,7 +25,7 @@ public class CreateRoles {
 		 String licenseno = GenerateData.generateRandomNumber(10);
 					
  		@Test
-		 public void f() throws FileNotFoundException {
+		 public void createroles() throws FileNotFoundException {
  			
 			  Properties prop = new Properties();
 			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");

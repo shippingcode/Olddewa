@@ -20,7 +20,7 @@ public class AddAndCheckDeviceStatusOperative {
 	String equipmentname = GenerateData.generateRandomAlphaNumeric(5);
 	String model = GenerateData.generateRandomAlphaNumeric(5);
 	@Test
-	 public void f() throws FileNotFoundException {
+	 public void addcheckoperative() throws FileNotFoundException {
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {

@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class CheckStatusDeviceLocation {
 	boolean test=false;
 	@Test
-	 public void f() throws FileNotFoundException {
+	 public void checkstatuslocation() throws FileNotFoundException {
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {

@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.Select;
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);
 	@Test
-	public void f() throws FileNotFoundException {
+	public void addcheckclosed() throws FileNotFoundException {
 	Properties prop = new Properties();
 	FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 			
