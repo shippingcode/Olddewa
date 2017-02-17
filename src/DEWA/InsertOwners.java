@@ -17,7 +17,7 @@ public class InsertOwners {
 	 String[] ochp = {"99", "78", "45", "66", "88", "90"};
 	 boolean test = false;
   @Test
-  public void f() throws FileNotFoundException {
+  public void insertowners() throws FileNotFoundException {
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
       try {

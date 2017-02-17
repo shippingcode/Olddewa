@@ -16,13 +16,13 @@ import org.testng.annotations.Test;
 
 public class InsertPreventiveWorkOrders {
 	boolean test = false;
-	String[] preventive = new String[]{"Preventive1","Preventive2","Preventive3","Preventive4","Preventive5","Preventive6","Preventive7","Preventive8",
+	String[] preventive = {"Preventive1","Preventive2","Preventive3","Preventive4","Preventive5","Preventive6","Preventive7","Preventive8",
  			"Preventive9","Preventive10","Preventive11","Preventive12","Preventive13","Preventive14","Preventive15","Preventive16","Preventive17",
  			"Preventive18","Preventive19","Preventive20","Preventive21"};
 
 	
   @Test
-  public void f() throws FileNotFoundException {
+  public void insertpreventiveworkorders() throws FileNotFoundException {
 	 		  Properties prop = new Properties();
 	 		 FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {

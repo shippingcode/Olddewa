@@ -15,17 +15,17 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class InsertAlertsContentProfile {
-	String[] name = new String[]{GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5)};
-	String[] phone = new String[]{GenerateData.generateRandomNumber(10),GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10)};
-	String[] phone1 = new String[]{GenerateData.generateRandomNumber(10),GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10)};
-	String[] sms1 = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
-	String[] sms = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
-	String[] subject = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
-	String[] subject1 = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
-	String[] emailbody = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
-	String[] emailbody1 = new String[]{GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] name = {GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5),GenerateData.generateRandomString(5)};
+	String[] phone = {GenerateData.generateRandomNumber(10),GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10)};
+	String[] phone1 = {GenerateData.generateRandomNumber(10),GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10), GenerateData.generateRandomNumber(10)};
+	String[] sms1 = {GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] sms = {GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] subject = {GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] subject1 = {GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] emailbody = {GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] emailbody1 = {GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
 	@Test
-	public void f() throws FileNotFoundException {
+	public void insertalertscontentprofile() throws FileNotFoundException {
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
       try {

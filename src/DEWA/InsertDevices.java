@@ -17,7 +17,7 @@ public class InsertDevices {
 	GenerateData genData = null;
 	
   @Test
-  public void f() throws FileNotFoundException {
+  public void insertdevices() throws FileNotFoundException {
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
       try {

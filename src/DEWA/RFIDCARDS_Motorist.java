@@ -17,7 +17,7 @@ package DEWA;
 		String motorist = GenerateData.generateRandomString(5);
 		String phone = GenerateData.generateRandomNumber(10);
 		@Test
-		 public void f() throws FileNotFoundException {
+		 public void addmotorist() throws FileNotFoundException {
 			  Properties prop = new Properties();
 			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 		      try {

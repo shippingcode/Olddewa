@@ -17,7 +17,7 @@ public class InsertGroups {
 	String groupname[] = {GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5), GenerateData.generateRandomString(5)};
 
   @Test
-  public void f() throws FileNotFoundException {
+  public void insertgroups() throws FileNotFoundException {
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
       try {

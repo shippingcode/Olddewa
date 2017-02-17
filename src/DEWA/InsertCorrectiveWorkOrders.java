@@ -15,13 +15,13 @@ import org.testng.annotations.Test;
 
 public class InsertCorrectiveWorkOrders {
   boolean test = false;
-  String[] corrective = new String[]{"Corrective1","Corrective2","Corrective3","Corrective4","Corrective5","Corrective6","Corrective7","Corrective8",
+  String[] corrective = {"Corrective1","Corrective2","Corrective3","Corrective4","Corrective5","Corrective6","Corrective7","Corrective8",
 			"Corrective9","Corrective10","Corrective11","Corrective12","Corrective13","Corrective14","Corrective15","Corrective16","Corrective17",
 			"Corrective18","Corrective19","Corrective20","Corrective21"};
 
 	
 @Test
-public void f() throws FileNotFoundException {
+public void insertcorrectiveworkorders() throws FileNotFoundException {
 	 		  Properties prop = new Properties();
 	 		 FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {

@@ -190,7 +190,7 @@ public class RFIDCARDS_RFIDCardsOperations {
 		  }
 		    }
 	}
-    //Find token already created in the table of assigned
+  /*  //Find token already created in the table of assigned
 	 WebElement table = driver.findElement(By.className("content"));
 
 	// Now get all the TR elements from the table
@@ -240,7 +240,7 @@ public class RFIDCARDS_RFIDCardsOperations {
 		driver.findElement(By.name("un-bar")).click();
 		}
   }
-}
+} */
 	//Go to Whitelisted Tab
 	try{
 	Thread.sleep(1500);

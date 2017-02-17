@@ -3,6 +3,7 @@
 <suite name="TABS" verbose="1" >
     <test name="TABS">
     <classes>
+    
     <class name="DEWA.DEVICES_List"/>
     class name="DEWA.DEVICES_Map"/>
     class name="DEWA.DEVICES_Events"/>
@@ -37,3 +38,5 @@
     </classes>
   </test>
 </suite>
+
+

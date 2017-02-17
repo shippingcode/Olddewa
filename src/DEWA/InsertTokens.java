@@ -18,11 +18,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class InsertTokens {
-	String[] tokenA = {GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5),GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
-	String[] infoA = new String[]{"info1","info2","info3","info4","info5", "info6"};
+	String[] token = {GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
+	String[] info = {GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5), GenerateData.generateRandomAlphaNumeric(5)};
 	boolean test = false;
+
 	  @Test
-	  public void f() throws FileNotFoundException {
+	  public void inserttokens() throws FileNotFoundException {
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {
@@ -94,10 +95,10 @@ public class InsertTokens {
 			System.out.println(e);
 			}
 		//Fill token
-	    driver.findElement(By.name("token")).sendKeys((tokenA[i]));
+	    driver.findElement(By.name("token")).sendKeys((token[i]));
 	    driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 	    //Fill token info
-	    driver.findElement(By.name("info")).sendKeys((infoA[j]));
+	    driver.findElement(By.name("info")).sendKeys((info[j]));
 	    driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 
 	    /*//Add Expiry date
@@ -181,7 +182,7 @@ public class InsertTokens {
 		int k = 0;
 		 while (k<=5) {
 	    //Search the token already created
-	    driver.findElement(By.id("search2")).sendKeys(prop.getProperty(tokenA[i]));
+	    driver.findElement(By.id("search2")).sendKeys(prop.getProperty(token[i]));
 	    //Press Search button
 	    try{
 			Thread.sleep(1500);

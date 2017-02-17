@@ -14,7 +14,7 @@ public class USE {
 boolean test = false;
 
 	@Test
-	 public void f() throws FileNotFoundException {
+	 public void useTab() throws FileNotFoundException {
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {
@@ -53,7 +53,7 @@ boolean test = false;
 		//Create filter
 		try{
 			Thread.sleep(1500);
-		driver.findElement(By.name("search2")).sendKeys("SeleniumDevice");
+		driver.findElement(By.name("deviceName")).sendKeys();
 		}catch(Exception e)
 		{
 			System.out.println(e);

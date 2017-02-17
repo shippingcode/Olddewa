@@ -12,13 +12,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AddToken {
+public class AddAssignedTokenToUser {
 
    String token = GenerateData.generateRandomAlphaNumeric(5);
 	String info = GenerateData.generateRandomAlphaNumeric(5);
 	boolean test = false;
 	  @Test
-	public void addtoken()  throws FileNotFoundException {
+	public void addassignedtokentouser()  throws FileNotFoundException {
 	 //Login
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
@@ -110,10 +110,15 @@ public class AddToken {
 		organisation.selectByVisibleText("TEST");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		//Choose an user from dropdown list
+		 try{
+		   Thread.sleep(1500);
 		WebElement userdropdown = driver.findElement(By.name("user"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select user = new Select(userdropdown);
-		user.selectByVisibleText("MotoristA");
+		user.selectByVisibleText("MotoristB");
+		 }catch(Exception e)
+		{
+		System.out.println(e);
+		}
 		//Check the checkbox for OCHP Enabled
 		try{
 		Thread.sleep(1500);
@@ -122,22 +127,37 @@ public class AddToken {
 		{
 		System.out.println(e);
 		}
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+	
 		//Choose OCHP Type
+		try{
+		Thread.sleep(1500);
 		WebElement ochpdropdown = driver.findElement(By.name("ochpType"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select ochp = new Select(ochpdropdown);
 		ochp.selectByVisibleText("rfid");
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
       //Choose OCHP Subtype
+		try{
+		Thread.sleep(1500);
 		WebElement ochpsubtypedropdown = driver.findElement(By.name("ochpSubtype"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select ochpsubtype = new Select(ochpsubtypedropdown);
 		ochpsubtype.selectByVisibleText("calypso");
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
 		//Choose OCHP Representation
+		try{
+		Thread.sleep(1500);
 		WebElement ochprepresdropdown = driver.findElement(By.name("ochpTokenRepresentation"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select ochprepres = new Select(ochprepresdropdown);
 		ochprepres.selectByVisibleText("sha-160");
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
 		//Fill Contract ID
 		try{
 		Thread.sleep(1500);

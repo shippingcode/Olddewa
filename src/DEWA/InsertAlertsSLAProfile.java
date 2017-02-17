@@ -18,14 +18,14 @@ public class InsertAlertsSLAProfile {
 
   WebDriver driver = null;
 	boolean test = false;
-	String[] profile = new String[]{"Profile1","Profile2","Profile3","Profile4","Profile5","Profile6","Profile7","Profile8",
+	String[] profile = {"Profile1","Profile2","Profile3","Profile4","Profile5","Profile6","Profile7","Profile8",
  			"profile9","Profile10","Profile11","Profile12","Profile13","Profile14","Profile15","Profile16","Profile17",
  			"Profile18","Profile19","Profile20","Profile21"};
-	String[] contract = new String[]{"contract1","contract2","contract3","contract4","contract5","contract6","contract7","contract8",
+	String[] contract ={"contract1","contract2","contract3","contract4","contract5","contract6","contract7","contract8",
  			"contract9","contract10","contract11","contract12","contract13","contract14","contract15","contract16","contract17",
  			"contract18","contract19","contract20","contract21"};
 @Test
-public void f() throws FileNotFoundException {
+public void insertalertsSLAProfile() throws FileNotFoundException {
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
     try {
@@ -93,7 +93,7 @@ public void f() throws FileNotFoundException {
 	//Fill a name
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.name("slaName")).sendKeys(profile[j]);
+	driver.findElement(By.name("slaName")).sendKeys(profile[i]);
 	}catch(Exception e)
 	{
 	System.out.println(e);

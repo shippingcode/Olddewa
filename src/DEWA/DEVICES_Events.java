@@ -36,8 +36,8 @@ public class DEVICES_Events {
         driver.get(prop.getProperty("url1"));
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"username")).sendKeys(new CharSequence[]{prop.getProperty("username1")});
-            driver.findElement(By.name((String)"password")).sendKeys(new CharSequence[]{prop.getProperty("password1")});
+            driver.findElement(By.name((String)"username")).sendKeys(prop.getProperty("username1"));
+            driver.findElement(By.name((String)"password")).sendKeys(prop.getProperty("password1"));
             driver.findElement(By.xpath((String)"//input[@value='Log In']")).click();
         }
         catch (Exception e) {
@@ -45,7 +45,7 @@ public class DEVICES_Events {
         }
         try {
             Thread.sleep(1500);
-            WebElement orgdropdown = driver.findElement(By.name((String)"organisation"));
+            WebElement orgdropdown = driver.findElement(By.name("organisation"));
             Select org = new Select(orgdropdown);
             org.selectByVisibleText("TEST");
         }
@@ -54,79 +54,112 @@ public class DEVICES_Events {
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.id((String)"devices")).click();
-            driver.findElement(By.linkText((String)"List")).isDisplayed();
-            driver.findElement(By.linkText((String)"Map")).isDisplayed();
-            driver.findElement(By.linkText((String)"Events")).isDisplayed();
-            driver.findElement(By.linkText((String)"Overview")).isDisplayed();
-            driver.findElement(By.linkText((String)"Location")).isDisplayed();
-            driver.findElement(By.linkText((String)"Map Location")).isDisplayed();
-            driver.findElement(By.linkText((String)"Report")).isDisplayed();
+            driver.findElement(By.id("devices")).click();
+            driver.findElement(By.linkText("List")).isDisplayed();
+            driver.findElement(By.linkText("Map")).isDisplayed();
+            driver.findElement(By.linkText("Events")).isDisplayed();
+            driver.findElement(By.linkText("Overview")).isDisplayed();
+            driver.findElement(By.linkText("Location")).isDisplayed();
+            driver.findElement(By.linkText("Map Location")).isDisplayed();
+            driver.findElement(By.linkText("Report")).isDisplayed();
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.linkText((String)"Events")).click();
+            driver.findElement(By.linkText("Events")).click();
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"search")).sendKeys(new CharSequence[]{"device1"});
+            driver.findElement(By.name("search")).sendKeys("device1");
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"start")).sendKeys("01/01/2015");
+            driver.findElement(By.name("start")).sendKeys("01/01/2015");
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"end")).sendKeys("01/01/2017");
+            driver.findElement(By.name("end")).sendKeys("01/01/2017");
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"searchBtn")).click();
+            driver.findElement(By.name("searchBtn")).click();
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.cssSelector((String)"span.icon-cogs")).click();
+            driver.findElement(By.cssSelector("span.icon-search")).click();
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"panelEventDetail:deviceLink")).click();
+            driver.findElement(By.name("panelEventDetail:deviceLink")).click();
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.id((String)"statusDevice")).click();
-            driver.findElement(By.name((String)"locationDevice")).click();
-            driver.findElement(By.name((String)"controlDevice")).click();
+           driver.findElement(By.id("statusDevice")).isDisplayed();
+            driver.findElement(By.id("locationDevice")).isDisplayed();
+            driver.findElement(By.id("controlDevice")).isDisplayed();
+            driver.findElement(By.id("controlDocuments")).isDisplayed();
+            driver.findElement(By.id("historyEvents")).isDisplayed();
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
+        Thread.sleep(1500);
+        driver.findElement(By.id("locationDevice")).isDisplayed();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        try {
             Thread.sleep(1500);
-            driver.findElement(By.className((String)"icon-eject")).click();
+            driver.findElement(By.id("controlDevice")).isDisplayed();
+            }
+            catch (Exception e) {
+                System.out.println(e);
+            }
+        try {
+            Thread.sleep(1500);
+            driver.findElement(By.id("controlDocuments")).isDisplayed();
+            }
+            catch (Exception e) {
+                System.out.println(e);
+            }
+        try {
+            Thread.sleep(1500);
+            driver.findElement(By.id("historyEvents")).isDisplayed();
+            }
+            catch (Exception e) {
+                System.out.println(e);
+            }
+        
+        //Logout
+        try {
+            Thread.sleep(1500);
+            driver.findElement(By.className("icon-eject")).click();
         }
         catch (Exception e) {
             System.out.println(e);

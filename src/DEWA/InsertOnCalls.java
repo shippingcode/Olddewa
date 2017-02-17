@@ -17,7 +17,7 @@ public class InsertOnCalls {
 	boolean test = false;
 
   @Test
-  public void f() throws FileNotFoundException {
+  public void insertoncall() throws FileNotFoundException {
 	
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");

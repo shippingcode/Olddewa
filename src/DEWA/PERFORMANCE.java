@@ -14,7 +14,7 @@ public class PERFORMANCE {
 boolean test = false;
 
 	@Test
-	 public void f() throws FileNotFoundException {
+	 public void performanceTab() throws FileNotFoundException {
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {
@@ -42,20 +42,13 @@ boolean test = false;
 		//Go to PERFORMANCE Tab
 		try{
 			Thread.sleep(1500);
-			driver.findElement(By.id("topmenu_issues")).click();
+			driver.findElement(By.cssSelector("span.icon-wrench")).click();
 		}catch(Exception e)
 		{
 			System.out.println(e);
 			}
+	
 		
-		//Click on icon-chevron-down
-		try{
-			Thread.sleep(1500);
-		driver.findElement(By.className("icon-chevron-down")).click();
-		}catch(Exception e)
-		{
-			System.out.println(e);
-			}
 		//Press Next Button
 		try{
 			Thread.sleep(1500);

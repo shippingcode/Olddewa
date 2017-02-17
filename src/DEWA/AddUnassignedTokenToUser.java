@@ -12,12 +12,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class RemoveToken {
-String token = GenerateData.generateRandomAlphaNumeric(5);
+public class AddUnassignedTokenToUser {
+
+   String token = GenerateData.generateRandomAlphaNumeric(5);
 	String info = GenerateData.generateRandomAlphaNumeric(5);
 	boolean test = false;
 	  @Test
-	public void removetoken()  throws FileNotFoundException {
+	public void addunassignedtoken()  throws FileNotFoundException {
 	 //Login
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
@@ -31,7 +32,7 @@ String token = GenerateData.generateRandomAlphaNumeric(5);
 	      //Create Firefox drive
 			WebDriver driver = new FirefoxDriver();
 			driver.manage().window().maximize();
-		driver.get(prop.getProperty("url1"));
+  		driver.get(prop.getProperty("url1"));
 			try{
 				Thread.sleep(1500);
 
@@ -103,16 +104,17 @@ String token = GenerateData.generateRandomAlphaNumeric(5);
 		}
 
 	    //Choose organization
+	    try{
+		Thread.sleep(1500);
 		WebElement orgdropdown = driver.findElement(By.name("creatorOrganisation"));
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select organisation = new Select(orgdropdown);
 		organisation.selectByVisibleText("TEST");
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		//Choose an user from dropdown list
-		WebElement userdropdown = driver.findElement(By.name("user"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-		Select user = new Select(userdropdown);
-		user.selectByVisibleText("MotoristA");
+	    }catch(Exception e)
+		{
+		System.out.println(e);
+		}
+
 		//Check the checkbox for OCHP Enabled
 		try{
 		Thread.sleep(1500);
@@ -121,22 +123,37 @@ String token = GenerateData.generateRandomAlphaNumeric(5);
 		{
 		System.out.println(e);
 		}
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
 		//Choose OCHP Type
+		try{
+		Thread.sleep(1500);
 		WebElement ochpdropdown = driver.findElement(By.name("ochpType"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select ochp = new Select(ochpdropdown);
 		ochp.selectByVisibleText("rfid");
-    //Choose OCHP Subtype
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
+      //Choose OCHP Subtype
+		try{
+		Thread.sleep(1500);
 		WebElement ochpsubtypedropdown = driver.findElement(By.name("ochpSubtype"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select ochpsubtype = new Select(ochpsubtypedropdown);
 		ochpsubtype.selectByVisibleText("calypso");
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
 		//Choose OCHP Representation
+		try{
+		Thread.sleep(1500);
 		WebElement ochprepresdropdown = driver.findElement(By.name("ochpTokenRepresentation"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select ochprepres = new Select(ochprepresdropdown);
 		ochprepres.selectByVisibleText("sha-160");
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
 		//Fill Contract ID
 		try{
 		Thread.sleep(1500);
@@ -163,66 +180,16 @@ String token = GenerateData.generateRandomAlphaNumeric(5);
 			System.out.println(e);
 			}
 	    
-	  //Search Token
-	    
-	    //Search the token already created
-	    driver.findElement(By.id("search2")).sendKeys(token);
-	    //Press Search button
-	    try{
-			Thread.sleep(1500);
-	    driver.findElement(By.id("btnSearch")).click();
-	    }catch(Exception e)
-		{
-			System.out.println(e);
-			}
-	   	//Remove RFID CARD
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.id("rfid")).click();
-			driver.findElement(By.linkText("RFID Cards Overview")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
-			//Find RFID CARD
-			 WebElement table1 = driver.findElement(By.className("content"));
+    
+	  //Logout
+	  		try{
+	  		Thread.sleep(1500);
 
-			// Now get all the TR elements from the table
-			java.util.List<WebElement> allRows1 = table1.findElements(By.tagName("tr"));
-			// And iterate over them, getting the cells
-			for (WebElement row1 : allRows1) {
-			java.util.List<WebElement> cells1 = row1.findElements(By.tagName("td"));
-			for (WebElement cell1 : cells1) {
-			while(cell1.getText()== token);
-			{
-	        try{
-			Thread.sleep(1500);
-			//When is found the RFID CARD delete it
-			driver.findElement(By.cssSelector("span.icon-trash")).click();
-			
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			    }
-	        driver.findElement(By.name("delete")).click();
-			  }
-			}
-			}
-			
-		//Logout
-			try{
-		  		Thread.sleep(1500);
-
-		  		driver.findElement(By.className("icon-eject")).click();
-		  		}catch(Exception e)
-		  		{
-		  			System.out.println(e);
-		  		}
-		  		test = true;
-			
+	  		driver.findElement(By.className("icon-eject")).click();
+	  		}catch(Exception e)
+	  		{
+	  			System.out.println(e);
+	  		}
+	  		test = true;
 	  }
 }
-
-		
-
-
