@@ -299,7 +299,7 @@ public class CreateRoles {
 			{
 			System.out.println(e);
 			}
-			
+			/*No longer applicable from GUI
 			//Create HubelonSysAdmin Role		
 			//Click on Add System User
 			try{
@@ -414,7 +414,7 @@ public class CreateRoles {
 			{
 			System.out.println(e);
 			}
-			
+			*/
 			//Create Technician Role
 			//Click on Add System User
 			try{

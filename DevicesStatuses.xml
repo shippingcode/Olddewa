@@ -3,10 +3,10 @@
 <suite name="DevicesStatuses" verbose="1" >
     <test name="DevicesStatuses">
     <classes>
-    <class name="DEWA.AddAndCheckDeviceStatusOperative"/>
-    <class name="DEWA.AddAndCheckDeviceStatusClosed"/>
-    <class name="DEWA.AddAndCheckDeviceStatusInoperative"/>
-    <class name="DEWA.AddAndCheckDeviceStatusUnknown"/>
+    <class name="DEWA.CreateAndCheckDeviceStatusOperative"/>
+    <class name="DEWA.CreateAndCheckDeviceStatusClosed"/>
+    <class name="DEWA.CreateAndCheckDeviceStatusInoperative"/>
+    <class name="DEWA.CreateAndCheckDeviceStatusUnknown"/>
     <class name="DEWA.CheckStatusDeviceLocation"/>
     
     </classes>

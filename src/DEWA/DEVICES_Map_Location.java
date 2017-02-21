@@ -1,13 +1,12 @@
+/* Add sub-menu Map_Location from DEVICES Tab */
+
 package DEWA;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.Properties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -17,7 +16,7 @@ public class DEVICES_Map_Location {
     boolean test = false;
 
     @Test
-    public void f() throws FileNotFoundException {
+    public void maplocation() throws FileNotFoundException {
         Properties prop = new Properties();
         FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
         try {

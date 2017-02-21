@@ -1,4 +1,4 @@
-/* Add System user */
+/* Create System user */
 
 package DEWA;
 import java.io.FileInputStream;
@@ -9,13 +9,12 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import DEWA.GenerateData;
 
-public class AddSystemUser {
+public class CreateSystemUser {
 	boolean test=false;
 	GenerateData genData = null;
 	String firstname = GenerateData.generateRandomString(5);
@@ -24,7 +23,8 @@ public class AddSystemUser {
 	String phone = GenerateData.generateRandomNumber(10);
 
 	@Test
-	 public void addsystemuser() throws FileNotFoundException {
+	 public void createsystemuser() throws FileNotFoundException {
+		//Login
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {
@@ -162,6 +162,15 @@ public class AddSystemUser {
 		{
 		System.out.println(e);
 		}
+		if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
+		{
+			test=true;
+			System.out.println("System user was created with success");
+		}
+		else
+		{
+			System.out.println("Something went wrong");
+		}
 		
 		//Logout
 		try{
@@ -171,8 +180,7 @@ public class AddSystemUser {
 		{
 		System.out.println(e);
 		}
-		test=true;
-
+	
 	}
 
 }

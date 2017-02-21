@@ -13,8 +13,6 @@
     class name="DEWA.DEVICES_Report"/>
     <class name="DEWA.RFIDCARDS_RFIDCardsOverviewAssign"/>
     <class name="DEWA.RFIDCARDS_RFIDCardsOperations"/>
-    <class name="DEWA.RFIDCARDS_Motorist"/>
-    <class name="DEWA.RFIDCARDS_Groups"/>
     <class name="DEWA.USE"/>
     <class name="DEWA.PERFORMANCE"/>
     <class name="DEWA.ORGANISATIONS"/>

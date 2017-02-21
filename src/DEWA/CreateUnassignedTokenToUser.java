@@ -1,3 +1,5 @@
+/* Create Token without selecting an user from the dropdown list */
+
 package DEWA;
 
 import java.io.FileInputStream;
@@ -12,13 +14,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AddAssignedTokenToUser {
+public class CreateUnassignedTokenToUser {
 
    String token = GenerateData.generateRandomAlphaNumeric(5);
 	String info = GenerateData.generateRandomAlphaNumeric(5);
 	boolean test = false;
 	  @Test
-	public void addassignedtokentouser()  throws FileNotFoundException {
+	public void createunassignedtoken()  throws FileNotFoundException {
 	 //Login
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
@@ -104,21 +106,17 @@ public class AddAssignedTokenToUser {
 		}
 
 	    //Choose organization
+	    try{
+		Thread.sleep(1500);
 		WebElement orgdropdown = driver.findElement(By.name("creatorOrganisation"));
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select organisation = new Select(orgdropdown);
 		organisation.selectByVisibleText("TEST");
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		//Choose an user from dropdown list
-		 try{
-		   Thread.sleep(1500);
-		WebElement userdropdown = driver.findElement(By.name("user"));
-		Select user = new Select(userdropdown);
-		user.selectByVisibleText("MotoristB");
-		 }catch(Exception e)
+	    }catch(Exception e)
 		{
 		System.out.println(e);
 		}
+
 		//Check the checkbox for OCHP Enabled
 		try{
 		Thread.sleep(1500);
@@ -127,7 +125,7 @@ public class AddAssignedTokenToUser {
 		{
 		System.out.println(e);
 		}
-	
+		
 		//Choose OCHP Type
 		try{
 		Thread.sleep(1500);

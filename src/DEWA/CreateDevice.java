@@ -1,4 +1,7 @@
+/* Create new device from DEVICES -> LIST     */
+
 package DEWA;   
+
    import org.testng.annotations.Test;
 	import java.io.FileInputStream;
 	import java.io.FileNotFoundException;
@@ -16,14 +19,14 @@ package DEWA;
 
 
 
-		public class AddDevice { 
+		public class CreateDevice { 
 		boolean test = false;
 		GenerateData genData = null;
 	    String device = GenerateData.generateRandomString(20);
 		WebDriver driver = null;
 	
 		@Test
-		public void adddevice() throws FileNotFoundException {
+		public void createdevice() throws FileNotFoundException {
 			//Login
 			Properties prop = new Properties();
 			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
@@ -213,6 +216,17 @@ package DEWA;
 				{
 					System.out.println(e);
 					}
+				
+				if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
+				{
+					test=true;
+					System.out.println("Device was created with success");
+				}
+				else
+				{
+					System.out.println("Something went wrong");
+				}
+				
 				//Logout
 				try{
 				Thread.sleep(1500);
@@ -221,7 +235,7 @@ package DEWA;
 				{
 				System.out.println(e);
 				}
-					test=true;
+					
 				
 						
 		    	}

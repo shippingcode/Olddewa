@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AddAndCheckDeviceStatusOperative {
+public class CreateAndCheckDeviceStatusOperative {
 	boolean test = false;
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);
@@ -447,12 +447,12 @@ public class AddAndCheckDeviceStatusOperative {
 			for (WebElement row : allRows) {
 			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 			for (WebElement cell : cells) {
-			while(cell.getText()== device);
+			if(cell.getText()== device);
 			{
 	        try{
 			Thread.sleep(1500);
 			if(driver.getPageSource().contains("Unknown"))
-					{
+			{
 				test = true;
 				System.out.println("Device's status is in Unknown");
 			}

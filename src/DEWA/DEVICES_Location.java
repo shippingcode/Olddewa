@@ -5,11 +5,8 @@ package DEWA;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.Properties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -19,7 +16,8 @@ public class DEVICES_Location {
     boolean test = false;
 
     @Test
-    public void f() throws FileNotFoundException {
+    public void devicelocation() throws FileNotFoundException {
+    	//Login
         Properties prop = new Properties();
         FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
         try {
@@ -33,9 +31,9 @@ public class DEVICES_Location {
         driver.get(prop.getProperty("url1"));
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name((String)"username")).sendKeys(new CharSequence[]{prop.getProperty("username1")});
-            driver.findElement(By.name((String)"password")).sendKeys(new CharSequence[]{prop.getProperty("password1")});
-            driver.findElement(By.xpath((String)"//input[@value='Log In']")).click();
+            driver.findElement(By.name("username")).sendKeys(prop.getProperty("username1"));
+            driver.findElement(By.name("password")).sendKeys(prop.getProperty("password1"));
+            driver.findElement(By.xpath("//input[@value='Log In']")).click();
         }
         catch (Exception e) {
             System.out.println(e);
@@ -52,53 +50,65 @@ public class DEVICES_Location {
         try {
             Thread.sleep(1500);
             driver.findElement(By.id((String)"devices")).click();
-            driver.findElement(By.linkText((String)"List")).isDisplayed();
-            driver.findElement(By.linkText((String)"Map")).isDisplayed();
-            driver.findElement(By.linkText((String)"Events")).isDisplayed();
-            driver.findElement(By.linkText((String)"Overview")).isDisplayed();
-            driver.findElement(By.linkText((String)"Location")).isDisplayed();
-            driver.findElement(By.linkText((String)"Map Location")).isDisplayed();
-            driver.findElement(By.linkText((String)"Report")).isDisplayed();
+            driver.findElement(By.linkText("List")).isDisplayed();
+            driver.findElement(By.linkText("Map")).isDisplayed();
+            driver.findElement(By.linkText("Events")).isDisplayed();
+            driver.findElement(By.linkText("Overview")).isDisplayed();
+            driver.findElement(By.linkText("Location")).isDisplayed();
+            driver.findElement(By.linkText("Map Location")).isDisplayed();
+            driver.findElement(By.linkText("Report")).isDisplayed();
         }
         catch (Exception e) {
             System.out.println(e);
         }
-        driver.findElement(By.linkText((String)"Location")).click();
+        driver.findElement(By.linkText("Location")).click();
         try {
             Thread.sleep(1500);
-            driver.findElement(By.id((String)"search")).sendKeys("Strada Dionisie Lupu");
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-        try {
-            Thread.sleep(1500);
-            driver.findElement(By.id((String)"btnSearch")).click();
+            driver.findElement(By.id("search")).sendKeys("Strada Dionisie Lupu");
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.cssSelector((String)"span.icon-search")).click();
+            driver.findElement(By.id("btnSearch")).click();
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.linkText((String)"Offline")).click();
+            driver.findElement(By.cssSelector("span.icon-search")).click();
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.className((String)"icon-eject")).click();
+           if(driver.findElement(By.linkText("Offline")).isDisplayed());
+           {
+           driver.findElement(By.linkText("Offline")).click();
+           if(driver.getPageSource().contains("Offline")){
+        	   System.out.println("Device status correponds to the status location");
+        	   test = true;
+             }
+           else
+           {
+        	   System.out.println("Something went wrong");
+             }
+           }
+           
         }
         catch (Exception e) {
             System.out.println(e);
         }
-        this.test = true;
+        try {
+            Thread.sleep(1500);
+            driver.findElement(By.className("icon-eject")).click();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+       
     }
 }

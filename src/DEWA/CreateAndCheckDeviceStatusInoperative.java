@@ -4,10 +4,6 @@ package DEWA;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AddAndCheckDeviceStatusInoperative {
+public class CreateAndCheckDeviceStatusInoperative {
 	boolean test = false;
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);

@@ -1,38 +1,42 @@
-/* Add a new device with Unknown status and check the status of the device*/
-
+/* Add a new device with maker/model, status Closed and check the status of the device*/
 package DEWA;
 import org.testng.annotations.Test;
-	import java.io.FileInputStream;
-	import java.io.FileNotFoundException;
-	import java.io.IOException;
-	import java.sql.Date;
-	import java.text.DateFormat;
-	import java.text.SimpleDateFormat;
-	import java.util.Calendar;
-	import java.util.Properties;
-	import org.openqa.selenium.By;
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.firefox.FirefoxDriver;
-	import org.openqa.selenium.support.ui.Select;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Properties;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
-	public class AddAndCheckDeviceStatusUnknown { 
-		boolean test = false;
-		GenerateData genData = null;
-		String device = GenerateData.generateRandomString(20);
-		@Test
-		 public void addcheckunknown() throws FileNotFoundException {
-			  Properties prop = new Properties();
-			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
-		      try {
+
+
+	public class CreateAndCheckDeviceStatusClosed { 
+	boolean test = false;
+	GenerateData genData = null;
+	String device = GenerateData.generateRandomString(20);
+	@Test
+	public void addcheckclosed() throws FileNotFoundException {
+	Properties prop = new Properties();
+	FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
+			
+	         try {
 				prop.load(file);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		      //Create Firefox drive
-				WebDriver driver = new FirefoxDriver();
-				driver.manage().window().maximize();
+	       //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
+		      //WebDriver driver = new ChromeDriver();
+		     //Create Firefox drive
+		       WebDriver driver = new FirefoxDriver();
+			  driver.manage().window().maximize();
 				driver.get(prop.getProperty("url1"));
 				try{
 				Thread.sleep(1500);
@@ -48,10 +52,10 @@ import org.testng.annotations.Test;
 
 				//Choose organisation TEST
 				try{
-					Thread.sleep(1500);
-					WebElement orgdropdown = driver.findElement(By.name("organisation"));
-					Select org = new Select(orgdropdown);
-					 org.selectByVisibleText("TEST");
+				Thread.sleep(1500);
+				WebElement orgdropdown = driver.findElement(By.name("organisation"));
+				Select org = new Select(orgdropdown);
+				org.selectByVisibleText("TEST");
 				}catch(Exception e)
 				{
 					System.out.println(e);
@@ -76,10 +80,11 @@ import org.testng.annotations.Test;
 				{
 				System.out.println(e);
 				}
-				//Fill a device name
+				//Fill device name
 				try{
-				Thread.sleep(1500);
-				driver.findElement(By.name("deviceName")).sendKeys(device);
+				Thread.sleep(1500);	
+				//Fill a device name
+				driver.findElement(By.name("deviceName")).sendKeys(device);   
 				}catch(Exception e)
 				{
 				System.out.println(e);
@@ -121,7 +126,7 @@ import org.testng.annotations.Test;
 			try{
 			WebElement statusdropdown = driver.findElement(By.name("userAppliedStatusType"));
 			Select status = new Select(statusdropdown);
-			status.selectByVisibleText("Unknown");
+			status.selectByVisibleText("Closed");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -249,14 +254,14 @@ import org.testng.annotations.Test;
 				for (WebElement row : allRows) {
 				java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 				for (WebElement cell : cells) {
-				while(cell.getText()== device);
+				if(cell.getText()== device);
 				{
 		        try{
 				Thread.sleep(1500);
-				if(driver.getPageSource().contains("Unknown"))
+				if(driver.getPageSource().contains("Unavailable"))
 						{
 					test = true;
-					System.out.println("Device's status is in Unknown");
+					System.out.println("Device's status is in Unavailable");
 				}
 				else
 				{
@@ -270,7 +275,7 @@ import org.testng.annotations.Test;
 				  }
 				}
 				
-				//Logout
+			//Logout
 				try{
 				Thread.sleep(1500);
 				driver.findElement(By.className("icon-eject")).click();

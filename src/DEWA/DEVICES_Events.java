@@ -5,13 +5,10 @@ package DEWA;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -82,14 +79,16 @@ public class DEVICES_Events {
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name("start")).sendKeys("01/01/2015");
+            driver.findElement(By.name("startScreen")).clear();
+            driver.findElement(By.name("startScreen")).sendKeys("01/01/2015 00:00");
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name("end")).sendKeys("01/01/2017");
+            driver.findElement(By.name("startScreen")).clear();
+            driver.findElement(By.name("endScreen")).sendKeys("01/01/2017 00:00");
         }
         catch (Exception e) {
             System.out.println(e);
@@ -103,7 +102,7 @@ public class DEVICES_Events {
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.cssSelector("span.icon-search")).click();
+            driver.findElement(By.id("searchEvents")).click();
         }
         catch (Exception e) {
             System.out.println(e);

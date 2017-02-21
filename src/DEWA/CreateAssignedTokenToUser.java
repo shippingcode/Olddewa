@@ -1,3 +1,5 @@
+/* Create token assigned to an user (1st one from the dropdown list) */
+
 package DEWA;
 
 import java.io.FileInputStream;
@@ -12,13 +14,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class SearchUanssignedTokenToUser {
+public class CreateAssignedTokenToUser {
 
    String token = GenerateData.generateRandomAlphaNumeric(5);
 	String info = GenerateData.generateRandomAlphaNumeric(5);
 	boolean test = false;
 	  @Test
-	public void searchunassignedtokentouser()  throws FileNotFoundException {
+	public void createassignedtokentouser()  throws FileNotFoundException {
 	 //Login
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
@@ -104,17 +106,22 @@ public class SearchUanssignedTokenToUser {
 		}
 
 	    //Choose organization
-	    try{
-		Thread.sleep(1500);
 		WebElement orgdropdown = driver.findElement(By.name("creatorOrganisation"));
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		Select organisation = new Select(orgdropdown);
 		organisation.selectByVisibleText("TEST");
-	    }catch(Exception e)
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		//Choose an user from dropdown list
+		 try{
+		   Thread.sleep(1500);
+		WebElement userdropdown = driver.findElement(By.name("user"));
+		Select user = new Select(userdropdown);
+		user.getFirstSelectedOption();
+		//user.selectByValue("121");
+		 }catch(Exception e)
 		{
 		System.out.println(e);
 		}
-
 		//Check the checkbox for OCHP Enabled
 		try{
 		Thread.sleep(1500);
@@ -123,7 +130,7 @@ public class SearchUanssignedTokenToUser {
 		{
 		System.out.println(e);
 		}
-		
+	
 		//Choose OCHP Type
 		try{
 		Thread.sleep(1500);
@@ -179,40 +186,7 @@ public class SearchUanssignedTokenToUser {
 		{
 			System.out.println(e);
 			}
-	    //Search the token already created
-	    driver.findElement(By.id("search2")).sendKeys(token);
-	    //Press Search button
-	    try{
-			Thread.sleep(1500);
-	    driver.findElement(By.id("btnSearch")).click();
-	    }catch(Exception e)
-		{
-			System.out.println(e);
-		}
-			//Check the device's status
-    		//Find organisation already created in the table of organisations
-    		WebElement table = driver.findElement(By.className("content"));
-
-    		// Now get all the TR elements from the table
-    		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-    		// And iterate over them, getting the cells
-    		for (WebElement row : allRows) {
-    		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-    		for (WebElement cell : cells) {
-    		while(cell.getText()== token);
-    		{
-    		try{
-    		Thread.sleep(1500);
-    		driver.findElement(By.name("tab_stock")).isDisplayed();
-    		}catch(Exception e)
-    		{
-    		System.out.println(e);
-    		  }
-    	    		  	  	 
-    	     	  }
-    	        	}
-    		    }
-    		
+	    
     
 	  //Logout
 	  		try{

@@ -1,4 +1,4 @@
-/* Add motorist */
+/* Create Group */
 
 package DEWA;
     import org.testng.annotations.Test;
@@ -12,12 +12,12 @@ package DEWA;
 	import org.openqa.selenium.firefox.FirefoxDriver;
 	import org.openqa.selenium.support.ui.Select;
 
-	public class RFIDCARDS_Motorist { 
+	public class CreateGroup { 
 		boolean test=false;
-		String motorist = GenerateData.generateRandomString(5);
-		String phone = GenerateData.generateRandomNumber(10);
+		String group = GenerateData.generateRandomString(5);
+		
 		@Test
-		 public void addmotorist() throws FileNotFoundException {
+		 public void creategroup() throws FileNotFoundException {
 			  Properties prop = new Properties();
 			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 		      try {
@@ -61,15 +61,15 @@ package DEWA;
 				{
 				System.out.println(e);
 				}
-				//Go to Motorist sub-menu
+				//Go to Groups sub-menu
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.linkText("Motorist")).click();
+				driver.findElement(By.linkText("Groups")).click();
 				}catch(Exception e)
 				{
 				System.out.println(e);
 				}
-				//Add motorist
+				//Add group
 				try{
 				Thread.sleep(1500);
 				driver.findElement(By.cssSelector("span.icon-plus")).click();
@@ -80,7 +80,7 @@ package DEWA;
 				//Fill Name
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.name("userName")).sendKeys(motorist);
+				driver.findElement(By.id("groupName")).sendKeys(group);
 				}catch(Exception e)
 				{
 				System.out.println(e);
@@ -88,68 +88,31 @@ package DEWA;
 				//Choose organization
 				try{
 				Thread.sleep(1500);
-				WebElement org1dropdown = driver.findElement(By.id("organisationUserRfid"));
-				Select org1 = new Select(org1dropdown);
-				org1.selectByVisibleText("TEST");
+				WebElement orgdropdown = driver.findElement(By.cssSelector("div.uniform > select[name='organisation']"));
+				Select org = new Select(orgdropdown);
+				org.selectByVisibleText("TEST");
 				}catch(Exception e)
 				{
 				System.out.println(e);
 				}
-				//Choose membership
+				//Check the checkbox Open Clearing House
 				try{
 				Thread.sleep(1500);
-				WebElement memdropdown = driver.findElement(By.name("memType"));
-				Select mem = new Select(memdropdown);
-				mem.selectByVisibleText("Annual");
+				driver.findElement(By.name("ochRoamingEnabled")).click();
 				}catch(Exception e)
 				{
 				System.out.println(e);
 				}
-				//Fill phone
-				try{
-				Thread.sleep(1500);
-				driver.findElement(By.name("phoneNumber")).sendKeys(phone);
-				}catch(Exception e)
-				{
-				System.out.println(e);
-				}
-				
-				
-				//Fill email address
-				try{
-				Thread.sleep(1500);
-				driver.findElement(By.name("emailPrimary")).sendKeys("aila.bogasieru@gmail.com");
-				}catch(Exception e)
-				{
-				System.out.println(e);
-				}
-				
-				//License no
-				try{
-				Thread.sleep(1500);
-				driver.findElement(By.name("licenseNumber")).sendKeys("21345678934567");
-				}catch(Exception e)
-				{
-				System.out.println(e);
-				}
-				
-				//Vehicle
-				try{
-				Thread.sleep(1500);
-				driver.findElement(By.name("vehicleType")).sendKeys("car");
-				}catch(Exception e)
-				{
-				System.out.println(e);
-				}
-				
+									
 				//Save
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.id("save_assignment")).click();
+				driver.findElement(By.id("save_parentTokenGroup")).click();
 				}catch(Exception e)
 				{
 				System.out.println(e);
 				}
+				
 				
 				//Logout
 				try{
@@ -160,7 +123,6 @@ package DEWA;
 				System.out.println(e);
 				}
 				test = true;
-		
 		}
 		  
   }

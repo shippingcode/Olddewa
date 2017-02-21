@@ -132,6 +132,7 @@ public class InsertOnCalls {
 	{
 	System.out.println(e);
 	}
+	i++;
 
     if(!driver.getPageSource().contains("Success! The register was saved/update successfully"))
     {

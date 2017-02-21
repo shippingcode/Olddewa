@@ -3,9 +3,7 @@
 <suite name="RFIDCARDS" verbose="1" >
     <test name="RFIDCARDS">
     <classes>
-      <class name="DEWA.RFIDCARDS_Motorist"/>
-      <class name="DEWA.RFIDCARDS_Groups"/>
-      <class name="DEWA.RFIDCARDS_RFIDCardsOverview"/>
+       <class name="DEWA.RFIDCARDS_RFIDCardsOverview"/>
       <class name="DEWA.RFIDCARDS_RFIDCardsOperations"/>
       <class name="DEWA.RFIDCARDS_RFIDCardsOverviewAssign"/>
        </classes>

@@ -1,3 +1,5 @@
+/* Create Owner */
+
 package DEWA;
 
 import java.io.FileInputStream;
@@ -11,12 +13,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AddOwner {
+public class CreateOwner {
 	boolean test = false;
 	GenerateData genData = null;
 	String owner = GenerateData.generateRandomString(20);
   @Test
-         public void addowner() throws FileNotFoundException {
+         public void createowner() throws FileNotFoundException {
 	  	 Properties prop = new Properties();
 	     FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	     try {
@@ -146,16 +148,25 @@ public class AddOwner {
 	  		{
 	  			System.out.println(e);
 	  		}
-	  		/*//Logout 
+	  		if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
+			{
+				test=true;
+				System.out.println("Owner was created with success");
+			}
+			else
+			{
+				System.out.println("Something went wrong");
+			}
+
+	  	//Logout 
 	 		try{
 	 		Thread.sleep(1500);
 	 		driver.findElement(By.className("icon-eject")).click();
 	 		}catch(Exception e)
 	 		{
 	 		System.out.println(e);
-	 		}*/
-	 		test = true;
-
+	 		}
+	 
 	  	}
 	
   }
