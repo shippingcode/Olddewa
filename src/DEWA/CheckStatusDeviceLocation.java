@@ -40,7 +40,7 @@ public class CheckStatusDeviceLocation {
 			System.out.println(e);
 			}
 
-			//Choose organisation eCars Scheme
+			//Choose organisation TEST
 			try{
 				Thread.sleep(1500);
 				WebElement orgdropdown = driver.findElement(By.name("organisation"));

@@ -1,3 +1,5 @@
+/* Edit and Save Device changing the network into 192.168.98.1 */
+
 package DEWA;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 public class EditAndSaveDevice {
 	boolean test = false;
@@ -19,7 +22,9 @@ public class EditAndSaveDevice {
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);
 	
-    public void searchdevice() throws FileNotFoundException {
+	
+	@Test
+    public void editandsaveDevice() throws FileNotFoundException {
     	  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {
@@ -236,7 +241,7 @@ public class EditAndSaveDevice {
     		for (WebElement row : allRows) {
     		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
     		for (WebElement cell : cells) {
-    		while(cell.getText()== device);
+    		if(cell.getText()== device);
     		{
     		try{
     		Thread.sleep(1500);
@@ -261,7 +266,7 @@ public class EditAndSaveDevice {
 	  //Click on Edit
 	  try{
 	  Thread.sleep(1500);
-	  driver.findElement(By.linkText("Edit")).click();
+	  driver.findElement(By.id("dev")).click();
 	  }catch(Exception e)
 	  {
 	  System.out.println(e);

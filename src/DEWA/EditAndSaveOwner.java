@@ -1,3 +1,5 @@
+/* Edit and save owner by changing Change OCHP operator ID into 890 */
+
 package DEWA;
 
 import java.io.FileInputStream;
@@ -17,7 +19,7 @@ public class EditAndSaveOwner {
 	GenerateData genData = null;
 	String owner = GenerateData.generateRandomString(20);
 @Test
-       public void addowner() throws FileNotFoundException {
+       public void editandsaveOwner() throws FileNotFoundException {
 	//Login
 	  	 Properties prop = new Properties();
 	     FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
@@ -43,17 +45,16 @@ public class EditAndSaveOwner {
 	  		{
 	  			System.out.println(e);
 	  			}
-	  		
-	  		//Select organisation
+	  		//Change org into All organisations
 	  		try{
-			Thread.sleep(1500);
-			WebElement orgdropdown = driver.findElement(By.name("organisation"));
-			Select org = new Select(orgdropdown);
-			org.selectByVisibleText("TEST");
-			}catch(Exception e)
-			{
-				System.out.println(e);
-			}
+				Thread.sleep(1500);
+				WebElement orgdropdown = driver.findElement(By.name("organisation"));
+				Select org = new Select(orgdropdown);
+				org.getFirstSelectedOption();
+				}catch(Exception e)
+				{
+					System.out.println(e);
+				}
   		//Add owner
 
 	  		//Go on Organization
@@ -149,8 +150,8 @@ public class EditAndSaveOwner {
 	  		{
 	  			System.out.println(e);
 	  		}
-	  	
-	  		//Search and edit and save owner
+	  		
+	 	  		//Search and edit and save owner
 	  	//Find organisation already created in the table of organisations
 			 WebElement table = driver.findElement(By.className("content"));
 
@@ -165,6 +166,7 @@ public class EditAndSaveOwner {
 	     try{
 			Thread.sleep(1500);
 			driver.findElement(By.cssSelector("span.icon-pencil")).click();
+			driver.findElement(By.name("ochpOperatorId")).sendKeys("890");
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -173,14 +175,7 @@ public class EditAndSaveOwner {
 		    	}
 			}
 	  		
-	  	//Change OCHP operator ID
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.name("ochpOperatorId")).sendKeys("890");
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			   }
+	  
 			//Save the owner
 			
 			//Press Save Button
