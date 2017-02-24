@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 import DEWA.GenerateData;
 
+
+
 public class CreateSystemUser {
 	boolean test=false;
 	GenerateData genData = null;
@@ -21,6 +23,7 @@ public class CreateSystemUser {
 	String surname = GenerateData.generateRandomString(5);
 	String username = GenerateData.generateRandomAlphaNumeric(5);
 	String phone = GenerateData.generateRandomNumber(10);
+	WebDriver driver = null;
 
 	@Test
 	 public void createsystemuser() throws FileNotFoundException {
@@ -30,14 +33,11 @@ public class CreateSystemUser {
 	      try {
 			prop.load(file);
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	    //Create Firefox drive
 		WebDriver driver = new FirefoxDriver();
-	    //System.setProperty("webdriver.chrome.driver", "C://Users/Aila/Downloads/chromedriver.exe");
-	   	//WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
+	    driver.manage().window().maximize();
 		driver.get(prop.getProperty("url1"));
 		try{
 		Thread.sleep(1500);
@@ -97,6 +97,7 @@ public class CreateSystemUser {
 		WebElement orgdropdown =  driver.findElement(By.cssSelector("div.col-md-6 > select[name='organisation']"));
 		Select org = new Select(orgdropdown);
 		org.selectByVisibleText("TEST");
+
  		//Fill phone number
 		driver.findElement(By.name("phoneNumber")).sendKeys(phone);
 		//Fill email
@@ -121,43 +122,6 @@ public class CreateSystemUser {
 		try{
 		Thread.sleep(1500);
 		driver.findElement(By.id("save_assignment")).click();
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
-		//Perform Search
-		try{
-		Thread.sleep(5000);
-		driver.findElement(By.id("search")).sendKeys(username);
-		driver.findElement(By.id("btnSearch")).click();
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
-		//Inactivate the user
-		try{
-		Thread.sleep(1500);
-		driver.findElement(By.cssSelector("span.icon-lock")).click();
-		driver.findElement(By.name("btnChangeStatus")).click();
-		
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
-		//Activate the user
-		try{
-		Thread.sleep(1500);
-		driver.findElement(By.cssSelector("span.icon-unlock")).click();
-		driver.findElement(By.name("btnChangeStatus")).click();
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
-		//Reset password
-		try{
-		Thread.sleep(1500);
-		driver.findElement(By.cssSelector("span.icon-key")).click();
-		driver.findElement(By.name("ajxResetPassword")).click();
 		}catch(Exception e)
 		{
 		System.out.println(e);

@@ -62,21 +62,21 @@ public class CheckStatusDeviceLocation {
 			}
 			 try {
 		            Thread.sleep(1500);
-		            driver.findElement(By.id((String)"search")).sendKeys("Strada Dionisie Lupu");
+		            driver.findElement(By.id("search")).sendKeys("Strada Dionisie Lupu");
 		        }
 		        catch (Exception e) {
 		            System.out.println(e);
 		        }
 		        try {
 		            Thread.sleep(1500);
-		            driver.findElement(By.id((String)"btnSearch")).click();
+		            driver.findElement(By.id("btnSearch")).click();
 		        }
 		        catch (Exception e) {
 		            System.out.println(e);
 		        }
 		        try {
 		            Thread.sleep(1500);
-		            driver.findElement(By.cssSelector((String)"span.icon-search")).click();
+		            driver.findElement(By.cssSelector("span.icon-search")).click();
 		        }
 		        catch (Exception e) {
 		            System.out.println(e);

@@ -241,7 +241,14 @@ public class SearchDevice {
     		{
     		try{
     		Thread.sleep(1500);
-    		driver.findElement(By.linkText("Unavailable")).click();
+    		if(driver.findElement(By.linkText("Unavailable")).isDisplayed())
+    		{
+    			System.out.println("Device is found");
+    			test=true;
+    		}
+    		else{
+    			System.out.println("Something went wrong"); 			
+    		}
     		}catch(Exception e)
     		{
     		System.out.println(e);
@@ -259,7 +266,7 @@ public class SearchDevice {
     		{
     		System.out.println(e);
     		}
-    			test=true;
+    			
    		
 			
 	  }

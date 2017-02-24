@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="CREATE">
+    <test name="CREATE">
+    <classes>
+      <class name="DEWA.CreateDevice"/>
+      <class name="DEWA.CreateAssignedTokenToUser"/>
+      <class name="DEWA.CreateUnassignedTokenToUser"/>
+      <class name="DEWA.CreateMotorist"/>
+      <class name="DEWA.CreateGroup"/>
+      <class name="DEWA.CreateOwner"/>
+      <class name="DEWA.CreateOnCall"/>
+      <class name="DEWA.CreateSLA"/>
+      <class name="DEWA.CreateSLAProfile"/>
+      <class name="DEWA.CreateAlertContentProfile"/>
+      <class name="DEWA.CreateSystemUser"/>
+      <class name="DEWA.CreateRoles"/>
+                 
+    </classes>
+  </test>
+</suite>

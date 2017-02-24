@@ -8,13 +8,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 
 public class RemoveDevice {
+
 	boolean test = false;
 	WebDriver driver = null;
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);
+	@Test
     public void removedevice() throws FileNotFoundException {
     	//Login
      Properties prop = new Properties();

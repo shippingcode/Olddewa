@@ -90,7 +90,6 @@ public class RemoveOwner{
 		//Fill an owner name
 		try{
 		Thread.sleep(1500);
-		//driver.findElement(By.name("organisationName")).sendKeys(owner);
 		driver.findElement(By.cssSelector("div.col-md-12 > input[name='organisationName']")).sendKeys(owner);
 		}catch(Exception e)
 		{
