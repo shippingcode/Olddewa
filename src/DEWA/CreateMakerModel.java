@@ -51,7 +51,7 @@ public class CreateMakerModel {
 					Thread.sleep(1500);
 					WebElement orgdropdown = driver.findElement(By.name("organisation"));
 					Select org = new Select(orgdropdown);
-					 org.selectByValue("90");
+					 org.selectByVisibleText("TEST");
 				}catch(Exception e)
 				{
 					System.out.println(e);

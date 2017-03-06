@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class SearchAndRemoveOnCall {
+public class RemoveOnCall {
 	boolean test = false;
 
   @Test

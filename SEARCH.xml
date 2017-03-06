@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="SEARCH">
+    <test name="SEARCH">
+    <classes>
+  
+      <class name="DEWA.SearchDevice"/>
+      <class name="DEWA.SearchAssignedTokenToUser"/>
+      <class name="DEWA.SearchUnassignedTokenToUser"/>
+      <class name="DEWA.SearchMotorist"/>
+      <class name="DEWA.SearchOwner"/>
+      <class name="DEWA.SearchWorkOrder"/>
+      <class name="DEWA.SearchSystemUser"/>
+                   
+    </classes>
+  </test>
+</suite>

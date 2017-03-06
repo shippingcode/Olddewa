@@ -3,6 +3,7 @@
 <suite name="CREATE">
     <test name="CREATE">
     <classes>
+      <class name="DEWA.CreateMakerModel"/>
       <class name="DEWA.CreateDevice"/>
       <class name="DEWA.CreateAssignedTokenToUser"/>
       <class name="DEWA.CreateUnassignedTokenToUser"/>
@@ -10,6 +11,7 @@
       <class name="DEWA.CreateGroup"/>
       <class name="DEWA.CreateOwner"/>
       <class name="DEWA.CreateOnCall"/>
+      <class name="DEWA.CreateWorkOrder"/>
       <class name="DEWA.CreateSLA"/>
       <class name="DEWA.CreateSLAProfile"/>
       <class name="DEWA.CreateAlertContentProfile"/>

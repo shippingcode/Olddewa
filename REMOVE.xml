@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="REMOVE">
+    <test name="REMOVE">
+    <classes>
+      <class name="DEWA.RemoveDevice"/>
+      <class name="DEWA.RemoveToken"/>
+      <class name="DEWA.RemoveGroup"/>
+      <class name="DEWA.RemoveOwner"/>
+      <class name="DEWA.RemoveOnCall"/>
+      <class name="DEWA.RemoveSLA"/>
+      <class name="DEWA.RemoveSLAProfile"/>
+      <class name="DEWA.RemoveAlertContentProfile"/>
+      <class name="DEWA.RemoveSystemUser"/>
+                  
+    </classes>
+  </test>
+</suite>

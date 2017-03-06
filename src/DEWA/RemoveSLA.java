@@ -12,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class SearchAndRemoveSLA {
+public class RemoveSLA {
 		WebDriver driver = null;
 		boolean test = false;
   @Test

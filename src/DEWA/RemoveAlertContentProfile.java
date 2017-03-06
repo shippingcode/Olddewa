@@ -12,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class SearchAndRemoveAlertContentProfile {
+public class RemoveAlertContentProfile {
        boolean test = false;
  	   WebDriver driver = null;
 		String AlertConetentProfile = GenerateData.generateRandomString(10);

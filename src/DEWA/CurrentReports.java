@@ -77,7 +77,7 @@ import org.testng.annotations.Test;
   			//Select Report Type
   			try{
   			Thread.sleep(1500);
-  			WebElement reportdropdown = driver.findElement(By.name("reportType"));
+  			WebElement reportdropdown = driver.findElement(By.id("search"));
   			Select report = new Select(reportdropdown);
   			report.selectByVisibleText("Chargepoint Last Communication Report");
   			}catch(Exception e)
@@ -88,8 +88,8 @@ import org.testng.annotations.Test;
   			//Generate XLS & PDF formats
   			try{
   			Thread.sleep(1500);
-  			driver.findElement(By.name("generateExcel")).click();
-  			driver.findElement(By.name("generatePDF")).click();
+  			driver.findElement(By.name("validateExcel")).click();
+  			driver.findElement(By.name("validatePDF")).click();
   			}catch(Exception e)
   			{
   			System.out.println(e);
@@ -98,7 +98,7 @@ import org.testng.annotations.Test;
   		    //Select Report Type
   			try{
   			Thread.sleep(1500);
-  			WebElement reportdropdown = driver.findElement(By.name("reportType"));
+  			WebElement reportdropdown = driver.findElement(By.id("search"));
   			Select report = new Select(reportdropdown);
   			report.selectByVisibleText("Usage Patterns Report - Energy");
   			}catch(Exception e)
@@ -109,8 +109,8 @@ import org.testng.annotations.Test;
   			//Generate XLS & PDF formats
   			try{
   			Thread.sleep(1500);
-  			driver.findElement(By.name("generateExcel")).click();
-  			driver.findElement(By.name("generatePDF")).click();
+  			driver.findElement(By.name("validateExcel")).click();
+  			driver.findElement(By.name("validatePDF")).click();
   			}catch(Exception e)
   			{
   			System.out.println(e);
@@ -120,9 +120,9 @@ import org.testng.annotations.Test;
   			 //Select Report Type
   			try{
   			Thread.sleep(1500);
-  			WebElement reportdropdown = driver.findElement(By.name("reportType"));
+  			WebElement reportdropdown = driver.findElement(By.id("search"));
   			Select report = new Select(reportdropdown);
-  			report.selectByVisibleText("Usage Patterns Report – Charge Cycles");
+  			report.selectByVisibleText("Usage Patterns Report ï¿½ Charge Cycles");
   			}catch(Exception e)
   			{
   			System.out.println(e);
@@ -131,8 +131,8 @@ import org.testng.annotations.Test;
   			//Generate XLS & PDF formats
   			try{
   			Thread.sleep(1500);
-  			driver.findElement(By.name("generateExcel")).click();
-  			driver.findElement(By.name("generatePDF")).click();
+  			driver.findElement(By.name("validateExcel")).click();
+  			driver.findElement(By.name("validatePDF")).click();
   			}catch(Exception e)
   			{
   			System.out.println(e);
@@ -141,9 +141,9 @@ import org.testng.annotations.Test;
   			 //Select Report Type
   			try{
   			Thread.sleep(1500);
-  			WebElement reportdropdown = driver.findElement(By.name("reportType"));
+  			WebElement reportdropdown = driver.findElement(By.id("search"));
   			Select report = new Select(reportdropdown);
-  			report.selectByVisibleText("Usage Patterns Report – Availability Time");
+  			report.selectByVisibleText("Usage Patterns Report ï¿½ Availability Time");
   			}catch(Exception e)
   			{
   			System.out.println(e);
@@ -152,8 +152,8 @@ import org.testng.annotations.Test;
   			//Generate XLS & PDF formats
   			try{
   			Thread.sleep(1500);
-  			driver.findElement(By.name("generateExcel")).click();
-  			driver.findElement(By.name("generatePDF")).click();
+  			driver.findElement(By.name("validateExcel")).click();
+  			driver.findElement(By.name("validatePDF")).click();
   			}catch(Exception e)
   			{
   			System.out.println(e);
@@ -162,7 +162,7 @@ import org.testng.annotations.Test;
   			//Select Report Type
   			try{
   			Thread.sleep(1500);
-  			WebElement reportdropdown = driver.findElement(By.name("reportType"));
+  			WebElement reportdropdown = driver.findElement(By.id("search"));
   			Select report = new Select(reportdropdown);
   			report.selectByVisibleText("RFID/User History Report");
   			}catch(Exception e)
@@ -172,8 +172,8 @@ import org.testng.annotations.Test;
   		   //Generate XLS & PDF formats
   			try{
   			Thread.sleep(1500);
-  			driver.findElement(By.name("generateExcel")).click();
-  			driver.findElement(By.name("generatePDF")).click();
+  			driver.findElement(By.name("validateExcel")).click();
+  			driver.findElement(By.name("validatePDF")).click();
   			}catch(Exception e)
   			{
   			System.out.println(e);

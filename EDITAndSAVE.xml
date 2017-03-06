@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="EDITAndSAVE">
+    <test name="EDITAndSAVE">
+    <classes>
+      <class name="DEWA.EditAndSaveMakerModel"/>
+      <class name="DEWA.EditAndSaveDevice"/>
+      <class name="DEWA.EditAndSaveToken"/>
+      <class name="DEWA.EditAndSaveMotorist"/>
+      <class name="DEWA.EditAndSaveGroup"/>
+      <class name="DEWA.EditAndSaveOwner"/>
+      <class name="DEWA.EditAndSaveOnCall"/>
+      <class name="DEWA.EditAndSaveWorkOrder"/>
+      <class name="DEWA.EditAndSaveSLA"/>
+      <class name="DEWA.EditAndSaveSLAProfile"/>
+      <class name="DEWA.EditAndSaveAlertContentProfile"/>
+      <class name="DEWA.EditAndSaveSystemUser"/>
+   
+                 
+    </classes>
+  </test>
+</suite>
