@@ -64,7 +64,7 @@ public class DEVICES_Location {
         driver.findElement(By.linkText("Location")).click();
         try {
             Thread.sleep(1500);
-            driver.findElement(By.id("search")).sendKeys("Strada Dionisie Lupu");
+            driver.findElement(By.id("search")).sendKeys("Strada Zambilei, Cluj-Napoca, Romania");
         }
         catch (Exception e) {
             System.out.println(e);

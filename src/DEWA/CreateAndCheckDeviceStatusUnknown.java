@@ -251,6 +251,7 @@ import org.testng.annotations.Test;
 				for (WebElement cell : cells) {
 				if(cell.getText()== device);
 				{
+				}
 		        try{
 				Thread.sleep(1500);
 				if(driver.getPageSource().contains("Unknown"))
@@ -268,7 +269,6 @@ import org.testng.annotations.Test;
 				     }
 				   }
 				  }
-				}
 				
 				//Logout
 				try{

@@ -18,7 +18,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class SearchDevice {
+public class SearchInOverview {
 	boolean test = false;
 	WebDriver driver = null;
 	GenerateData genData = null;
@@ -65,10 +65,11 @@ public class SearchDevice {
 		}
 		
 		//Go to List
+		//Go to List
 		try{
 		Thread.sleep(1500);
 		driver.findElement(By.id("devices")).click();
-		driver.findElement(By.linkText("List")).click();
+		driver.findElement(By.linkText("Overview")).click();
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -98,7 +99,7 @@ public class SearchDevice {
 		Thread.sleep(1500);
 		WebElement makedropdown = driver.findElement(By.id("organisationId"));
 		Select make = new Select(makedropdown);
-		make.selectByVisibleText("CIRCONTROL");
+		make.selectByVisibleText("mymake0802");
 		}catch(Exception e)
 		{
 			System.out.println(e);
@@ -107,7 +108,7 @@ public class SearchDevice {
 		Thread.sleep(1500);
 		WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
 		Select model = new Select(modeldropdown);
-		model.selectByVisibleText("CCL");
+		model.selectByVisibleText("mymodel0802");
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -129,7 +130,7 @@ public class SearchDevice {
 	try{
 	WebElement statusdropdown = driver.findElement(By.name("userAppliedStatusType"));
 	Select status = new Select(statusdropdown);
-	status.selectByVisibleText("Closed");
+	status.selectByVisibleText("Operative");
 	}catch(Exception e)
 	{
 		System.out.println(e);
@@ -221,7 +222,7 @@ public class SearchDevice {
 				
 	try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("search")).sendKeys(device);
+		driver.findElement(By.id("search2")).sendKeys(device);
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -237,16 +238,16 @@ public class SearchDevice {
 		}
 		//Check the device's status
 		//Find organisation already created in the table of organisations
-		WebElement table = driver.findElement(By.id("table_wrapper"));
+		WebElement table = driver.findElement(By.className("dataTables_wrapper"));
 
 		// Now get all the TR elements from the table
 		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
 		// And iterate over them, getting the cells
 		for (WebElement row : allRows) {
 		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-		for (WebElement cell : cells) 
-		if(cell.getText()== device);
-	
+		for (WebElement cell : cells)
+			if(cell.getText()== device);
+		
 		try{
 		Thread.sleep(1500);
 		if(driver.findElement(By.linkText("Unavailable")).isDisplayed())
@@ -263,8 +264,7 @@ public class SearchDevice {
 		 }
 			   		  	  	 
 		 }
-
-
+	
 		//Logout
 		
 		try{
@@ -281,4 +281,3 @@ public class SearchDevice {
 }
 
 	
-

@@ -19,6 +19,7 @@ public class CreateAndCheckDeviceStatusOperative {
 	String make = GenerateData.generateRandomAlphaNumeric(5);
 	String equipmentname = GenerateData.generateRandomAlphaNumeric(5);
 	String model = GenerateData.generateRandomAlphaNumeric(5);
+	WebElement cell = null;
 	@Test
 	 public void addcheckoperative() throws FileNotFoundException {
 		  Properties prop = new Properties();
@@ -447,27 +448,25 @@ public class CreateAndCheckDeviceStatusOperative {
 			for (WebElement row : allRows) {
 			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 			for (WebElement cell : cells) {
-			if(cell.getText()== device);
-			{
-	        try{
-			Thread.sleep(1500);
-			if(driver.getPageSource().contains("Unknown"))
-			{
-				test = true;
-				System.out.println("Device's status is in Unknown");
-			}
-			else
-			{
-				System.out.println("Device has wrong status");
-			 }
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			     }
-			   }
-			  }
-			}
-			
+				if(cell.getText()== device);
+				  }
+		{
+    try{
+	Thread.sleep(1500);
+	if(driver.getPageSource().contains("Unknown"))
+	{
+		test = true;
+		System.out.println("Device's status is in Unknown");
+	}
+	else
+	{
+		System.out.println("Device has wrong status");
+	 }
+	}catch(Exception e)
+	{
+	System.out.println(e);
+	     }
+	}
 			//Logout
 			try{
 			Thread.sleep(1500);
@@ -479,7 +478,7 @@ public class CreateAndCheckDeviceStatusOperative {
 		
 			}
 	}
-
+}
 
 
 

@@ -95,28 +95,28 @@ public class CreateWorkOrder {
 			System.out.println(e);
 		}
 
-			//Choose type of work
-	        try{
-			Thread.sleep(1500);
-			WebElement worktype = driver.findElement(By.id("workOrderId"));
-		    Select type = new Select(worktype);
-		    type.selectByVisibleText("preventive");
-             }catch(Exception e)
-	        {
-	      	System.out.println(e);
-	        }
-
+			
 		    //Choose event priority
 	        try{
 			Thread.sleep(1500);
-		    WebElement eventdrop = driver.findElement(By.name("workOrder.eventPriority"));
+		    WebElement eventdrop = driver.findElement(By.name("workOrder.workOrderType"));
 		    Select event = new Select(eventdrop);
-		    event.selectByVisibleText("High");
+		    event.selectByVisibleText("issue");
            }catch(Exception e)
              {
 	        System.out.println(e);
              }
 
+	      //Choose type of work
+	        try{
+			Thread.sleep(1500);
+			WebElement worktype = driver.findElement(By.name("workOrder.eventPriority"));
+		    Select type = new Select(worktype);
+		    type.selectByVisibleText("Low");
+             }catch(Exception e)
+	        {
+	      	System.out.println(e);
+	        }
 		//Choose device
 	        try{
 			Thread.sleep(1500);

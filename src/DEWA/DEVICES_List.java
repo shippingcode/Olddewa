@@ -22,7 +22,7 @@ public class DEVICES_List {
 	String issue = GenerateData.generateRandomString(10);
 	
   @Test
-  public void f() throws FileNotFoundException {
+  public void DeviceList() throws FileNotFoundException {
 	  //1. Login
 	  Properties prop = new Properties();
 	  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");

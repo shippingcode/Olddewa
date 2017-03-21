@@ -122,7 +122,7 @@ import org.testng.annotations.Test;
   			Thread.sleep(1500);
   			WebElement reportdropdown = driver.findElement(By.id("search"));
   			Select report = new Select(reportdropdown);
-  			report.selectByVisibleText("Usage Patterns Report � Charge Cycles");
+  			report.selectByVisibleText("Usage Patterns Report - Charge Cycles");
   			}catch(Exception e)
   			{
   			System.out.println(e);
@@ -143,7 +143,7 @@ import org.testng.annotations.Test;
   			Thread.sleep(1500);
   			WebElement reportdropdown = driver.findElement(By.id("search"));
   			Select report = new Select(reportdropdown);
-  			report.selectByVisibleText("Usage Patterns Report � Availability Time");
+  			report.selectByVisibleText("Usage Patterns Report - Availability Time");
   			}catch(Exception e)
   			{
   			System.out.println(e);

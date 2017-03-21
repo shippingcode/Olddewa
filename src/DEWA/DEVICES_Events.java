@@ -17,7 +17,7 @@ public class DEVICES_Events {
     boolean test = false;
 
     @Test
-    public void f() throws FileNotFoundException {
+    public void DeviceEvents() throws FileNotFoundException {
         Properties prop = new Properties();
         FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
         try {
@@ -79,16 +79,19 @@ public class DEVICES_Events {
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name("startScreen")).clear();
-            driver.findElement(By.name("startScreen")).sendKeys("01/01/2015 00:00");
+            driver.findElement(By.cssSelector("div.col-md-12 > input.start")).clear();
+            driver.findElement(By.linkText("1")).click();
+            driver.findElement(By.xpath("//button[@type='button'])[4]")).click();
+         
         }
         catch (Exception e) {
             System.out.println(e);
         }
         try {
             Thread.sleep(1500);
-            driver.findElement(By.name("startScreen")).clear();
-            driver.findElement(By.name("endScreen")).sendKeys("01/01/2017 00:00");
+            driver.findElement(By.cssSelector("div.col-md-12 > input.end")).clear();
+            driver.findElement(By.linkText("30")).click();
+            driver.findElement(By.xpath("//button[@type='button'])[4]")).click();
         }
         catch (Exception e) {
             System.out.println(e);

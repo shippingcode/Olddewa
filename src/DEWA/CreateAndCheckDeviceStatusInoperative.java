@@ -16,6 +16,7 @@ public class CreateAndCheckDeviceStatusInoperative {
 	boolean test = false;
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);
+	WebElement cell = null;
 	@Test
 	 public void addcheckinoperative() throws FileNotFoundException {
 		  Properties prop = new Properties();
@@ -245,27 +246,29 @@ public class CreateAndCheckDeviceStatusInoperative {
 			for (WebElement row : allRows) {
 			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 			for (WebElement cell : cells) {
-			while(cell.getText()== device);
-			{
-	        try{
-			Thread.sleep(1500);
-			if(driver.getPageSource().contains("Unavailable"))
-					{
-				test = true;
-				System.out.println("Device's status is in Unavailable");
-			}
-			else
-			{
-				System.out.println("Device has wrong status");
-			 }
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			     }
-			   }
-			  }
-			}
 			
+			if(cell.getText()== device);
+			}
+
+			}
+			try{
+				Thread.sleep(1500);
+				if(driver.getPageSource().contains("Unavailable"))
+						{
+					test = true;
+					System.out.println("Device's status is in Unavailable");
+				}
+				else
+				{
+					System.out.println("Device has wrong status");
+				 }
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				     }
+
+	
+
 			//Logout
 			try{
 			Thread.sleep(1500);
