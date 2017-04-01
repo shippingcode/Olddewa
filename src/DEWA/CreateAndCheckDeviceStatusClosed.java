@@ -257,6 +257,7 @@ import org.openqa.selenium.support.ui.Select;
 				if(cell.getText()== device);
 	        	{
 				}
+				}
 				try{
 				Thread.sleep(1500);
 				
@@ -273,7 +274,7 @@ import org.openqa.selenium.support.ui.Select;
 		{
 		System.out.println(e);
 		     }
-				}
+
 
 			//Logout
 				try{

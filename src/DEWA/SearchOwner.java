@@ -121,6 +121,27 @@ public class SearchOwner{
 	  		{
 	  			System.out.println(e);
 	  		}
+	  	//Choose language
+	  		try{
+		  	Thread.sleep(1500);
+		  	WebElement langdropdown = driver.findElement(By.name("languageDCC"));
+		  	Select lang = new Select(langdropdown);
+		  	lang.selectByVisibleText("ENGLISH");
+	  		}catch(Exception e)
+		  	{
+		  	System.out.println(e);
+		  	}
+	  		
+	  		//Choose locale
+	  		try{
+			Thread.sleep(1500);
+			WebElement localedropdown = driver.findElement(By.name("localeDDC"));
+			Select locale = new Select(localedropdown);
+			locale.selectByVisibleText("UNITED KINGDOM");
+		  	}catch(Exception e)
+			{
+			System.out.println(e);
+			}
 
 	  		//Check radio button ochpEnabled
 	  		try{

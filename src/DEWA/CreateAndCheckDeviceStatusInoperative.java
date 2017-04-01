@@ -89,7 +89,7 @@ public class CreateAndCheckDeviceStatusInoperative {
 			Thread.sleep(1500);
 			WebElement makedropdown = driver.findElement(By.id("organisationId"));
 			Select make = new Select(makedropdown);
-			make.selectByVisibleText("CIRCONTROL");
+			make.selectByVisibleText("make123");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -98,7 +98,7 @@ public class CreateAndCheckDeviceStatusInoperative {
 			Thread.sleep(1500);
 			WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
 			Select model = new Select(modeldropdown);
-			model.selectByVisibleText("CCL");
+			model.selectByVisibleText("model123");
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -245,11 +245,12 @@ public class CreateAndCheckDeviceStatusInoperative {
 			// And iterate over them, getting the cells
 			for (WebElement row : allRows) {
 			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-			for (WebElement cell : cells) {
+			for (WebElement cell : cells)
 			
 			if(cell.getText()== device);
-			}
+			{
 
+			}
 			}
 			try{
 				Thread.sleep(1500);
@@ -257,7 +258,7 @@ public class CreateAndCheckDeviceStatusInoperative {
 						{
 					test = true;
 					System.out.println("Device's status is in Unavailable");
-				}
+						}
 				else
 				{
 					System.out.println("Device has wrong status");
@@ -266,8 +267,6 @@ public class CreateAndCheckDeviceStatusInoperative {
 				{
 				System.out.println(e);
 				     }
-
-	
 
 			//Logout
 			try{

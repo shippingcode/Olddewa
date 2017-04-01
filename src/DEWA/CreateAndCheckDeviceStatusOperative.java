@@ -323,6 +323,25 @@ public class CreateAndCheckDeviceStatusOperative {
 			{
 			System.out.println(e);
 			}
+			//Choose Make and Model
+			try{
+			Thread.sleep(1500);
+			WebElement makedropdown = driver.findElement(By.id("organisationId"));
+			Select make1 = new Select(makedropdown);
+			make1.selectByVisibleText(make);
+			}catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			/*try{
+			Thread.sleep(1500);
+			WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
+			Select model = new Select(modeldropdown);
+			model.selectByVisibleText("CCL");
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			}*/
 			
 			//Choose organisation
 			try{
@@ -447,10 +466,10 @@ public class CreateAndCheckDeviceStatusOperative {
 			// And iterate over them, getting the cells
 			for (WebElement row : allRows) {
 			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-			for (WebElement cell : cells) {
+			for (WebElement cell : cells) 
 				if(cell.getText()== device);
-				  }
-		{
+			{
+			}
     try{
 	Thread.sleep(1500);
 	if(driver.getPageSource().contains("Unknown"))
@@ -478,7 +497,7 @@ public class CreateAndCheckDeviceStatusOperative {
 		
 			}
 	}
-}
+
 
 
 

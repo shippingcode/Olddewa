@@ -1,15 +1,14 @@
 /* Create Distribution Group */
 package DEWA;
 
-import org.testng.annotations.Test; 
-  import java.io.FileInputStream;
-  import java.io.FileNotFoundException;
-  import java.io.IOException;
-  import java.util.Properties;
-  import org.openqa.selenium.By;
-  import org.openqa.selenium.WebDriver;
-  import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
   import org.openqa.selenium.support.ui.Select;
 
@@ -17,7 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
   	boolean test=false;
   	String distributiongroup = GenerateData.generateRandomAlphaNumeric(5);
   	@Test
-  	 public void f() throws FileNotFoundException {
+  	 public void reportdistribution() throws FileNotFoundException {
   		  Properties prop = new Properties();
   		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
   	      try {
@@ -104,10 +103,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
   			//Select user
   			try{
   			Thread.sleep(1500);
-  			driver.findElement(By.name("user")).sendKeys("test.admin");
-  			WebElement userdropdown = driver.findElement(By.name("user"));
-  			Select user = new Select(userdropdown);
-  			user.selectByVisibleText("dewa.admin");
+  			driver.findElement(By.name("user")).sendKeys("test.");
+  			Thread.sleep(3000);
+  			java.util.List<WebElement> listItems = driver.findElements(By.name("user"));
+  			listItems.get(0).click();
+  			driver.findElement(By.name("user")).click();
   			}catch(Exception e)
   			{
   			System.out.println(e);
@@ -115,8 +115,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
   			//Fill address email
   			try{
   	  		Thread.sleep(1500);
-  	  		driver.findElement(By.cssSelector("starts-with[@id='tags1485529815']")).sendKeys("aila.bogasieru@gmail.com");
-  	  		}catch(Exception e)
+  	  		driver.findElement(By.cssSelector("starts-with[@id='tags14']")).sendKeys("aila.bogasieru@gmail.com");
+  	
+  			}catch(Exception e)
   	  		{
   	  		System.out.println(e);
   	  		}
