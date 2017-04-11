@@ -232,7 +232,7 @@ public class DEVICE_StatusPage {
 	}
 		//Check the device's status
 		//Find organisation already created in the table of organisations
-		 WebElement table = driver.findElement(By.id("table_wrapper"));
+		 WebElement table = driver.findElement(By.id("DataTables_Table_0_wrapper"));
 
 		// Now get all the TR elements from the table
 		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
@@ -257,7 +257,7 @@ public class DEVICE_StatusPage {
 		  //4. Create issue
 		  try{
 		  Thread.sleep(1500);
-		  driver.findElement(By.cssSelector("btnIssue")).click();
+		  driver.findElement(By.id("btnIssue")).click();
 		  }catch(Exception e)
 		  {
 		  System.out.println(e);
@@ -298,7 +298,7 @@ public class DEVICE_StatusPage {
 		      Thread.sleep(1500);
 		      WebElement eventdrop = driver.findElement(By.name("workOrder.user"));
 		      Select event = new Select(eventdrop);
-		      event.selectByVisibleText("TEST");
+		      event.selectByVisibleText("test.admin");
 		      }
 		      catch (Exception e) {
 		          System.out.println(e);

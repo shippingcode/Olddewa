@@ -95,6 +95,16 @@ public class DeviceHistoryMessages {
           		System.out.println("Message is displayed");
           		test = true;
             	}
+          //Close modal window
+          	try {
+      	    Thread.sleep(1500);
+           	driver.findElement(By.className("close")).click();
+           	  }
+   	        catch (Exception e) {
+   	           System.out.println(e);
+   	        }
+          	
+
 
 			 //Logout
 	        try {

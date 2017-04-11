@@ -83,7 +83,7 @@ public class DEVICE_Overview {
 		
 		//Check the device's status
 		//Find organisation already created in the table of organisations
-		 WebElement table = driver.findElement(By.id("idbf"));
+		 WebElement table = driver.findElement(By.name("events:formEvent:search"));
 
 		// Now get all the TR elements from the table
 		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));

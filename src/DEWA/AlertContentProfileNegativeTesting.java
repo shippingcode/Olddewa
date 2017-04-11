@@ -15,16 +15,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 
-public class CreateAlertContentProfile {
+public class AlertContentProfileNegativeTesting {
 	boolean test = false;
 	WebDriver driver = null;
 	String AlertConetentProfile = GenerateData.generateRandomString(10);
 	String subject = GenerateData.generateRandomString(10);
 	String subject1 = GenerateData.generateRandomString(10);
-	String emailbody = GenerateData.generateRandomString(10);
-	String emailbody1 = GenerateData.generateRandomString(10);
-	String phone = GenerateData.generateRandomNumber(10);
-	String phone1 = GenerateData.generateRandomNumber(10);
 	String sms = GenerateData.generateRandomNumber(10);
 	String sms1 = GenerateData.generateRandomNumber(10);
 	
@@ -131,30 +127,6 @@ public void createAlertContentProfile() throws FileNotFoundException {
 	{
 	System.out.println(e);
 	}
-	//Fill body text for alert & clearance
-	try{
-	Thread.sleep(1500);
-	//driver.findElement(By.id("emailAlertBodyText")).clear();
-	Actions actions1 = new Actions(driver);
-	WebElement menu1 = null;
-	actions1.moveToElement(menu1).perform();
-	driver.findElement(By.id("emailAlertBodyText")).sendKeys(emailbody);
-	}catch(Exception e)
-	{
-	System.out.println(e);
-	}
-
-	try{
-	Thread.sleep(1500);
-	//driver.findElement(By.id("emailClearanceSubjectBodyText")).clear();
-	Actions actions2 = new Actions(driver);
-	WebElement menu2 = null;
-	actions2.moveToElement(menu2).perform();
-	driver.findElement(By.id("emailClearanceSubjectBodyText")).sendKeys(emailbody1);
-	}catch(Exception e)
-	{
-	System.out.println(e);
-	}
 	
 	try{
 	Thread.sleep(1500);
@@ -179,16 +151,25 @@ public void createAlertContentProfile() throws FileNotFoundException {
 	System.out.println(e);
 	}
 	
-	 if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
+	 if(driver.findElement(By.id("id5f")).isDisplayed())
 	  {
 		test=true; 
-	  System.out.println("Alert Content Profile is created with success");
+	  System.out.println("Alert Content Profile is not created");
 	  }
 	  else
 	  {
 		  System.out.println("Something went wrong");
 	  }
-		
+	 try{
+	Thread.sleep(1500);
+	driver.findElement(By.name("close_alertContentProfile")).click();
+	}catch(Exception e)
+	{
+	System.out.println(e);
+	}
+	 
+	
+	
 	//Logout
 	try{
 	Thread.sleep(1500);

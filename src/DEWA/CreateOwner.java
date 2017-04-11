@@ -44,7 +44,7 @@ public class CreateOwner {
 	  			System.out.println(e);
 	  			}
 	  		
-	  		//Select organisation
+	  	/*	//Select organisation
 	  		try{
 			Thread.sleep(1500);
 			WebElement orgdropdown = driver.findElement(By.name("organisation"));
@@ -54,7 +54,7 @@ public class CreateOwner {
 			{
 				System.out.println(e);
 			}
-
+*/
 	  		//Go on Organization
 	  		try{
 	  		Thread.sleep(1500);
