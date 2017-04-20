@@ -94,7 +94,7 @@ public class InsertDevices {
 				driver.findElement(By.name("deviceName")).sendKeys(devicename[i]);
 				WebElement makedropdown = driver.findElement(By.id("organisationId"));
 			    Select organisationID = new Select(makedropdown);
-			   organisationID.selectByVisibleText("CIRCONTROL");
+			   organisationID.selectByVisibleText("make123");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -105,7 +105,7 @@ public class InsertDevices {
 				Thread.sleep(1500);
 			WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
 		    Select equipmentType = new Select(modeldropdown);
-		    equipmentType.selectByVisibleText("CCL");
+		    equipmentType.selectByVisibleText("model123");
 			}catch(Exception e)
 			{
 				System.out.println(e);

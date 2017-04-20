@@ -93,7 +93,7 @@ public class DEVICES_List {
 		Thread.sleep(1500);
 		WebElement makedropdown = driver.findElement(By.id("organisationId"));
 		Select make = new Select(makedropdown);
-		make.selectByVisibleText("CIRCONTROL");
+		make.selectByVisibleText("make123");
 		}catch(Exception e)
 		{
 			System.out.println(e);
@@ -102,7 +102,7 @@ public class DEVICES_List {
 		Thread.sleep(1500);
 		WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
 		Select model = new Select(modeldropdown);
-		model.selectByVisibleText("CCL");
+		model.selectByVisibleText("model123");
 		}catch(Exception e)
 		{
 		System.out.println(e);
@@ -257,7 +257,7 @@ public class DEVICES_List {
 		  //4. Create issue
 		  try{
 		  Thread.sleep(1500);
-		  driver.findElement(By.cssSelector("btnIssue")).click();
+		  driver.findElement(By.id("btnIssue")).click();
 		  }catch(Exception e)
 		  {
 		  System.out.println(e);

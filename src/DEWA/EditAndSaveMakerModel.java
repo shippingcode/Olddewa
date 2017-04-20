@@ -2,7 +2,7 @@ package DEWA;
 
 import org.testng.annotations.Test;
 
-public class EditAndSaveMaskerModel {
+public class EditAndSaveMakerModel {
   @Test
   public void f() {
   }

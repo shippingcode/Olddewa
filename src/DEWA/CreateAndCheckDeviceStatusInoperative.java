@@ -257,7 +257,7 @@ public class CreateAndCheckDeviceStatusInoperative {
 				if(driver.getPageSource().contains("Unavailable"))
 						{
 					test = true;
-					System.out.println("Device's status is in Unavailable");
+					System.out.println("Device's status is in Unavailable status");
 						}
 				else
 				{

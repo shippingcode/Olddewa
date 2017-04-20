@@ -77,32 +77,43 @@ public class DEVICES_Events {
         catch (Exception e) {
             System.out.println(e);
         }
+        
+         //Set start date 1st of previous month 00:00
         try {
             Thread.sleep(1500);
-            driver.findElement(By.cssSelector("div.col-md-12 > input.start")).clear();
+            driver.findElement(By.name("start")).clear();
+            driver.findElement(By.cssSelector("span.ui-icon.ui-icon-circle-triangle-w")).click();
             driver.findElement(By.linkText("1")).click();
             driver.findElement(By.xpath("//button[@type='button'])[4]")).click();
          
-        }
+            
+          }
         catch (Exception e) {
             System.out.println(e);
         }
+        //Set end date 1st of current date 00:00
         try {
             Thread.sleep(1500);
-            driver.findElement(By.cssSelector("div.col-md-12 > input.end")).clear();
-            driver.findElement(By.linkText("30")).click();
+          driver.findElement(By.name("end")).click();
+          driver.findElement(By.linkText("1")).click();
             driver.findElement(By.xpath("//button[@type='button'])[4]")).click();
         }
         catch (Exception e) {
             System.out.println(e);
         }
-        try {
-            Thread.sleep(1500);
-            driver.findElement(By.name("searchBtn")).click();
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
+      
+       
+      //Un check the checkbox for Medium & Low
+		 if ( !driver.findElement(By.id("id1f3-eventPriority_1")).isSelected() )
+		 {
+		      driver.findElement(By.id("id1f3-eventPriority_1")).click();
+		 }
+	
+		 if ( !driver.findElement(By.id("id1f3-eventPriority_2")).isSelected() )
+		 {
+		      driver.findElement(By.id("id1f3-eventPriority_2")).click();
+		 }
+       
         try {
             Thread.sleep(1500);
             driver.findElement(By.id("searchEvents")).click();
@@ -110,13 +121,36 @@ public class DEVICES_Events {
         catch (Exception e) {
             System.out.println(e);
         }
-        try {
-            Thread.sleep(1500);
-            driver.findElement(By.name("panelEventDetail:deviceLink")).click();
+        
+        
+      //Check the device's status
+		//Find organisation already created in the table of organisations
+		 WebElement table = driver.findElement(By.className("table table-bordered table-striped"));
+
+		// Now get all the TR elements from the table
+		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
+		// And iterate over them, getting the cells
+		for (WebElement row : allRows) {
+		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
+		for (WebElement cell : cells) 
+		if(cell.getText()== "device1" && cell.getText()== "High")
+		{
+		System.out.println("Device is found with high event as priority");
+		}
+		else
+		{
+		System.out.println("Device is not found or filtering is not working"); 			
+		}
+		}
+	//Open an event
+	 try {
+     Thread.sleep(1500);
+     driver.findElement(By.id("panelEventDetail")).click();
+       }
+       catch (Exception e) {
+         System.out.println(e);
         }
-        catch (Exception e) {
-            System.out.println(e);
-        }
+        
         try {
             Thread.sleep(1500);
            driver.findElement(By.id("statusDevice")).isDisplayed();

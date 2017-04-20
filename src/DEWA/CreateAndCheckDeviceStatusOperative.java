@@ -486,16 +486,16 @@ public class CreateAndCheckDeviceStatusOperative {
 	System.out.println(e);
 	     }
 	}
-			//Logout
-			try{
-			Thread.sleep(1500);
-			driver.findElement(By.className("icon-eject")).click();
-			}catch(Exception e)
-			{
-			System.out.println(e);
-			}
+	//Logout
+	try{
+	Thread.sleep(1500);
+	driver.findElement(By.className("icon-eject")).click();
+	}catch(Exception e)
+	{
+	System.out.println(e);
+	}
 		
-			}
+	  }
 	}
 
 

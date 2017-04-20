@@ -100,7 +100,7 @@ public class InsertGroups {
 		while (k<5)
 		{
 		//Find Group created into the table
-		 WebElement table = driver.findElement(By.className("table table-bordered table-striped"));
+		 WebElement table = driver.findElement(By.className("content"));
 
 		// Now get all the TR elements from the table
 		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));

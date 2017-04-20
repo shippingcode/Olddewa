@@ -78,10 +78,8 @@ public class CreateMakerModel {
 	  		//Press New Button
 	  		try{
 		  	Thread.sleep(1500);
-		   	//driver.getPageSource().contains("New");
-			driver.findElement(By.xpath("//button[contains(text(),'New']")).click();
-						
-		  	}catch(Exception e)
+		    driver.findElement(By.xpath("//button[@type='button'])[5]")).click();
+			}catch(Exception e)
 	  		{
 	  		System.out.println(e);
 	  		}
