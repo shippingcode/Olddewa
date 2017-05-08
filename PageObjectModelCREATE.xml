@@ -5,7 +5,8 @@
     <classes>
       <class name="test.DEWALoginTest"/>
       <class name="test.DEWADashboardTest"/>
-      <class name="test.DEWADevicesListTest"/>/
+      <class name="test.DEWADCreateDeviceTest"/>/
+      <class name="test.DEWADCreateOwnerTest"/>/
        <class name="test.DEWALogoutTest"/>/
                   
     </classes>
