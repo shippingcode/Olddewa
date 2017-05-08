@@ -1,23 +1,19 @@
 package test;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import PageFactory.DEWALogout;
-import pages.DEWADashboard;
+import PageFactory.DEWALogoutPageFactory;
+import pages.DEWADashboardPage;
 
 
-public class TestDEWALogout {
+public class DEWALogoutTest {
 
     WebDriver driver;
 
-    DEWALogout objLogout;
+    DEWALogoutPageFactory objLogout;
 
-    DEWADashboard objDashboard;
+    DEWADashboardPage objDashboard;
 
     
 
@@ -49,7 +45,7 @@ public class TestDEWALogout {
 
         //Create Login Page object
 
-    objLogout = new DEWALogout(driver);
+    objLogout = new DEWALogoutPageFactory(driver);
 
      //login to application
 
@@ -57,7 +53,7 @@ public class TestDEWALogout {
 
     // go the next page
 
-    objDashboard = new DEWADashboard(driver);
+    objDashboard = new DEWADashboardPage(driver);
 
     //Verify Dashboard
 

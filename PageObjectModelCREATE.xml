@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="DEWA Page Object Model CREATE">
+    <test name="CREATE">
+    <classes>
+      <class name="test.DEWALoginTest"/>
+      <class name="test.DEWADashboardTest"/>
+      <class name="test.DEWADevicesListTest"/>/
+       <class name="test.DEWALogoutTest"/>/
+                  
+    </classes>
+  </test>
+</suite>
+

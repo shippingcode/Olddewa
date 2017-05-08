@@ -9,7 +9,8 @@
     <class name="DEWA.DEVICES_Overview"/>
     <class name="DEWA.DEVICES_Location"/>
     <class name="DEWA.DEVICES_Map_Location"/>
-    <class name="DEWA.DEVICES_ReportLastCommunication"/>
+    <class name="DEWA.DEVICE_StatusPage"/>
+    <class name= "DEWA.DeviceHistoryMessages"/>
     </classes>
   </test>
 </suite>

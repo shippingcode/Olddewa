@@ -1,18 +1,17 @@
 package pages;
 
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
 
-public class DEWADashboard {
+public class DEWADashboardPage {
 
     WebDriver driver;
 
     By Dashboard = By.id("topmenu_dashboard");
-
+  
     
 
-    public DEWADashboard(WebDriver driver){
+    public DEWADashboardPage(WebDriver driver){
 
         this.driver = driver;
 
@@ -20,12 +19,12 @@ public class DEWADashboard {
 
     
 
-    //Get the User name from Home Page
+    //Get Dashboard elements
 
         public String getDashboard(){
 
-         return    driver.findElement(Dashboard).getText();
-
+        return driver.findElement(Dashboard).getText();
+        }
+      
         }
 
-}

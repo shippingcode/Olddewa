@@ -1,10 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
 
-public class DEWALogin {
+public class DEWALoginPage {
 
     WebDriver driver;
 
@@ -14,7 +13,7 @@ public class DEWALogin {
 
     
 
-    public DEWALogin(WebDriver driver){
+    public DEWALoginPage(WebDriver driver){
 
         this.driver = driver;
 

@@ -1,14 +1,11 @@
 package PageFactory;
 
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.support.FindBy;
-
 import org.openqa.selenium.support.PageFactory;
 
-public class DEWALogout {
+public class DEWALogoutPageFactory {
 
     /**
 
@@ -24,7 +21,7 @@ public class DEWALogout {
 
        
 
-    public DEWALogout(WebDriver driver){
+    public DEWALogoutPageFactory(WebDriver driver){
 
         this.driver = driver;
 

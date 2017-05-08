@@ -264,7 +264,7 @@ import org.openqa.selenium.support.ui.Select;
 				if(driver.getPageSource().contains("Unavailable"))
 				{
 			test = true;
-			System.out.println("Device's status is in Unavailable");
+			System.out.println("Device's status is in Unavailable status");
 		}
 		else
 		{

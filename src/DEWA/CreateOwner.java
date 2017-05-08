@@ -155,6 +155,14 @@ public class CreateOwner {
 	  		{
 	  			System.out.println(e);
 	  		}
+	  		try{
+		  	Thread.sleep(1500);
+		  	driver.findElement(By.id("overrideAuth")).click();
+		  	}catch(Exception e)
+		  	{
+		  		System.out.println(e);
+		  	}
+	  		
 	  		//Add Operator Id
 	  		try{
 	  			Thread.sleep(1500);

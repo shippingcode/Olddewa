@@ -1,33 +1,22 @@
 package test;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import org.testng.Assert;
-
 import org.testng.annotations.BeforeTest;
-
 import org.testng.annotations.Test;
+import pages.DEWADashboardPage;
+import pages.DEWALoginPage;
 
-import PageFactory.DEWADashboard;
-
-import PageFactory.DEWALogin;
-import PageFactory.DEWALogout;
-
-public class DEWALoginPageFactory {
+public class DEWALoginTest {
 
     WebDriver driver;
 
-    DEWALogin objLogin;
+    DEWALoginPage objLogin;
 
-    DEWADashboard objDashboard;
-    
-    DEWALogout objLogout;
-
-    
+    DEWADashboardPage objDashboard;
+      
 
     @BeforeTest
 
@@ -43,9 +32,7 @@ public class DEWALoginPageFactory {
 
     /**
 
-     * This test go to http://dewa.hubeleon.ae/
-
-     * Verify login page title as DEWA 
+     * This test case will login in http://dewa.hubeleon.ae/
 
      * Login to application
 
@@ -57,27 +44,22 @@ public class DEWALoginPageFactory {
 
     public void test_Dashboard(){
 
-   //Create Login Page object
+        //Create Login Page object
 
-    objLogin = new DEWALogin(driver);
+    objLogin = new DEWALoginPage(driver);
 
-    //login to application
+     //login to application
 
-    objLogin.loginToDEWA("test.admin", "Pa55w0rd1");
+    objLogin.loginToDEWA("test.admin","Pa55w0rd1");
 
+    // go the next page
 
+    objDashboard = new DEWADashboardPage(driver);
 
-    objDashboard = new DEWADashboard(driver);
-
-  //Verify Dashboard
+    //Verify Dashboard
 
     Assert.assertTrue(objDashboard.getDashboard().contains("DASHBOARD"));
-      
-      
-    //Logout
-    objLogout = new DEWALogout(driver);
-    objLogout.logoutFromDEWA();
+  
 
-    }  
-
+    }
 }

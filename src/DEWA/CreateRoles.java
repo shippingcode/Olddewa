@@ -116,7 +116,7 @@ public class CreateRoles {
 			System.out.println(e);
 			}
 			
-			//Choose organization
+			/*//Choose organization
 			try{
 			Thread.sleep(1500);
 			orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[id='organisationUserSysId']"));
@@ -125,7 +125,7 @@ public class CreateRoles {
 			}catch(Exception e)
 			{
 			System.out.println(e);
-			}
+			}*/
 	 		//Fill phone number
 			try{
 			Thread.sleep(1500);

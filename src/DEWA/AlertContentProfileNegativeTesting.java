@@ -80,7 +80,7 @@ public void createAlertContentProfile() throws FileNotFoundException {
 	//Add alert content profile
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.cssSelector("div.side.pull-right > a.widget-icon")).click();
+	driver.findElement(By.cssSelector("span.icon-plus ")).click();
 	}catch(Exception e)
 	{
 	System.out.println(e);
@@ -151,7 +151,7 @@ public void createAlertContentProfile() throws FileNotFoundException {
 	System.out.println(e);
 	}
 	
-	 if(driver.findElement(By.id("id5f")).isDisplayed())
+	 if(driver.findElement(By.className("modal-dialog")).isDisplayed())
 	  {
 		test=true; 
 	  System.out.println("Alert Content Profile is not created");

@@ -1,24 +1,20 @@
 package PageFactory;
 
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.support.FindBy;
-
 import org.openqa.selenium.support.PageFactory;
-
-public class DEWADashboard {
+public class DEWADashboardPageFactory {
 
     WebDriver driver;
 
     @FindBy(id="topmenu_dashboard")
-
-    WebElement Dashboard;
-
+     WebElement Dashboard;
     
+     
+      
 
-    public DEWADashboard(WebDriver driver){
+    public DEWADashboardPageFactory(WebDriver driver){
 
         this.driver = driver;
 
@@ -33,9 +29,9 @@ public class DEWADashboard {
 
         public String getDashboard(){
 
-         return    Dashboard.getText();
-
+           return Dashboard.getText();
+        }
+        
         }
         
 
-}

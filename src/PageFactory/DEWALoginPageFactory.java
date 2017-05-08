@@ -1,14 +1,10 @@
 package PageFactory;
 
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.support.FindBy;
-
 import org.openqa.selenium.support.PageFactory;
-
-public class DEWALogin {
+public class DEWALoginPageFactory {
 
     /**
 
@@ -36,7 +32,7 @@ public class DEWALogin {
 
     
 
-    public DEWALogin(WebDriver driver){
+    public DEWALoginPageFactory(WebDriver driver){
 
         this.driver = driver;
 
@@ -98,8 +94,7 @@ public class DEWALogin {
         //Click Login button
 
         this.clickLogin();
-
-                
+              
 
     }
 

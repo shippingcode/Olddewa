@@ -259,7 +259,7 @@ import org.testng.annotations.Test;
 				if(driver.getPageSource().contains("Unknown"))
 						{
 					test = true;
-					System.out.println("Device's status is in Unknown");
+					System.out.println("Device's status is in Unknown status");
 				}
 				else
 				{

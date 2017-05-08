@@ -85,7 +85,7 @@ public void insertalertsSLA() throws FileNotFoundException {
 
 		//Click on add
 		int p;
-		for(p=0;p<5;p++){
+		for(p=0;p<35;p++){
 		try{
 		Thread.sleep(1500);
 		driver.findElement(By.cssSelector("span.icon-plus-sign")).click();
