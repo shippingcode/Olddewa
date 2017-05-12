@@ -163,18 +163,8 @@ import org.openqa.selenium.By;
 				System.out.println(e);
 				}
 				
-	    		WebElement table = driver.findElement(By.className("content"));
-
-	    		// Now get all the TR elements from the table
-	    		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-	    		// And iterate over them, getting the cells
-	    		for (WebElement row : allRows) {
-	    		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-	    		for (WebElement cell : cells) {
-	    		while(cell.getText()== motorist);
-	    		{
 	    		try{
-	    		Thread.sleep(1500);
+	    	    Thread.sleep(1500);
 	    		driver.findElement(By.cssSelector("span.icon-pencil")).click();
 	    		}catch(Exception e)
 				{
@@ -195,11 +185,7 @@ import org.openqa.selenium.By;
 				{
 				System.out.println(e);
 				}
-	    		
-	    			    		
-	    		 }
-	    		      }
-	    			   	}
+  		   		 
 	    		
 	    		 if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
 	    		  {

@@ -2,6 +2,10 @@ package DEWA;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -54,6 +58,159 @@ public class RemoveDevice {
 				{
 					System.out.println(e);
 				}
+				//Go to List
+				try{
+				Thread.sleep(1500);
+				driver.findElement(By.id("devices")).click();
+				driver.findElement(By.linkText("List")).click();
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				driver.findElement(By.cssSelector("span.icon-plus")).click();
+				 //Modal window is displayed & add new device
+				try{
+				Thread.sleep(1500);
+				//Check for modal window is displayed
+				driver.findElement(By.className("modal-dialog")).isDisplayed();
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				//Fill device name
+				try{
+				Thread.sleep(1500);	
+				//Fill a device name
+				driver.findElement(By.name("deviceName")).sendKeys(device);   
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				
+				//Choose Make and Model
+				try{
+				Thread.sleep(1500);
+				WebElement makedropdown = driver.findElement(By.id("organisationId"));
+				Select make = new Select(makedropdown);
+				make.selectByVisibleText("CIRCONTROL");
+				}catch(Exception e)
+				{
+					System.out.println(e);
+				}
+				try{
+				Thread.sleep(1500);
+				WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
+				Select model = new Select(modeldropdown);
+				model.selectByVisibleText("CCL");
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				
+				
+			//Choose Owner
+			try{
+			Thread.sleep(1500);
+			WebElement orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='organisation']"));
+			Select organisation = new Select(orgdropdown);
+			organisation.selectByVisibleText("TEST");
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			}
+
+			//Add status
+			try{
+			WebElement statusdropdown = driver.findElement(By.name("userAppliedStatusType"));
+			Select status = new Select(statusdropdown);
+			status.selectByVisibleText("Closed");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+
+			//Fill Latitude
+			try{
+				Thread.sleep(1500);
+		    driver.findElement(By.id("latitude")).sendKeys("44.440391");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+
+			//Fill longitude
+			try{
+				Thread.sleep(1500);
+		    driver.findElement(By.id("longditude")).sendKeys("26.101965");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+			//Fill Network address
+			try{
+				Thread.sleep(1500);
+		    driver.findElement(By.name("networkAddress")).sendKeys("192.168.100.3");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+
+			//Fill Offline & Maintenance interval
+			try{
+				Thread.sleep(1500);
+			driver.findElement(By.name("offlineThresholdMins")).sendKeys("15");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+
+			//Fill instalattion date
+			DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy");
+			Date date = new Date(0);
+			try{
+				Thread.sleep(1500);
+			driver.findElement(By.name("installationDate")).sendKeys(dateFormat.format(date));
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+
+			//Fill Expiry date
+			Calendar c = Calendar.getInstance();
+			c.setTime(new Date(0));
+			c.add(Calendar.DAY_OF_MONTH, 21);
+			try{
+				Thread.sleep(1500);
+			driver.findElement(By.name("warrantyExpiry")).sendKeys((dateFormat.format(c.getTime())));
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+			//Fill Ewe App Id
+			try{
+				Thread.sleep(1500);
+			driver.findElement(By.id("eweAppId")).sendKeys("12390");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+			//Fill Sms Charge Id
+			try{
+				Thread.sleep(1500);
+			driver.findElement(By.name("smsChargeId")).sendKeys("8901");
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
+
+			//Press Save
+			try{
+				Thread.sleep(1500);
+			driver.findElement(By.xpath("//button[@class='btn btn-success btn-clean']")).click();
+			}catch(Exception e)
+			{
+				System.out.println(e);
+				}
 				
 		//Search
 		try{
@@ -72,18 +229,7 @@ public class RemoveDevice {
 		{
 		System.out.println(e);
 		}
-		//Check the device's status
-		//Find organisation already created in the table of organisations
-		WebElement table = driver.findElement(By.id("table_wrapper"));
-
-		// Now get all the TR elements from the table
-		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-		// And iterate over them, getting the cells
-		for (WebElement row : allRows) {
-		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-		for (WebElement cell : cells) {
-		while(cell.getText()== device);
-		{
+		
 		try{
 		Thread.sleep(1500);
 		driver.findElement(By.linkText("Unavailable")).click();
@@ -92,12 +238,9 @@ public class RemoveDevice {
 		System.out.println(e);
 		 }
 			   		  	  	 
-		 }
-		      }
-			   	}
+		
 		//Remove device
-    	
-	 
+    
 	  //Click on 
 	  try{
 	  Thread.sleep(1500);

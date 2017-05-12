@@ -468,7 +468,8 @@ public class CreateAndCheckDeviceStatusOperative {
 			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 			for (WebElement cell : cells) 
 				if(cell.getText()== device);
-			{
+		    	{
+			       }
 			}
     try{
 	Thread.sleep(1500);
@@ -484,7 +485,7 @@ public class CreateAndCheckDeviceStatusOperative {
 	}catch(Exception e)
 	{
 	System.out.println(e);
-	     }
+	 
 	}
 	//Logout
 	try{

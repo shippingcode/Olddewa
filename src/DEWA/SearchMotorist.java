@@ -169,7 +169,7 @@ package DEWA;
 	    		for (WebElement row : allRows) {
 	    		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 	    		for (WebElement cell : cells) {
-	    		while(cell.getText()== motorist);
+	    		while(cell.getText()== motorist)
 	    		{
 	    		System.out.println("Motorist was found");
 	    		test = true;

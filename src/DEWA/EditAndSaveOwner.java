@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
@@ -18,6 +19,15 @@ public class EditAndSaveOwner {
   boolean test = false;
 	GenerateData genData = null;
 	String owner = GenerateData.generateRandomString(20);
+	String AlertConetentProfile = GenerateData.generateRandomString(10);
+	String subject = GenerateData.generateRandomString(10);
+	String subject1 = GenerateData.generateRandomString(10);
+	String emailbody = GenerateData.generateRandomString(10);
+	String emailbody1 = GenerateData.generateRandomString(10);
+	String phone = GenerateData.generateRandomNumber(10);
+	String phone1 = GenerateData.generateRandomNumber(10);
+	String sms = GenerateData.generateRandomNumber(10);
+	String sms1 = GenerateData.generateRandomNumber(10);
 @Test
        public void editandsaveOwner() throws FileNotFoundException {
 	//Login
@@ -45,12 +55,12 @@ public class EditAndSaveOwner {
 	  		{
 	  			System.out.println(e);
 	  			}
-	  		//Change org into All organisations
+	  		//Change org into TEST
 	  		try{
 				Thread.sleep(1500);
 				WebElement orgdropdown = driver.findElement(By.name("organisation"));
 				Select org = new Select(orgdropdown);
-				org.getFirstSelectedOption();
+				org.selectByVisibleText("TEST");
 				}catch(Exception e)
 				{
 					System.out.println(e);
@@ -172,18 +182,145 @@ public class EditAndSaveOwner {
 	  			System.out.println(e);
 	  		}
 	  		
-	 	  		//Search and edit and save owner
-	  	//Find organisation already created in the table of organisations
-			 WebElement table = driver.findElement(By.className("content"));
-
-			// Now get all the TR elements from the table
-			java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-			// And iterate over them, getting the cells
-			for (WebElement row : allRows) {
-			java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-			for (WebElement cell : cells) {
-			while(cell.getText()== owner);
+	  		//Change from top drop down new organisation
+	  	
+	  		try{
+				Thread.sleep(1500);
+				WebElement orgdropdown = driver.findElement(By.name("organisation"));
+				Select org = new Select(orgdropdown);
+				org.selectByVisibleText(owner);
+				}catch(Exception e)
+				{
+					System.out.println(e);
+				}
+	  		//Create Alert Content Profile
+	  		//Go to OPERATIONS Tab
+	  		try{
+			Thread.sleep(1500);
+	  		driver.findElement(By.id("operations")).click();
+	  		}catch(Exception e)
 			{
+				System.out.println(e);
+			}
+	  		//Go to Alerts
+	  		try{
+	  		Thread.sleep(1500);
+	  		WebElement menu = driver.findElement(By.linkText("Alerts"));
+	  		Actions actions = new Actions(driver);
+	  		actions.moveToElement(menu).perform();
+	  		driver.findElement(By.linkText("Alert Content Profile")).click();
+	  		}catch(Exception e)
+	  		{
+	  			System.out.println(e);
+	  		}
+	  		
+	  		//Add alert content profile
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.cssSelector("div.side.pull-right > a.widget-icon")).click();
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+	  		//Modal is displayed
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.className("modal-content")).isDisplayed();
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+	  		//Fill name
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.name("alertContentProfileName")).sendKeys(AlertConetentProfile);
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+	  		//Choose organisation
+	  		try{
+	  		Thread.sleep(1500);
+	  		WebElement orgdrop = driver.findElement(By.cssSelector("div.col-md-6 > select[name='ownerOrganisation']"));
+	  		Select org = new Select(orgdrop);
+	  		org.selectByVisibleText("TEST");
+	  		}catch(Exception e)
+	  		{
+	  			System.out.println(e);
+	  		}
+	  		//Fill names
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.name("emailAlertSubjectText")).sendKeys(subject);
+
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.name("emailClearanceSubjectText")).sendKeys(subject1);
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+	  		//Fill body text for alert & clearance
+	  		try{
+	  		Thread.sleep(1500);
+	  		//driver.findElement(By.id("emailAlertBodyText")).clear();
+	  		Actions actions1 = new Actions(driver);
+	  		WebElement menu1 = null;
+	  		actions1.moveToElement(menu1).perform();
+	  		driver.findElement(By.id("emailAlertBodyText")).sendKeys(emailbody);
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+
+	  		try{
+	  		Thread.sleep(1500);
+	  		//driver.findElement(By.id("emailClearanceSubjectBodyText")).clear();
+	  		Actions actions2 = new Actions(driver);
+	  		WebElement menu2 = null;
+	  		actions2.moveToElement(menu2).perform();
+	  		driver.findElement(By.id("emailClearanceSubjectBodyText")).sendKeys(emailbody1);
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+	  		
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.name("smsAlertText")).sendKeys(sms);
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.name("smsClearanceText")).sendKeys(sms1);
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.id("save_device")).click();
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+	  		
+	  	//Go on Organization
+	  		try{
+	  		Thread.sleep(1500);
+	  		driver.findElement(By.cssSelector("span.icon-link")).click();
+	  		}catch(Exception e)
+	  		{
+	  		System.out.println(e);
+	  		}
+     //Edit the owner
 	     try{
 			Thread.sleep(1500);
 			driver.findElement(By.cssSelector("span.icon-pencil")).click();
@@ -192,10 +329,7 @@ public class EditAndSaveOwner {
 			{
 			System.out.println(e);
 			     }
-			   }
-		    	}
-			}
-	  		
+		 		
 	  
 			//Save the owner
 			
@@ -207,6 +341,25 @@ public class EditAndSaveOwner {
 	  		{
 	  			System.out.println(e);
 	  		}
+	  	//Change org into TEST
+	  		try{
+				Thread.sleep(1500);
+				WebElement orgdropdown = driver.findElement(By.name("organisation"));
+				Select org = new Select(orgdropdown);
+				org.selectByVisibleText("TEST");
+				}catch(Exception e)
+				{
+					System.out.println(e);
+				}
+	  	//Logout
+			try{
+			Thread.sleep(1500);
+			driver.findElement(By.className("icon-eject")).click();
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			}
+			test = true;
 	  		
   }
 }

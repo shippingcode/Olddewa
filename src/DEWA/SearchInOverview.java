@@ -236,18 +236,6 @@ public class SearchInOverview {
 		{
 		System.out.println(e);
 		}
-		//Check the device's status
-		//Find organisation already created in the table of organisations
-		WebElement table = driver.findElement(By.className("dataTables_wrapper"));
-
-		// Now get all the TR elements from the table
-		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-		// And iterate over them, getting the cells
-		for (WebElement row : allRows) {
-		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-		for (WebElement cell : cells)
-			if(cell.getText()== device);
-		
 		try{
 		Thread.sleep(1500);
 		if(driver.findElement(By.linkText("Unavailable")).isDisplayed())
@@ -261,8 +249,6 @@ public class SearchInOverview {
 		}catch(Exception e)
 		{
 		System.out.println(e);
-		 }
-			   		  	  	 
 		 }
 	
 		//Logout

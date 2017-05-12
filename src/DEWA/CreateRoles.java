@@ -3,6 +3,7 @@ package DEWA;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class CreateRoles {
+public class CreateRoles<Roles> {
 	 boolean test=false;
 		GenerateData genData = null;
 		static WebDriver driver = null;
@@ -19,10 +20,10 @@ public class CreateRoles {
 		String surname = GenerateData.generateRandomString(5);
 		String username = GenerateData.generateRandomAlphaNumeric(5);
 		String  phone = GenerateData.generateRandomNumber(10);
-		 public static WebElement userdropdown = null;
-		 public static WebElement orgdropdown = null;
-		 String email = GenerateData.generateEmail(10);
-		 String licenseno = GenerateData.generateRandomNumber(10);
+    	String email = GenerateData.generateEmail(10);
+		String licenseno = GenerateData.generateRandomNumber(10);
+		WebElement userdropdown = null;
+		WebElement orgdropdown = null;
 					
  		@Test
 		 public void createroles() throws FileNotFoundException {
@@ -105,7 +106,9 @@ public class CreateRoles {
 			{
 			System.out.println(e);
 			}
+			
 			//Choose Role
+			
 			try{
 			Thread.sleep(1500);
 			userdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='userLevel']"));
@@ -115,8 +118,8 @@ public class CreateRoles {
 			{
 			System.out.println(e);
 			}
-			
-			/*//Choose organization
+					 
+			//Choose organization
 			try{
 			Thread.sleep(1500);
 			orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[id='organisationUserSysId']"));
@@ -125,7 +128,8 @@ public class CreateRoles {
 			}catch(Exception e)
 			{
 			System.out.println(e);
-			}*/
+			}
+		
 	 		//Fill phone number
 			try{
 			Thread.sleep(1500);
@@ -224,6 +228,7 @@ public class CreateRoles {
 			//Choose Role
 			try{
 			Thread.sleep(1500);
+			userdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='userLevel']"));
 			Select user1 = new Select(userdropdown);
 			user1.selectByVisibleText("Default");
 			}catch(Exception e)
@@ -233,6 +238,7 @@ public class CreateRoles {
 			//Choose organization
 			try{
 			Thread.sleep(1500);
+			orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[id='organisationUserSysId']"));
 			Select org1 = new Select(orgdropdown);
 			org1.selectByVisibleText("TEST");
 			}catch(Exception e)
@@ -454,16 +460,18 @@ public class CreateRoles {
 			//Choose Role
 			try{
 			Thread.sleep(1500);
+			userdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='userLevel']"));
 			Select user3 = new Select(userdropdown);
 			user3.selectByVisibleText("Manager");
 			}catch(Exception e)
 			{
 			System.out.println(e);
 			}
-			
+						
 			//Choose organization
 			try{
 			Thread.sleep(1500);
+			orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[id='organisationUserSysId']"));
 			Select org3 = new Select(orgdropdown);
 			org3.selectByVisibleText("TEST");
 			}catch(Exception e)
@@ -570,6 +578,7 @@ public class CreateRoles {
 			//Choose Role
 			try{
 			Thread.sleep(1500);
+			userdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[name='userLevel']"));
 			Select user4 = new Select(userdropdown);
 			user4.selectByVisibleText("Technician");
 			}catch(Exception e)
@@ -580,6 +589,7 @@ public class CreateRoles {
 			//Choose organization
 			try{
 			Thread.sleep(1500);
+			orgdropdown = driver.findElement(By.cssSelector("div.col-md-6 > select[id='organisationUserSysId']"));
 			Select org4 = new Select(orgdropdown);
 			org4.selectByVisibleText("TEST");
 			}catch(Exception e)

@@ -16,7 +16,7 @@ import DEWA.GenerateData;
 
 
 
-public class SearchSystemUser{
+public class SearchActivateInactivateResetSystemUser{
 	boolean test=false;
 	WebDriver driver = null;
 	GenerateData genData = null;

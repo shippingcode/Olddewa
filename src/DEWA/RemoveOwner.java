@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 public class RemoveOwner{
+
 	WebDriver driver = null;
 	String owner = GenerateData.generateRandomString(5);
 	String motorist = GenerateData.generateRandomString(5);
@@ -171,67 +172,38 @@ public class RemoveOwner{
 		{
 		System.out.println(e);
 		}
-		
-		
-	//Search & Open organization
-		
-		//Go to ORGANISATIONS Tab
-		try{
-		Thread.sleep(1500);
-		driver.findElement(By.id("topmenu_organisation")).click();
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
+		//Change from top drop down new organisation
+	  	
+  		try{
+			Thread.sleep(1500);
+			WebElement orgdropdown = driver.findElement(By.name("organisation"));
+			Select org = new Select(orgdropdown);
+			org.selectByVisibleText(owner);
+			}catch(Exception e)
+			{
+				System.out.println(e);
+			}
 		
 	
-		//Find organisation already created in the table of organisations
-		 WebElement table = driver.findElement(By.className("content"));
-
-		// Now get all the TR elements from the table
-		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-		// And iterate over them, getting the cells
-		for (WebElement row : allRows) {
-		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-		for (WebElement cell : cells) {
-		while(cell.getText()== owner);
-		{
-        try{
-		Thread.sleep(1500);
-		driver.findElement(By.cssSelector("span.icon-search")).click();
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		     }
-		   }
-	    	}
-		}
-	
-		
-		//Delete the org
-		
-		//Find organisation already created in the table of organisations
-		 WebElement table1 = driver.findElement(By.className("content"));
-
-		// Now get all the TR elements from the table
-		java.util.List<WebElement> allRows1 = table1.findElements(By.tagName("tr"));
-		// And iterate over them, getting the cells
-		for (WebElement row1 : allRows1) {
-		java.util.List<WebElement> cells1 = row1.findElements(By.tagName("td"));
-		for (WebElement cell1 : cells1) {
-		while(cell1.getText()== owner);
-		{
        try{
 		Thread.sleep(1500);
-		driver.findElement(By.className("widget-icon widget-icon-circle")).click();
+		driver.findElement(By.cssSelector("span.icon-trash")).click();
 		}catch(Exception e)
 		{
 		System.out.println(e);
 		     }
-		   }
-	    	}
-		}
-					
+      
+     //Choose organisation TEST
+		try{
+		Thread.sleep(1500);
+		WebElement orgdropdown = driver.findElement(By.name("organisation"));
+		Select org = new Select(orgdropdown);
+		org.selectByVisibleText("TEST");
+		}catch(Exception e)
+		{
+			System.out.println(e);
+		}	
+			
 		//Logout
 		try{
 		Thread.sleep(1500);

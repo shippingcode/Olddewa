@@ -184,17 +184,7 @@ String token = GenerateData.generateRandomAlphaNumeric(5);
 			{
 			System.out.println(e);
 			}
-			//Find RFID CARD
-			 WebElement table1 = driver.findElement(By.className("content"));
-
-			// Now get all the TR elements from the table
-			java.util.List<WebElement> allRows1 = table1.findElements(By.tagName("tr"));
-			// And iterate over them, getting the cells
-			for (WebElement row1 : allRows1) {
-			java.util.List<WebElement> cells1 = row1.findElements(By.tagName("td"));
-			for (WebElement cell1 : cells1) {
-			while(cell1.getText()== token);
-			{
+			
 	        try{
 			Thread.sleep(1500);
 			//When is found the RFID CARD delete it
@@ -204,11 +194,14 @@ String token = GenerateData.generateRandomAlphaNumeric(5);
 			{
 			System.out.println(e);
 			    }
+	        try{
+				Thread.sleep(1500);
 	        driver.findElement(By.name("delete")).click();
-			  }
-			}
-			}
-			
+	        }catch(Exception e)
+			{
+			System.out.println(e);
+			    }
+					
 		//Logout
 			try{
 		  		Thread.sleep(1500);

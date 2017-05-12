@@ -199,7 +199,7 @@ public class SearchUnassignedTokenToUser {
     		for (WebElement row : allRows) {
     		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
     		for (WebElement cell : cells) {
-    		while(cell.getText()== token);
+    		while(cell.getText()== token)
     		{
     		try{
     		Thread.sleep(1500);
