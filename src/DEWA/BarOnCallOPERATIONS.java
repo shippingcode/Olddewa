@@ -1,4 +1,7 @@
-package DEWA;
+/*Bar On Call   */
+
+
+ package DEWA;
 
 
 import java.io.FileInputStream;
@@ -12,11 +15,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class EditAndSaveOnCall {
+public class BarOnCallOPERATIONS {
 	boolean test = false;
 
   @Test
-  public void editandsaveOnCall() throws FileNotFoundException {
+  public void barrOnCall() throws FileNotFoundException {
 	  //Login
 	
 	  Properties prop = new Properties();
@@ -131,57 +134,59 @@ public class EditAndSaveOnCall {
 	System.out.println(e);
 	}
 	
-	//Find SLA Profile
-		 WebElement table = driver.findElement(By.className("content"));
+	//Find alert Content Profile
+	 WebElement table = driver.findElement(By.cssSelector("div.col-md-4 > div.content content-transparent np"));
 
-		// Now get all the TR elements from the table
-		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
-		// And iterate over them, getting the cells
-		for (WebElement row : allRows) {
-		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
-		for (WebElement cell : cells) {
-		if(cell.getText()== "DEWA Admin (test.admin)")
+	// Now get all the TR elements from the table
+	java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
+	// And iterate over them, getting the cells
+	for (WebElement row : allRows) {
+	java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
+	for (WebElement cell : cells) {
+		while(cell.getText()== "DEWA Admin (test.admin)")
 		{
-	    
-	try{
-		Thread.sleep(1500);
-		driver.findElement(By.cssSelector("span.icon-pencil")).click();
+try{
+	Thread.sleep(1500);
+	driver.findElement(By.cssSelector("icon-ban-circle")).click();
 	}catch(Exception e)
 	{
 	System.out.println(e);
-	  }
-		try{
+	     }
+		}
+	}
+	}
+		//Verify if becomes INACTIVE
+	//Find alert Content Profile
+		 WebElement table1 = driver.findElement(By.cssSelector("div.col-md-4 > block block-drop-shadow"));
+
+		// Now get all the TR elements from the table
+		java.util.List<WebElement> allRows1 = table1.findElements(By.tagName("tr"));
+		// And iterate over them, getting the cells
+		for (WebElement row1 : allRows1) {
+		java.util.List<WebElement> cells1 = row1.findElements(By.tagName("td"));
+		for (WebElement cell : cells1) {
+		while(cell.getText()== "DEWA Admin (test.admin)"){
+
+	try{
 		Thread.sleep(1500);
-		WebElement devicedrop = driver.findElement(By.name("user"));
-		Select device = new Select(devicedrop);
-		device.selectByVisibleText("michaels");
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		  }
-		try{
-		Thread.sleep(1500);
-		driver.findElement(By.id("save_device")).click();
+		 if(driver.getPageSource().contains("INACTIVE"))
+		    {
+		    	test = true;
+		    	System.out.println ("On Call becomes inactived with success");
+		    	
+		      }
+		    else
+		    {
+		    	System.out.println ("Something went wrong");
+		       }
 		}catch(Exception e)
 		{
 		System.out.println(e);
 		     }
 		   }
-		 }
+	   	}
 		}
-
-    if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
-    {
-    	test = true;
-    	System.out.println ("On Call was created with success");
-    	
-      }
-    else
-    {
-    	System.out.println ("Something went wrong");
-       }
-
- 
+	   
   //Logout
 	try{
 		Thread.sleep(1500);

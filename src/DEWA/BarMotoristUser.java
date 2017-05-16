@@ -1,4 +1,4 @@
-/* Edit and save Group - un check the Open Clearing House*/
+/* Bar motorist */
 
 package DEWA;
     import org.testng.annotations.Test;
@@ -7,18 +7,20 @@ package DEWA;
 	import java.io.IOException;
 	import java.util.Properties;
 	import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+	import org.openqa.selenium.WebDriver;
 	import org.openqa.selenium.WebElement;
 	import org.openqa.selenium.firefox.FirefoxDriver;
 	import org.openqa.selenium.support.ui.Select;
 
-	public class EditAndSaveGroup { 
+	public class BarMotoristUser { 
 		boolean test=false;
-		String group = GenerateData.generateRandomString(5);
-		
+		String motorist = GenerateData.generateRandomString(5);
+		String phone = GenerateData.generateRandomNumber(10);
+		WebElement table = null;
+		WebDriver driver = null;
 		@Test
-		 public void editandsavegroup() throws FileNotFoundException {
+		 public void barmotorist() throws FileNotFoundException {
+			//Login
 			  Properties prop = new Properties();
 			  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 		      try {
@@ -62,15 +64,15 @@ import org.openqa.selenium.WebDriver;
 				{
 				System.out.println(e);
 				}
-				//Go to Groups sub-menu
+				//Go to Motorist sub-menu
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.linkText("Groups")).click();
+				driver.findElement(By.linkText("Motorist")).click();
 				}catch(Exception e)
 				{
 				System.out.println(e);
 				}
-				//Add group
+				//Add motorist
 				try{
 				Thread.sleep(1500);
 				driver.findElement(By.cssSelector("span.icon-plus")).click();
@@ -81,7 +83,7 @@ import org.openqa.selenium.WebDriver;
 				//Fill Name
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.id("groupName")).sendKeys(group);
+				driver.findElement(By.name("userName")).sendKeys(motorist);
 				}catch(Exception e)
 				{
 				System.out.println(e);
@@ -89,61 +91,107 @@ import org.openqa.selenium.WebDriver;
 				//Choose organization
 				try{
 				Thread.sleep(1500);
-				WebElement orgdropdown = driver.findElement(By.cssSelector("div.uniform > select[name='organisation']"));
-				Select org = new Select(orgdropdown);
-				org.selectByVisibleText("TEST");
+				WebElement org1dropdown = driver.findElement(By.id("organisationUserRfid"));
+				Select org1 = new Select(org1dropdown);
+				org1.selectByVisibleText("TEST");
 				}catch(Exception e)
 				{
 				System.out.println(e);
 				}
-													
+				//Choose membership
+				try{
+				Thread.sleep(1500);
+				WebElement memdropdown = driver.findElement(By.name("memType"));
+				Select mem = new Select(memdropdown);
+				mem.selectByVisibleText("Annual");
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				//Fill phone
+				try{
+				Thread.sleep(1500);
+				driver.findElement(By.name("phoneNumber")).sendKeys(phone);
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				
+				
+				//Fill email address
+				try{
+				Thread.sleep(1500);
+				driver.findElement(By.name("emailPrimary")).sendKeys("aila.bogasieru@gmail.com");
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				
+				//License no
+				try{
+				Thread.sleep(1500);
+				driver.findElement(By.name("licenseNumber")).sendKeys("21345678934567");
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				
+				//Vehicle
+				try{
+				Thread.sleep(1500);
+				driver.findElement(By.name("vehicleType")).sendKeys("car");
+				}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+				
 				//Save
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.id("save_parentTokenGroup")).click();
+				driver.findElement(By.id("save_assignment")).click();
 				}catch(Exception e)
 				{
 				System.out.println(e);
 				}
-				//Check the user is displayed
-				//Scroll down
-		
-				//Search the group 
-			     WebElement table1 = driver.findElement(By.xpath("//form[starts-with(@id, 'id')]"));
-				// Now get all the TR elements from the table
-			    java.util.List<WebElement> allRows1 = table1.findElements(By.tagName("tr"));
-				//And iterate over them, getting the cells
-				for (WebElement row1 : allRows1) {
-				java.util.List<WebElement> cells1 = row1.findElements(By.tagName("td"));
-			    for (WebElement cell : cells1) {
-				do{
-					driver.findElement(By.className("next paginate_button paginate_button_enabled")).click();
-					} while(cell.getText()== group);
-							
-		     	try{
+				//Search
+				try{
 				Thread.sleep(1500);
-				driver.findElement(By.cssSelector("span.icon-pencil")).click();
-		     	}catch(Exception e)
-				{
-				System.out.println(e);
-				 }
-		     	try{
-				Thread.sleep(1500);
-				driver.findElement(By.name("ochRoamingEnabled")).click();
-		     	}catch(Exception e)
-				{
-				System.out.println(e);
-				  }
-		     	try{
-				Thread.sleep(1500);
-				driver.findElement(By.id("save_parentTokenGroup")).click();
+				driver.findElement(By.id("search")).sendKeys(motorist);
+				driver.findElement(By.id("btnSearch")).click();
 				}catch(Exception e)
 				{
 				System.out.println(e);
-			    	 }
-			      }
-			    }
-	
+				}
+					    		
+	    		try{
+	    		Thread.sleep(1500);
+	    		driver.findElement(By.cssSelector("span.icon-ban-circle")).click();
+	    		}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+	    		try{
+		    	Thread.sleep(1500);
+	    		driver.findElement(By.name("bar")).click();
+	    		}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+	    		//Go to Bared Tab
+	    		try{
+				Thread.sleep(1500);
+	    		driver.findElement(By.name("tab_barred")).click();
+	    		}catch(Exception e)
+				{
+				System.out.println(e);
+				}
+
+	    		{
+	    			System.out.println("Motorist was barred");
+	    			test = true;
+	    		  }
+	    		
+	    		
 				//Logout
 				try{
 				Thread.sleep(1500);
@@ -152,7 +200,7 @@ import org.openqa.selenium.WebDriver;
 				{
 				System.out.println(e);
 				}
-				test = true;
+					
 		}
 		  
   }

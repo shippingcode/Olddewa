@@ -144,8 +144,12 @@ public class RemoveSLA {
 		for (WebElement row : allRows) {
 		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 		for (WebElement cell : cells) {
+			do
+			{
+				driver.findElement(By.className("next paginate_button paginate_button_enabled")).click();
+			}
 		while(cell.getText()== "MEDIUM");
-		{
+			{
    try{
 		Thread.sleep(1500);
 		driver.findElement(By.cssSelector("span.icon-remove")).click();
@@ -153,14 +157,15 @@ public class RemoveSLA {
 		{
 		System.out.println(e);
 		     }
-		    }
-	    	}
+			}
 		}
+		}
+
 		
 		if(driver.getPageSource().contains("Success! The register was removed successfully"))
 		{
 			test=true;
-			System.out.println("SLA was removed with success");
+			System.out.println("SLA was deleted with success");
 		}
 		else
 		{

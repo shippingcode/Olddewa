@@ -192,7 +192,7 @@ public class RemoveAlertContentProfile {
 		}
 	  
 		//Find alert Content Profile
-		 WebElement table = driver.findElement(By.className("content tab-content bg-dot50"));
+		 WebElement table = driver.findElement(By.className("table table-bordered table-striped"));
 
 		// Now get all the TR elements from the table
 		java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
@@ -200,8 +200,11 @@ public class RemoveAlertContentProfile {
 		for (WebElement row : allRows) {
 		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 		for (WebElement cell : cells) {
-		while(cell.getText()== AlertConetentProfile);
-		{
+			do{
+			driver.findElement(By.className("next paginate_button paginate_button_enabled")).click();
+			} while(cell.getText()== "AlertContentProfile");
+			{
+
     try{
 		Thread.sleep(1500);
 		driver.findElement(By.cssSelector("#id116 > span.icon-trash")).click();
@@ -209,9 +212,10 @@ public class RemoveAlertContentProfile {
 		{
 		System.out.println(e);
 		     }
-		   }
-	    	}
+			}
 		}
+		}
+
 		if(driver.getPageSource().contains("Success! The register was removed successfully"))
 		{
 			test = true;

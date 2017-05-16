@@ -195,8 +195,7 @@ public class EditAndSaveAlertContentProfile {
 		{
 		System.out.println(e);
 		}
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("scroll(0, 400)");
+		
 		//Find alert Content Profile
 		 WebElement table = driver.findElement(By.xpath("//form[starts-with(@id, 'id')]"));
 		// Now get all the TR elements from the table
@@ -205,20 +204,36 @@ public class EditAndSaveAlertContentProfile {
 		for (WebElement row : allRows) {
 		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 		for (WebElement cell : cells) {
-		if(cell.getText()== AlertConetentProfile);
-		{
+			do{
+			driver.findElement(By.className("next paginate_button paginate_button_enabled")).click();
+			} while(cell.getText()== "AlertContentProfile");
+	
     try{
 		Thread.sleep(1500);
 		driver.findElement(By.cssSelector("span.icon-pencil")).click();
+    }catch(Exception e)
+	{
+	System.out.println(e);
+	     }
+		try{
+		Thread.sleep(1500);
 		driver.findElement(By.name("smsAlertText")).sendKeys("!@#$%^&*(");
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
+		try{
+		Thread.sleep(1500);
 		driver.findElement(By.id("save_device")).click();
 		}catch(Exception e)
 		{
 		System.out.println(e);
-		     }
-		    }
-	    	}
 		}
+	   	}
+
+			}
+
+		 
   if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
   {
 	  test = true;

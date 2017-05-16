@@ -1,20 +1,20 @@
-/* Edit and save Group - un check the Open Clearing House*/
 
 package DEWA;
-    import org.testng.annotations.Test;
-	import java.io.FileInputStream;
-	import java.io.FileNotFoundException;
-	import java.io.IOException;
-	import java.util.Properties;
-	import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.firefox.FirefoxDriver;
-	import org.openqa.selenium.support.ui.Select;
 
-	public class EditAndSaveGroup { 
-		boolean test=false;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class RemoveGroup { 
+
+boolean test=false;
 		String group = GenerateData.generateRandomString(5);
 		
 		@Test
@@ -122,27 +122,24 @@ import org.openqa.selenium.WebDriver;
 							
 		     	try{
 				Thread.sleep(1500);
-				driver.findElement(By.cssSelector("span.icon-pencil")).click();
+				driver.findElement(By.cssSelector("span.icon-trash")).click();
 		     	}catch(Exception e)
 				{
 				System.out.println(e);
 				 }
-		     	try{
-				Thread.sleep(1500);
-				driver.findElement(By.name("ochRoamingEnabled")).click();
-		     	}catch(Exception e)
-				{
-				System.out.println(e);
-				  }
-		     	try{
-				Thread.sleep(1500);
-				driver.findElement(By.id("save_parentTokenGroup")).click();
-				}catch(Exception e)
-				{
-				System.out.println(e);
-			    	 }
+		     	
 			      }
 			    }
+				 if(driver.getPageSource().contains("Success! The register was removed successfully"))
+				    {
+				    	test = true;
+				    	System.out.println ("Group was deleted with success");
+				    	
+				      }
+				    else
+				    {
+				    	System.out.println ("Something went wrong");
+				       }
 	
 				//Logout
 				try{

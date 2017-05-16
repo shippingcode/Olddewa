@@ -145,23 +145,39 @@ public class EditAndSaveSLA {
 		for (WebElement row : allRows) {
 		java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 		for (WebElement cell : cells) {
+			do
+			{
+				driver.findElement(By.className("next paginate_button paginate_button_enabled")).click();
+			}
 		while(cell.getText()== "MEDIUM");
-		{
+			{
    try{
 		Thread.sleep(1500);
 		driver.findElement(By.cssSelector("span.icon-remove")).click();
+   }catch(Exception e)
+	{
+	System.out.println(e);
+	     }
+   try{
+		Thread.sleep(1500);
 		WebElement eventdropdown = driver.findElement(By.name("eventPriority"));
 		Select event = new Select(eventdropdown);
 		event.selectByVisibleText("Intermediate");
+   }catch(Exception e)
+  	{
+  	System.out.println(e);
+  	     }
+   try{
+		Thread.sleep(1500);
 		driver.findElement(By.id("save_device")).click();
 		}catch(Exception e)
 		{
 		System.out.println(e);
 		     }
-		    }
+			 }
 	    	}
 		}
-		
+	
 		if(driver.getPageSource().contains("Success! The register was saved/updated successfully"))
 		{
 			test=true;
@@ -171,7 +187,13 @@ public class EditAndSaveSLA {
 		{
 			System.out.println("Something went wrong");
 		}
-		
+		try{
+	 	Thread.sleep(1500);
+		driver.findElement(By.className("next paginate_button paginate_button_enabled")).click();
+		}catch(Exception e)
+ 		{
+ 		System.out.println(e);
+ 		}
 		//Logout 
  		try{
  		Thread.sleep(1500);

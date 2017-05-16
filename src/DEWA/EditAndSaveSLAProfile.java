@@ -187,21 +187,44 @@ public void editandsaveSLAProfile() throws FileNotFoundException {
 	for (WebElement row : allRows) {
 	java.util.List<WebElement> cells = row.findElements(By.tagName("td"));
 	for (WebElement cell : cells) {
+		do
+		{
+			driver.findElement(By.className("next paginate_button paginate_button_enabled")).click();
+		}
 	while(cell.getText()== profile);
-	{
+		{
 try{
 	Thread.sleep(1500);
 	driver.findElement(By.cssSelector("span.icon-pencil")).click();
+}catch(Exception e)
+{
+System.out.println(e);
+     }
+	try{
+	Thread.sleep(1500);
 	driver.findElement(By.name("resolutionMins")).clear();
+	}catch(Exception e)
+	{
+	System.out.println(e);
+	     }
+	try{
+	Thread.sleep(1500);
 	driver.findElement(By.name("resolutionMins")).sendKeys("200");
+	}catch(Exception e)
+	{
+	System.out.println(e);
+	     }
+	try{
+		Thread.sleep(1500);
 	driver.findElement(By.id("save_device")).click();
 	}catch(Exception e)
 	{
 	System.out.println(e);
 	     }
-	    }
-   	}
+		}
 	}
+	}
+	
 	
 	if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
 	{
