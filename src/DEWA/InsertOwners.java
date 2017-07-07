@@ -92,7 +92,7 @@ public class InsertOwners {
 				{
 					System.out.println(e);
 				}
-				//Choose alarm
+				/*//Choose alarm
 				try{
 					Thread.sleep(1500);
 					WebElement alarmdropdown = driver.findElement(By.cssSelector("div.col-md-12 > select[name='alertContentProfile']"));
@@ -111,7 +111,7 @@ public class InsertOwners {
 				}catch(Exception e)
 				{
 					System.out.println(e);
-				}
+				} */
 
 			//Choose time zone
 			try{

@@ -122,10 +122,10 @@ public class InsertTokens {
 		organisation.selectByVisibleText("TEST");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		//Choose an user from dropdown list
-		WebElement userdropdown = driver.findElement(By.name("user"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-		Select user = new Select(userdropdown);
-		user.selectByVisibleText("MotoristA");
+		//WebElement userdropdown = driver.findElement(By.name("user"));
+		//driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
+		//Select user = new Select(userdropdown);
+		//user.selectByVisibleText("MotoristA");
 		//Check the checkbox for OCHP Enabled
 		try{
 		Thread.sleep(1500);

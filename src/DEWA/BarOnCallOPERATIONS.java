@@ -79,44 +79,14 @@ public class BarOnCallOPERATIONS {
 	}
 	//Modal window is displayed
 	driver.findElement(By.className("modal-content")).isDisplayed();
-	try{
-		Thread.sleep(1500);
-		WebElement devicedrop = driver.findElement(By.name("user"));
-		Select device = new Select(devicedrop);
-		device.selectByVisibleText("test.admin");
-		}catch(Exception e)
-		{
-			System.out.println(e);
-		}
-	try{
-	Thread.sleep(1500);
+	
    	//Telephone & email are filled automatically
-	driver.findElement(By.name("user.phoneNumber")).isDisplayed();
-	driver.findElement(By.name("user.emailPrimary")).isDisplayed();
+	/* deprecated 
+	//driver.findElement(By.name("user.phoneNumber")).isDisplayed();
+	//driver.findElement(By.name("user.emailPrimary")).isDisplayed();
 	//Set start of shift & end of shift
-	driver.findElement(By.name("startTime")).sendKeys("00:00");
-	}catch(Exception e)
-	{
-		System.out.println(e);
-	}
-	try{
-		Thread.sleep(1500);
-	driver.findElement(By.xpath("//button[@type='button'])[5]"));
-	}catch(Exception e)
-	{
-		System.out.println(e);
-	}
-	driver.findElement(By.name("endTime")).sendKeys("00:00");
-
-	//Press Done
-	try{
-		Thread.sleep(1500);
-	driver.findElement(By.xpath("//button[@type='button'])[5]"));
-	}catch(Exception e)
-	{
-	System.out.println(e);
-	}
-	try{
+	
+	//try{
 	Thread.sleep(1500);
 	WebElement orgdrop = driver.findElement(By.cssSelector("div.input-group > select[name='organisation']"));
 	Select org = new Select(orgdrop);
@@ -124,7 +94,16 @@ public class BarOnCallOPERATIONS {
 	}catch(Exception e)
 	{
 	System.out.println(e);
-	}
+	}*/
+	try{
+		Thread.sleep(1500);
+		WebElement userdrop = driver.findElement(By.id("equipmentType"));
+		Select user = new Select(userdrop);
+		user.selectByVisibleText("test.admin");
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
 	//Press Save
 	try{
 	Thread.sleep(1500);
@@ -134,8 +113,8 @@ public class BarOnCallOPERATIONS {
 	System.out.println(e);
 	}
 	
-	//Find alert Content Profile
-	 WebElement table = driver.findElement(By.cssSelector("div.col-md-4 > div.content content-transparent np"));
+	//Find On Call
+	 WebElement table = driver.findElement(By.cssSelector("div.col-md-12 > div.col-md-4"));
 
 	// Now get all the TR elements from the table
 	java.util.List<WebElement> allRows = table.findElements(By.tagName("tr"));
@@ -157,7 +136,7 @@ try{
 	}
 		//Verify if becomes INACTIVE
 	//Find alert Content Profile
-		 WebElement table1 = driver.findElement(By.cssSelector("div.col-md-4 > block block-drop-shadow"));
+		 WebElement table1 = driver.findElement(By.cssSelector("div.col-md-12 > div.col-md-4"));
 
 		// Now get all the TR elements from the table
 		java.util.List<WebElement> allRows1 = table1.findElements(By.tagName("tr"));
@@ -195,7 +174,10 @@ try{
 	{
 		System.out.println(e);
 		}
-	
-        }
-    }
+	}
+  }
+
+
+
+
 

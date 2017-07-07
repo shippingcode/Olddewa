@@ -70,7 +70,7 @@ public class CreateAssignedTokenToUser {
 				//Click on Add
 				try{
 				Thread.sleep(1500);
-				driver.findElement(By.cssSelector("span.icon-plus")).click();
+				driver.findElement(By.id("actAddCard")).click();
 				}catch(Exception e)
 				{
 					System.out.println(e);

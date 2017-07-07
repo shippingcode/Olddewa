@@ -78,16 +78,9 @@ public class InsertOnCalls {
 	}
 	//Modal window is displayed
 	driver.findElement(By.className("modal-content")).isDisplayed();
-	try{
-		Thread.sleep(1500);
-		WebElement devicedrop = driver.findElement(By.name("user"));
-		Select device = new Select(devicedrop);
-		device.selectByVisibleText("test.admin");
-		}catch(Exception e)
-		{
-			System.out.println(e);
-		}
-	try{
+	
+/*	deprecated 
+     try{
 	Thread.sleep(1500);
    	//Telephone & email are filled automatically
 	driver.findElement(By.name("user.phoneNumber")).isDisplayed();
@@ -123,7 +116,16 @@ public class InsertOnCalls {
 	}catch(Exception e)
 	{
 	System.out.println(e);
-	}
+	}*/
+	try{
+		Thread.sleep(1500);
+		WebElement devicedrop = driver.findElement(By.name("user"));
+		Select device = new Select(devicedrop);
+		device.selectByVisibleText("test.admin");
+		}catch(Exception e)
+		{
+			System.out.println(e);
+		}
 	//Press Save
 	try{
 	Thread.sleep(1500);
@@ -132,7 +134,7 @@ public class InsertOnCalls {
 	{
 	System.out.println(e);
 	}
-	i++;
+
 
     if(!driver.getPageSource().contains("Success! The register was saved/update successfully"))
     {

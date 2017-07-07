@@ -97,7 +97,7 @@ package DEWA;
 					Thread.sleep(1500);
 					WebElement makedropdown = driver.findElement(By.id("organisationId"));
 					Select make = new Select(makedropdown);
-					make.selectByVisibleText("CIRCONTROL");
+					make.selectByVisibleText("maker12");
 					}catch(Exception e)
 					{
 						System.out.println(e);
@@ -106,7 +106,7 @@ package DEWA;
 					Thread.sleep(1500);
 					WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
 					Select model = new Select(modeldropdown);
-					model.selectByVisibleText("CCL");
+					model.selectByVisibleText("model12");
 					}catch(Exception e)
 					{
 					System.out.println(e);
@@ -235,8 +235,7 @@ package DEWA;
 				{
 				System.out.println(e);
 				}
-					
-				
+							
 						
 		    	}
 	    	}

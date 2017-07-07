@@ -51,7 +51,7 @@ import org.openqa.selenium.support.ui.Select;
 				}
 
 				//Choose organisation TEST
-				try{
+			/*	try{
 				Thread.sleep(1500);
 				WebElement orgdropdown = driver.findElement(By.name("organisation"));
 				Select org = new Select(orgdropdown);
@@ -59,7 +59,7 @@ import org.openqa.selenium.support.ui.Select;
 				}catch(Exception e)
 				{
 					System.out.println(e);
-				}
+				}*/
 				
 				//Go to List
 				try{
@@ -95,7 +95,7 @@ import org.openqa.selenium.support.ui.Select;
 				Thread.sleep(1500);
 				WebElement makedropdown = driver.findElement(By.id("organisationId"));
 				Select make = new Select(makedropdown);
-				make.selectByVisibleText("make123");
+				make.selectByVisibleText("make12");
 				}catch(Exception e)
 				{
 					System.out.println(e);
@@ -104,7 +104,7 @@ import org.openqa.selenium.support.ui.Select;
 				Thread.sleep(1500);
 				WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
 				Select model = new Select(modeldropdown);
-				model.selectByVisibleText("model123");
+				model.selectByVisibleText("model12");
 				}catch(Exception e)
 				{
 				System.out.println(e);

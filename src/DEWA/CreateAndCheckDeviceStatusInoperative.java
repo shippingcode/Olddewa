@@ -1,16 +1,22 @@
 /* Add a new device with maker/model with Inoperative status and check the status of the device*/
 package DEWA;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+
+import com.google.common.io.Files;
+import com.sun.jna.platform.FileUtils;
 
 public class CreateAndCheckDeviceStatusInoperative {
 	boolean test = false;
@@ -18,7 +24,7 @@ public class CreateAndCheckDeviceStatusInoperative {
 	String device = GenerateData.generateRandomString(20);
 	WebElement cell = null;
 	@Test
-	 public void addcheckinoperative() throws FileNotFoundException {
+	 public void addcheckinoperative() throws IOException {
 		  Properties prop = new Properties();
 		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
 	      try {
@@ -89,7 +95,7 @@ public class CreateAndCheckDeviceStatusInoperative {
 			Thread.sleep(1500);
 			WebElement makedropdown = driver.findElement(By.id("organisationId"));
 			Select make = new Select(makedropdown);
-			make.selectByVisibleText("make123");
+			make.selectByVisibleText("make12");
 			}catch(Exception e)
 			{
 				System.out.println(e);
@@ -98,7 +104,7 @@ public class CreateAndCheckDeviceStatusInoperative {
 			Thread.sleep(1500);
 			WebElement modeldropdown = driver.findElement(By.id("equipmentType"));
 			Select model = new Select(modeldropdown);
-			model.selectByVisibleText("model123");
+			model.selectByVisibleText("model12");
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -267,7 +273,12 @@ public class CreateAndCheckDeviceStatusInoperative {
 				{
 				System.out.println(e);
 				     }
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			 
+			// Now you can do whatever you need to do with it, for example copy somewhere
+			 
 
+			Files.copy(scrFile, new File("c:\\tmp\\screenshot.png"));
 			//Logout
 			try{
 			Thread.sleep(1500);
