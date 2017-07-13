@@ -61,15 +61,14 @@ public void createSLAProfile() throws FileNotFoundException {
 	}
 	//Go to OPERATIONS Tab
 	driver.findElement(By.id("operations")).click();
+	driver.findElement(By.linkText("On Call")).isDisplayed();
 	driver.findElement(By.linkText("Maintenance")).isDisplayed();
-	driver.findElement(By.linkText("Alerts")).isDisplayed();
+	driver.findElement(By.linkText("Work Orders")).isDisplayed();
+	driver.findElement(By.linkText("SLA Profile")).isDisplayed();
 
 	//Go to Alerts
 	try{ 
 	Thread.sleep(1500);
-	WebElement menu = driver.findElement(By.linkText("Alerts"));
-	Actions actions = new Actions(driver);
-	actions.moveToElement(menu).perform();
 	driver.findElement(By.linkText("SLA Profile")).click();
 	}catch(Exception e)
 	{
@@ -169,6 +168,18 @@ public void createSLAProfile() throws FileNotFoundException {
 	{
 	System.out.println(e);
 	}
+	
+	//Choose event priority
+		try{
+		Thread.sleep(1500);
+		WebElement eventdropdown = driver.findElement(By.cssSelector("eventPriority"));
+		Select event= new Select(eventdropdown);
+		event.selectByVisibleText("High");
+		}catch(Exception e)
+		{
+		System.out.println(e);
+		}
+	
 	//Press Save Button
 	try{
 	Thread.sleep(1500);

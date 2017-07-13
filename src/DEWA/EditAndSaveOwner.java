@@ -104,6 +104,7 @@ public class EditAndSaveOwner {
 	  			{
 	  				System.out.println(e);
 	  			}
+	  			/* deprecated
 	  			//Choose alarm
 	  			try{
 	  			Thread.sleep(1500);
@@ -123,7 +124,7 @@ public class EditAndSaveOwner {
 	  			}catch(Exception e)
 	  			{
 	  				System.out.println(e);
-	  			}
+	  			}*/
 
 	  		//Choose time zone
 	  		try{
@@ -202,6 +203,7 @@ public class EditAndSaveOwner {
 			{
 				System.out.println(e);
 			}
+	  		/*
 	  		//Go to Alerts
 	  		try{
 	  		Thread.sleep(1500);
@@ -311,7 +313,7 @@ public class EditAndSaveOwner {
 	  		{
 	  		System.out.println(e);
 	  		}
-	  		
+	  		*/
 	  	//Go on Organization
 	  		try{
 	  		Thread.sleep(1500);

@@ -3,7 +3,6 @@ package DEWA;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.By;
@@ -14,9 +13,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-
 import com.google.common.io.Files;
-import com.sun.jna.platform.FileUtils;
+
 
 public class CreateAndCheckDeviceStatusInoperative {
 	boolean test = false;

@@ -76,15 +76,7 @@ public class EditAndSaveOnCall {
 	}
 	//Modal window is displayed
 	driver.findElement(By.className("modal-content")).isDisplayed();
-	try{
-		Thread.sleep(1500);
-		WebElement devicedrop = driver.findElement(By.name("user"));
-		Select device = new Select(devicedrop);
-		device.selectByVisibleText("test.admin");
-		}catch(Exception e)
-		{
-			System.out.println(e);
-		}
+	/* deprecated
 	try{
 	Thread.sleep(1500);
    	//Telephone & email are filled automatically
@@ -112,7 +104,7 @@ public class EditAndSaveOnCall {
 	}catch(Exception e)
 	{
 	System.out.println(e);
-	}
+	} */
 	try{
 	Thread.sleep(1500);
 	WebElement orgdrop = driver.findElement(By.cssSelector("div.input-group > select[name='organisation']"));
@@ -122,6 +114,15 @@ public class EditAndSaveOnCall {
 	{
 	System.out.println(e);
 	}
+	try{
+		Thread.sleep(1500);
+		WebElement devicedrop = driver.findElement(By.name("user"));
+		Select device = new Select(devicedrop);
+		device.selectByVisibleText("test.admin");
+		}catch(Exception e)
+		{
+			System.out.println(e);
+		}
 	//Press Save
 	try{
 	Thread.sleep(1500);

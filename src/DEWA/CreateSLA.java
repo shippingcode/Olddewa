@@ -10,7 +10,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
@@ -60,15 +59,12 @@ public class CreateSLA {
 		driver.findElement(By.linkText("On Call")).isDisplayed();
 		driver.findElement(By.linkText("Maintenance")).isDisplayed();
 		driver.findElement(By.linkText("Work Orders")).isDisplayed();
-		driver.findElement(By.linkText("Alerts")).isDisplayed();
+		driver.findElement(By.linkText("SLA Profile")).isDisplayed();
 
 		// Create SLA
 		// Go to Alerts
 		try {
 			Thread.sleep(1500);
-			WebElement menu = driver.findElement(By.linkText("Alerts"));
-			Actions actions = new Actions(driver);
-			actions.moveToElement(menu).perform();
 			driver.findElement(By.linkText("SLA")).click();
 		} catch (Exception e) {
 			System.out.println(e);

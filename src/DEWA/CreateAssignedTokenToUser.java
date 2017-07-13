@@ -104,72 +104,28 @@ public class CreateAssignedTokenToUser {
 		{
 		System.out.println(e);
 		}
-
-	    //Choose organization
-		WebElement orgdropdown = driver.findElement(By.name("creatorOrganisation"));
-		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
-		Select organisation = new Select(orgdropdown);
-		organisation.selectByVisibleText("TEST");
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		//Choose an user from dropdown list
-		 try{
-		   Thread.sleep(1500);
-		WebElement userdropdown = driver.findElement(By.name("user"));
-		Select user = new Select(userdropdown);
-		user.getFirstSelectedOption();
-		//user.selectByValue("121");
-		 }catch(Exception e)
-		{
-		System.out.println(e);
-		}
-		//Check the checkbox for OCHP Enabled
+	  
+      //Choose motorist
 		try{
 		Thread.sleep(1500);
-		driver.findElement(By.xpath("//input[@name='ochpEnabled']")).click();
+		WebElement motoristypedropdown = driver.findElement(By.name("user"));
+		Select motorist = new Select(motoristypedropdown);
+		motorist.getFirstSelectedOption();
 		}catch(Exception e)
 		{
 		System.out.println(e);
 		}
-	
-		//Choose OCHP Type
+		//Choose Group
 		try{
 		Thread.sleep(1500);
-		WebElement ochpdropdown = driver.findElement(By.name("ochpType"));
-		Select ochp = new Select(ochpdropdown);
-		ochp.selectByVisibleText("rfid");
+		WebElement groupdropdown = driver.findElement(By.name("parentTokenGroup"));
+		Select group = new Select(groupdropdown);
+		group.getFirstSelectedOption();
 		}catch(Exception e)
 		{
 		System.out.println(e);
 		}
-      //Choose OCHP Subtype
-		try{
-		Thread.sleep(1500);
-		WebElement ochpsubtypedropdown = driver.findElement(By.name("ochpSubtype"));
-		Select ochpsubtype = new Select(ochpsubtypedropdown);
-		ochpsubtype.selectByVisibleText("calypso");
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
-		//Choose OCHP Representation
-		try{
-		Thread.sleep(1500);
-		WebElement ochprepresdropdown = driver.findElement(By.name("ochpTokenRepresentation"));
-		Select ochprepres = new Select(ochprepresdropdown);
-		ochprepres.selectByVisibleText("sha-160");
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
-		//Fill Contract ID
-		try{
-		Thread.sleep(1500);
-		driver.findElement(By.name("ochpContractId")).sendKeys("3464565");
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
-
+		
 	    //Save all the info
 	    try{
 			Thread.sleep(1500);

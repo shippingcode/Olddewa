@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -81,63 +82,69 @@ public class CreateWorkOrder {
 	//Raise new work order
 	try{
 	Thread.sleep(1500);
-	driver.findElement(By.linkText("Raise new work order")).click();
+	driver.findElement(By.linkText("Create issue")).click();
 	}catch(Exception e)
 	{
 		System.out.println(e);
 	}
+	
+/*//Choose device
+	String textToSelect = "NewDevice";
+	WebElement autoOptions= driver.findElement(By.name("deviceSelectContainer:deviceSelect"));
+	autoOptions.sendKeys("d");
+
+	java.util.List<WebElement> optionsToSelect = driver.findElements(By.name("deviceSelectContainer:deviceSelect"));
+	
+	for(WebElement option : optionsToSelect){
+	  	    if(option.getText().equals(textToSelect)) {
+	        option.click();
+	        break;
+	  	    }
+	  	    
+     	}
+*/
+	driver.findElement(By.name("deviceSelectContainer:deviceSelect")).sendKeys(Keys.ARROW_DOWN);
+	 try{
+			Thread.sleep(1500);
+			WebElement devicedrop = driver.findElement(By.name("deviceSelectContainer:deviceSelect"));
+		    Select device = new Select(devicedrop);
+		    device.selectByIndex(2);
+          }catch(Exception e)
+	        {
+	      	System.out.println(e);
+	        } 
+	
+	   driver.findElement(By.name("deviceSelectContainer:deviceSelect")).sendKeys(Keys.ENTER);
+
+
 	//Fill an work order title
 	   try{
 		Thread.sleep(1500);
-		driver.findElement(By.name("workOrder.workOrderTitle")).sendKeys("Selenium WorkOrder");
+		driver.findElement(By.name("workOrderTitle")).sendKeys("Selenium WorkOrder");
 	   }catch(Exception e)
 		{
 			System.out.println(e);
 		}
 
-			
-		    //Choose event priority
+		
+	     //Choose type of work
 	        try{
 			Thread.sleep(1500);
-		    WebElement eventdrop = driver.findElement(By.name("workOrder.workOrderType"));
-		    Select event = new Select(eventdrop);
-		    event.selectByVisibleText("issue");
-           }catch(Exception e)
-             {
-	        System.out.println(e);
-             }
-
-	      //Choose type of work
-	        try{
-			Thread.sleep(1500);
-			WebElement worktype = driver.findElement(By.name("workOrder.eventPriority"));
+			WebElement worktype = driver.findElement(By.name("prioritySelectContainer:eventPriority"));
 		    Select type = new Select(worktype);
 		    type.selectByVisibleText("Low");
              }catch(Exception e)
 	        {
 	      	System.out.println(e);
-	        }
-		//Choose device
-	        try{
-			Thread.sleep(1500);
-		    driver.findElement(By.name("deviceSelect")).sendKeys("deviceB");
-		    WebElement devicedrop = driver.findElement(By.name("deviceB"));
-		    Select device = new Select(devicedrop);
-		    Actions actions = new Actions(driver);
-			actions.moveToElement(devicedrop).perform();
-			device.selectByVisibleText("deviceB");
-			driver.findElement(By.linkText("deviceB")).click();
-	        }catch(Exception e)
-            {
-	        System.out.println(e);
-            }
+	        } 
+		
 
 		    //Choose organisation
 	        try{
 			Thread.sleep(1500);
-		    WebElement orgdrop = driver.findElement(By.id("organisationId"));
+		    WebElement orgdrop = driver.findElement(By.name("user"));
 		    Select org = new Select(orgdrop);
-		    org.selectByVisibleText("TEST");
+		    org.selectByIndex(1);
              }catch(Exception e)
             {
              System.out.println(e);
@@ -175,5 +182,10 @@ public class CreateWorkOrder {
 		}
 	
         }
-    }
+  }
+
+
+
+
+
 
