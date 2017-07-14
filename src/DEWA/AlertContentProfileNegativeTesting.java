@@ -1,4 +1,4 @@
-/*  Create Alert Content Profile
+/*  Create Alert Content Profile */
 
 package DEWA;
 
@@ -162,4 +162,4 @@ public class AlertContentProfileNegativeTesting {
 
 	}
 }
-*/
+

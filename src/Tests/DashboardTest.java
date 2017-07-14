@@ -28,7 +28,7 @@ public class DashboardTest {
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		driver.get("https://35.187.12.26/");
+		driver.get("http://dewa.hubeleon.ae");
 		driver.manage().window().maximize();
 
 	}
@@ -55,7 +55,7 @@ public class DashboardTest {
 
 		// login to application
 
-		objLogin.loginToDEWA("eConnect.support", "Pa55w0rd1");
+		objLogin.loginToDEWA("test.admin", "Pa55w0rd1");
 
 		objDashboard = new DashboardPageFactory(driver);
 

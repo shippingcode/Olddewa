@@ -1,4 +1,4 @@
-package DEWA;
+  package DEWA;
 
 
 import java.io.FileInputStream;
@@ -78,7 +78,18 @@ public class InsertPreventiveWorkOrders {
 			try{
 			Thread.sleep(1500);
 			driver.findElement(By.id("actionsMenu")).click();
-			driver.findElement(By.linkText("Raise new work order")).click();
+			driver.findElement(By.id("btnPreventative")).click();
+			}catch(Exception e)
+			{
+			System.out.println(e);
+			}
+			//Choose device
+			try{
+			Thread.sleep(1500);
+			driver.findElement(By.name("deviceSelectContainer:deviceSelect")).sendKeys("NewDeviceIsInTown");
+			WebElement devicedrop = driver.findElement(By.name("div.col-md-9 > input[name='deviceSelect']"));
+			Select device = new Select(devicedrop);
+			device.selectByVisibleText("NewDeviceIsInTown");
 			}catch(Exception e)
 			{
 			System.out.println(e);
@@ -88,34 +99,12 @@ public class InsertPreventiveWorkOrders {
 		driver.findElement(By.name("workOrder.workOrderTitle")).sendKeys(preventive[i]);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
-		//Choose type of work
-		WebElement worktype = driver.findElement(By.name("workOrder.workOrderType"));
-		Select type = new Select(worktype);
-		type.selectByVisibleText("preventitive");
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
-		 //Choose event priority
-		WebElement eventtype = driver.findElement(By.name("workOrder.eventPriority"));
-		Select event = new Select(eventtype);
-		event.selectByVisibleText("Parked fault");
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
-		//Choose device
-		try{
-		Thread.sleep(1500);
-		driver.findElement(By.cssSelector("div.col-md-9 > input[name='deviceSelect']")).sendKeys("device");
-		WebElement devicedrop = driver.findElement(By.cssSelector("div.col-md-9 > input[name='deviceSelect']"));
-		Select device = new Select(devicedrop);
-		device.selectByVisibleText("device1");
-		}catch(Exception e)
-		{
-		System.out.println(e);
-		}
+		
 
 		//Choose organisation
-		WebElement orgdrop = driver.findElement(By.id("organisationId"));
-		Select org = new Select(orgdrop);
-		org.selectByVisibleText("TEST");
+		WebElement userdrop = driver.findElement(By.name("user"));
+		Select user = new Select(userdrop);
+		user.selectByVisibleText("test.admin");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 		//Press Save

@@ -25,7 +25,7 @@ public class LogoutTest {
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		driver.get("https://35.187.12.26/");
+		driver.get("http://dewa.hubeleon.ae");
 
 	}
 
@@ -47,7 +47,7 @@ public class LogoutTest {
 
 		// login to application
 
-		objLogin.loginToDEWA("eConnect.support", "Pa55w0rd1");
+		objLogin.loginToDEWA("test.admin", "Pa55w0rd1");
 
 		// Create Logout Page object
 
