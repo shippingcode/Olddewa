@@ -20,9 +20,7 @@ public class CreateDeviceTest {
 	WebDriver driver;
 
 	LoginPageFactory objLogin;
-
 	CreateDevicePageFactory objDeviceList;
-
 	LogoutPageFactory objLogout;
 	DashboardPageFactory objDashboard;
 
@@ -31,9 +29,7 @@ public class CreateDeviceTest {
 	public void setup() {
 
 		driver = new FirefoxDriver();
-
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
 		driver.get("http://dewa.hubeleon.ae");
 		driver.manage().window().maximize();
 
@@ -56,23 +52,18 @@ public class CreateDeviceTest {
 	public void CreateDevice() {
 
 		// Create Login Page object
-
 		objLogin = new LoginPageFactory(driver);
 
 		// login to application
-
-		objLogin.loginToDEWA("eConnect.support", "Pa55w0rd1");
-
+		objLogin.loginToDEWA("test.admin", "Pa55w0rd1");
 		objDashboard = new DashboardPageFactory(driver);
 
 		// Verify Dashboard
 
 		Assert.assertTrue(objDashboard.getDashboard().contains("DASHBOARD"));
-
 		objDeviceList = new CreateDevicePageFactory(driver);
 
 		// Call device creation
-		objDeviceList.SelectOrganisation(ORGANISATION);
 		objDeviceList.CreateDevice(DEVICENAME);
 
 		// Logout

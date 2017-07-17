@@ -11,6 +11,7 @@ public class CreateDevicePage {
 	WebDriver driver;
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);
+	WebElement OrganisationName = null;
 
 	By Device = By.id("topmenu_device");
 	By DeviceList = By.linkText("List");
@@ -37,20 +38,20 @@ public class CreateDevicePage {
 	}
 
 	// Create device
-	public WebElement SelectOrganisation(WebElement Organisation) {
+	public WebElement selectOrganisation(WebElement Organisation1) {
 		try {
 			Thread.sleep(1500);
-			WebElement orgdropdown = driver.findElement((By) Organisation);
+			WebElement orgdropdown = driver.findElement((By) Organisation1);
 			Select org = new Select(orgdropdown);
 			org.selectByVisibleText("TEST");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return Organisation;
+		return Organisation1;
 
 	}
 
-	public String CreateDevice(String Devicename)
+	public String createDevice(String Devicename)
 
 	{
 		// Go to Device->List
@@ -92,7 +93,7 @@ public class CreateDevicePage {
 			Thread.sleep(1500);
 			WebElement makedropdown = driver.findElement(maker);
 			Select make = new Select(makedropdown);
-			make.selectByVisibleText("make123");
+			make.selectByVisibleText("maker12");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -100,7 +101,7 @@ public class CreateDevicePage {
 			Thread.sleep(1500);
 			WebElement modeldropdown = driver.findElement(model);
 			Select model = new Select(modeldropdown);
-			model.selectByVisibleText("model123");
+			model.selectByVisibleText("model12");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -171,7 +172,10 @@ public class CreateDevicePage {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return Devicename;
+	}
 
+		public void saveDevice(String Devicename){
 		// Press Save
 		try {
 			Thread.sleep(1500);
@@ -179,14 +183,22 @@ public class CreateDevicePage {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
+		}
+       public void checkDevice_success(String Devicename){
 		if (driver.getPageSource().contains("Success! The register was saved/update successfully")) {
 
-			return Devicename;
+			
 		} else {
 			System.out.println("Something went wrong");
 
 		}
-		return Devicename;
+       }
+		public void CreateDevice(String Devicename){
+		this.selectOrganisation(OrganisationName);
+		this.createDevice(Devicename);
+		this.saveDevice(Devicename);
+		this.checkDevice_success(Devicename);
+		
 	}
+
 }

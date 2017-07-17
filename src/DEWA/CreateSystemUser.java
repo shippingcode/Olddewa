@@ -26,38 +26,38 @@ public class CreateSystemUser {
 	WebDriver driver = null;
 
 	@Test
-	 public void createsystemuser() throws FileNotFoundException {
+	public void createsystemuser() throws FileNotFoundException {
 		//Login
-		  Properties prop = new Properties();
-		  FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
-	      try {
+		Properties prop = new Properties();
+		FileInputStream file = new FileInputStream("C:\\Users\\Aila\\workspace\\dewa\\src\\DEWA\\datadriven.properties");
+		try {
 			prop.load(file);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-	    //Create Firefox drive
+		//Create Firefox drive
 		WebDriver driver = new FirefoxDriver();
-	    driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		driver.get(prop.getProperty("url1"));
 		try{
-		Thread.sleep(1500);
-		//Login into the software filling username & password
-		driver.findElement(By.name("username")).sendKeys(prop.getProperty("username1"));
-		driver.findElement(By.name("password")).sendKeys(prop.getProperty("password1"));
-		driver.findElement(By.xpath("//input[@value='Log In']")).click();
+			Thread.sleep(1500);
+			//Login into the software filling username & password
+			driver.findElement(By.name("username")).sendKeys(prop.getProperty("username1"));
+			driver.findElement(By.name("password")).sendKeys(prop.getProperty("password1"));
+			driver.findElement(By.xpath("//input[@value='Log In']")).click();
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
 		//Choose organisation TEST
 		try{
-		Thread.sleep(1500);
-		WebElement orgdropdown = driver.findElement(By.name("organisation"));
-		Select org = new Select(orgdropdown);
-		org.selectByVisibleText("TEST");
+			Thread.sleep(1500);
+			WebElement orgdropdown = driver.findElement(By.name("organisation"));
+			Select org = new Select(orgdropdown);
+			org.selectByVisibleText("TEST");
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
 		//Go to Settings -> Add user system
 		driver.findElement(By.cssSelector("span.icon-cog")).click();
@@ -65,20 +65,20 @@ public class CreateSystemUser {
 		driver.findElement(By.linkText("System Users")).isDisplayed();
 		//Go to User System
 		try{
-		Thread.sleep(1500);
-		driver.findElement(By.linkText("System Users")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.linkText("System Users")).click();
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
 		//Click on Add System User
 		try{
-		Thread.sleep(1500);
-		driver.findElement(By.id("actionsMenu")).click();
-		driver.findElement(By.linkText("Add")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.id("actionsMenu")).click();
+			driver.findElement(By.linkText("Add")).click();
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
 		//Fill First Name
 		driver.findElement(By.name("firstName")).sendKeys(firstname);
@@ -98,7 +98,7 @@ public class CreateSystemUser {
 		Select org = new Select(orgdropdown);
 		org.selectByVisibleText("TEST");
 
- 		//Fill phone number
+		//Fill phone number
 		driver.findElement(By.name("phoneNumber")).sendKeys(phone);
 		//Fill email
 		driver.findElement(By.name("emailPrimary")).sendKeys("abogasieru@yahoo.com");
@@ -110,21 +110,21 @@ public class CreateSystemUser {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//Choose membership
 		try{
-		Thread.sleep(1500);
-		WebElement membershipdropdown = driver.findElement(By.name("memType"));
-		Select mem = new Select(membershipdropdown);
-		mem.selectByVisibleText("Monthly");
+			Thread.sleep(1500);
+			WebElement membershipdropdown = driver.findElement(By.name("memType"));
+			Select mem = new Select(membershipdropdown);
+			mem.selectByVisibleText("Monthly");
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
 		//Press Save Button
 		try{
-		Thread.sleep(1500);
-		driver.findElement(By.id("save_assignment")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.id("save_assignment")).click();
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
 		if(driver.getPageSource().contains("Success! The register was saved/update successfully"))
 		{
@@ -135,16 +135,16 @@ public class CreateSystemUser {
 		{
 			System.out.println("Something went wrong");
 		}
-		
+
 		//Logout
 		try{
-		Thread.sleep(1500);
-		driver.findElement(By.className("icon-eject")).click();
+			Thread.sleep(1500);
+			driver.findElement(By.className("icon-eject")).click();
 		}catch(Exception e)
 		{
-		System.out.println(e);
+			System.out.println(e);
 		}
-	
+
 	}
 
 }

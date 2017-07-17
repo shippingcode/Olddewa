@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import PageFactory.DashboardPageFactory;
 import PageFactory.LoginPageFactory;
 import PageFactory.LogoutPageFactory;
-import PageFactory.SystemUserPageFactory;
+import PageFactory.CreateSystemUserPageFactory;
 
 public class CreateSystemUserTest {
 
@@ -24,7 +24,7 @@ public class CreateSystemUserTest {
 
 	DashboardPageFactory objDashboard;
 
-	SystemUserPageFactory objSystemUser;
+	CreateSystemUserPageFactory objSystemUser;
 
 	LogoutPageFactory objLogout;
 
@@ -71,11 +71,11 @@ public class CreateSystemUserTest {
 
 		Assert.assertTrue(objDashboard.getDashboard().contains("DASHBOARD"));
 
-		objSystemUser = new SystemUserPageFactory(driver);
-		objSystemUser.MenuSystemUser();
-		objSystemUser.CreateSystemUser(USERNAME);
-		objSystemUser.SearchUser(USERNAME);
-		objSystemUser.ResetPassword();
+		objSystemUser = new CreateSystemUserPageFactory(driver);
+		objSystemUser.SystemUser(USERNAME);
+		objSystemUser.SearchByUser(USERNAME);
+	    objSystemUser.ResetPasswordUser(USERNAME);
+	
 
 		// Logout
 		objLogout = new LogoutPageFactory(driver);

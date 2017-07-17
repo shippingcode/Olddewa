@@ -11,6 +11,7 @@ public class CreateOwnerPage {
 	WebDriver driver;
 	GenerateData genData = null;
 	String owner = GenerateData.generateRandomString(20);
+	WebElement OrganisationName = null;
 
 	By Owner = By.cssSelector("span.icon-link");
 	By Add = By.linkText("Add");
@@ -32,20 +33,19 @@ public class CreateOwnerPage {
 
 	}
 
-	public WebElement SelectOrganisation(WebElement OwnerName) {
+	public WebElement SelectOrganisation(WebElement OrganisationName) {
 		try {
 			Thread.sleep(1500);
-			WebElement orgdropdown = driver.findElement((By) OwnerName);
+			WebElement orgdropdown = OrganisationName;
 			Select org = new Select(orgdropdown);
 			org.selectByVisibleText("TEST");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return OwnerName;
-
+		return OrganisationName;
 	}
 
-	public String CreateOwner(String ownername) {
+	public String createOwner(String ownername) {
 		// Go on Organization
 		try {
 			Thread.sleep(1500);
@@ -77,25 +77,7 @@ public class CreateOwnerPage {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		// Choose alarm
-		try {
-			Thread.sleep(1500);
-			WebElement alarmdropdown = driver.findElement(Alert);
-			Select alarm = new Select(alarmdropdown);
-			alarm.selectByVisibleText("alert1");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		// Choose license
-		try {
-			Thread.sleep(1500);
-			WebElement licensedrop = driver.findElement(license);
-			Select license = new Select(licensedrop);
-			license.selectByVisibleText("Default");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
+			
 		// Choose time zone
 		try {
 			Thread.sleep(1500);
@@ -147,19 +129,30 @@ public class CreateOwnerPage {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return ownername;
+	}
+		public void saveOwner(String ownername){
 		// Press Save Button
 		try {
 			Thread.sleep(1500);
 			driver.findElement(saveOwner).click();
 		} catch (Exception e) {
 			System.out.println(e);
+		 }
 		}
+		public void checkOwner_success(){
 		if (driver.getPageSource().contains("Success! The register was saved/update successfully")) {
 
 			System.out.println("Owner was created with success");
 		} else {
 			System.out.println("Something went wrong");
 		}
-		return ownername;
+		
 	}
+		public void CreateOwner(String ownername){
+			this.SelectOrganisation(OrganisationName);
+			this.createOwner(ownername);
+			this.saveOwner(ownername);
+			this.checkOwner_success();
+ }
 }

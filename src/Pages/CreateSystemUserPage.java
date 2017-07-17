@@ -7,13 +7,13 @@ import org.openqa.selenium.support.ui.Select;
 
 import DEWA.GenerateData;
 
-public class SystemUserPage {
+public class CreateSystemUserPage {
 
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);
 	String firstname = GenerateData.generateRandomString(5);
 	String surname = GenerateData.generateRandomString(5);
-	String username = GenerateData.generateRandomAlphaNumeric(5);
+	String username = GenerateData.generateRandomString(5);
 	String phone = GenerateData.generateRandomNumber(10);
 	WebDriver driver = null;
 
@@ -38,7 +38,7 @@ public class SystemUserPage {
 	By UserReset = By.name("user.userId");
 	By ResetButton = By.name("resetPassword");
 
-	public SystemUserPage(WebDriver driver) {
+	public CreateSystemUserPage(WebDriver driver) {
 
 		this.driver = driver;
 
@@ -96,7 +96,7 @@ public class SystemUserPage {
 			Thread.sleep(1500);
 			WebElement orgdropdown = driver.findElement(TopOrg);
 			Select org = new Select(orgdropdown);
-			org.selectByVisibleText("eConnectCars");
+			org.selectByVisibleText("TEST");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -137,13 +137,19 @@ public class SystemUserPage {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return username;
+	}
+		
+		public void Save(){
 		// Press Save Button
 		try {
 			Thread.sleep(1500);
 			driver.findElement(SaveUser).click();
 		} catch (Exception e) {
 			System.out.println(e);
+		 }
 		}
+		public String checkUser_success(String username){
 		if (driver.getPageSource().contains("Success! The register was saved/update successfully")) {
 			return username;
 
@@ -162,6 +168,9 @@ public class SystemUserPage {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return username;
+	}
+		public void SearchAction(){
 
 		try {
 			Thread.sleep(1500);
@@ -169,11 +178,11 @@ public class SystemUserPage {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return username;
+		
 	}
 
 	// Reset password
-	public void ResetPassword() {
+	public void ResetPassword(String username) {
 		try {
 			Thread.sleep(1500);
 			driver.findElement(ResetPassword).click();
@@ -186,6 +195,8 @@ public class SystemUserPage {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+		public void ResetAction(){
 		try {
 			Thread.sleep(1500);
 			driver.findElement(ResetButton).click();
@@ -194,5 +205,21 @@ public class SystemUserPage {
 		}
 
 	}
+		public void SystemUser(String username) {
+			this.MenuSystemUser();
+			this.CreateSystemUser(username);
+			this.Save();
+			this.checkUser_success(username);
+		}
+		public void SearchByUser(String username)	{
+			this.SearchUser(username);
+			this.SearchAction();
+		}
+		public void ResetPasswordUser(String username){	
+			this.ResetPassword(username);
+			this.ResetAction();
+			
+		}
+	}
 
-}
+

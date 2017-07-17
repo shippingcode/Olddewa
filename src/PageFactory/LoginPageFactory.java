@@ -16,15 +16,12 @@ public class LoginPageFactory {
 	WebDriver driver;
 
 	@FindBy(name = "username")
-
 	WebElement DEWAuser;
 
 	@FindBy(name = "password")
-
 	WebElement DEWApassword;
 
 	@FindBy(xpath = "//input[@value='Log In']")
-
 	WebElement login;
 
 	public LoginPageFactory(WebDriver driver) {

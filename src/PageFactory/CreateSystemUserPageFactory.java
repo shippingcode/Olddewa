@@ -1,8 +1,6 @@
 package PageFactory;
 
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,13 +9,13 @@ import org.openqa.selenium.support.ui.Select;
 
 import DEWA.GenerateData;
 
-public class SystemUserPageFactory {
+public class CreateSystemUserPageFactory {
 
 	GenerateData genData = null;
 	String device = GenerateData.generateRandomString(20);
 	String firstname = GenerateData.generateRandomString(5);
 	String surname = GenerateData.generateRandomString(5);
-	String username = GenerateData.generateRandomAlphaNumeric(5);
+	String username = GenerateData.generateRandomString(5);
 	String phone = GenerateData.generateRandomNumber(10);
 	WebDriver driver = null;
 
@@ -80,8 +78,8 @@ public class SystemUserPageFactory {
 
 	@FindBy(name = "resetPassword")
 	WebElement ResetButton;
-
-	public SystemUserPageFactory(WebDriver driver) {
+	
+	public CreateSystemUserPageFactory(WebDriver driver) {
 
 		this.driver = driver;
 
@@ -142,7 +140,7 @@ public class SystemUserPageFactory {
 			Thread.sleep(1500);
 			WebElement orgdropdown = TopOrg;
 			Select org = new Select(orgdropdown);
-			org.selectByVisibleText("eConnectCars");
+			org.selectByVisibleText("TEST");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -183,13 +181,18 @@ public class SystemUserPageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return username;
+	}
 		// Press Save Button
+		public void Save(){
 		try {
 			Thread.sleep(1500);
 			SaveUser.click();
 		} catch (Exception e) {
 			System.out.println(e);
+	    	}
 		}
+		public String checkUser_success(String username){
 		if (driver.getPageSource().contains("Success! The register was saved/update successfully")) {
 			return username;
 
@@ -208,6 +211,9 @@ public class SystemUserPageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return username;
+	}
+	public void SearchAction(){
 
 		try {
 			Thread.sleep(1500);
@@ -215,11 +221,11 @@ public class SystemUserPageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return username;
+		
 	}
 
 	// Reset password
-	public void ResetPassword() {
+	public String ResetPassword(String username) {
 		try {
 			Thread.sleep(1500);
 			ResetPassword.click();
@@ -232,13 +238,29 @@ public class SystemUserPageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return username;
+	}
+		public void ResetAction(){
 		try {
 			Thread.sleep(1500);
 			ResetButton.click();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
 	}
-
+	public void SystemUser(String username) {
+		this.MenuSystemUser();
+		this.CreateSystemUser(username);
+		this.Save();
+		this.checkUser_success(username);
+	}
+	public void SearchByUser(String username)	{
+		this.SearchUser(username);
+		this.SearchAction();
+	}
+	public void ResetPasswordUser(String username){	
+		this.ResetPassword(username);
+		this.ResetAction();
+		
+	}
 }

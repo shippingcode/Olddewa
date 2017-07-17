@@ -74,7 +74,6 @@ public class CreateOwnerTest {
 		objOwner = new CreateOwnerPageFactory(driver);
 
 		// Call device creation
-		objOwner.SelectOrganisation(ORGANISATION);
 		objOwner.CreateOwner(OWNER);
 
 		// Logout

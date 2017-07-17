@@ -10,6 +10,7 @@ import DEWA.GenerateData;
 
 public class CreateDevicePageFactory {
 	String device = GenerateData.generateRandomString(20);
+	WebElement OrganisationName = null;
 	WebDriver driver;
 
 	@FindBy(id = "topmenu_device")
@@ -74,7 +75,7 @@ public class CreateDevicePageFactory {
 	}
 
 	// Create device
-	public WebElement SelectOrganisation(WebElement Organisation) {
+	public WebElement selectOrganisation(WebElement OrganisationName) {
 		try {
 			Thread.sleep(1500);
 			WebElement orgdropdown = Organisation;
@@ -83,10 +84,10 @@ public class CreateDevicePageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return Organisation;
+		return OrganisationName;
 	}
 
-	public String CreateDevice(String Devicename)
+	public String createDevice(String Devicename)
 
 	{
 		// Go to Device->List
@@ -129,7 +130,7 @@ public class CreateDevicePageFactory {
 			Thread.sleep(1500);
 			WebElement makedropdown = maker;
 			Select make = new Select(makedropdown);
-			make.selectByVisibleText("make12");
+			make.selectByVisibleText("maker12");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -208,6 +209,10 @@ public class CreateDevicePageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return Devicename;
+		
+	}
+	public void saveDevice(String Devicename){
 
 		// Press Save
 		try {
@@ -217,14 +222,22 @@ public class CreateDevicePageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
+	}
+	public void checkDevice_success(String Devicename){
 		if (driver.getPageSource().contains("Success! The register was saved/update successfully")) {
 
-			return Devicename;
+			
 		} else {
 			System.out.println("Something went wrong");
 
-			return Devicename;
+			
 		}
+	}
+	public void CreateDevice(String Devicename){
+		this.selectOrganisation(OrganisationName);
+		this.createDevice(Devicename);
+		this.saveDevice(Devicename);
+		this.checkDevice_success(Devicename);
+		
 	}
 }

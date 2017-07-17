@@ -72,7 +72,7 @@ public class CreateOwnerPageFactory {
 		return OrganisationName;
 	}
 
-	public String CreateOwner(String ownername) {
+	public String createOwner(String ownername) {
 
 		// Go on Organization
 		try {
@@ -105,25 +105,6 @@ public class CreateOwnerPageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		// Choose alarm
-		try {
-			Thread.sleep(1500);
-			WebElement alarmdropdown = Alert;
-			Select alarm = new Select(alarmdropdown);
-			alarm.selectByVisibleText("alert1");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		// Choose license
-		try {
-			Thread.sleep(1500);
-			WebElement licensedrop = license;
-			Select license = new Select(licensedrop);
-			license.selectByVisibleText("Default");
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-
 		// Choose time zone
 		try {
 			Thread.sleep(1500);
@@ -167,7 +148,7 @@ public class CreateOwnerPageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
+		
 		// Add Operator Id
 		try {
 			Thread.sleep(1500);
@@ -175,19 +156,32 @@ public class CreateOwnerPageFactory {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		return ownername;
+	}
+
+		public void saveOwner( String ownername){
 		// Press Save Button
 		try {
 			Thread.sleep(1500);
 			saveOwner.click();
 		} catch (Exception e) {
 			System.out.println(e);
+		 }
 		}
+		public void checkOwner_success(){
 		if (driver.getPageSource().contains("Success! The register was saved/update successfully")) {
 
 			System.out.println("Owner was created with success");
 		} else {
 			System.out.println("Something went wrong");
 		}
-		return ownername;
+	
 	}
+		public void CreateOwner(String ownername){
+			this.SelectOrganisation(OrganisationName);
+			this.createOwner(ownername);
+			this.saveOwner(ownername);
+			this.checkOwner_success();
+			
+		}
 }
