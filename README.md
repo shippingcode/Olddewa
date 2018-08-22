@@ -10,7 +10,7 @@ This project is the same as Hubeleon Project with some variations
 
 ### How do I get set up? ###
 
-* The setup should be easily by cloning the repository git@bitbucket.org:hubeleon/dewa.git
+* The setup should be easily by cloning the repository git@github.com:shippingcode/dewa.git
 ### Who do I talk to? ###
 
 * Aila Bogasieru
